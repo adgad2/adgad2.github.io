@@ -96,7 +96,7 @@
 链接：http://mrone.top/%E7%99%BE%E5%BA%A6.html是学完一段时间后捡回来学的，感觉都快丢光了，加油吧，啊啊啊，好想换工作。真正制作才会发现学和做是两回事，首先是细节，多翻手册，然后，重要的是制作时善用google">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%99%BE%E5%BA%A6%E5%8E%9F%E5%9B%BE.jpg">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%BB%BF%E5%88%B6%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-05-18T10:42:18.985Z">
+<meta property="og:updated_time" content="2017-05-18T15:03:51.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML+CSS练习之百度首页">
 <meta name="twitter:description" content="稍微学了下html+css，决定做个小练习，本来想做google，发现即使是外面像也不容易，于是选择相对简单的百度。先上百度原图：
@@ -290,7 +290,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/posts/21095/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/21095/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/21095/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -425,7 +425,7 @@ span{
     color: #999;
     line-height: 16px;
 }
-</code></pre><p>ok,这就完成了，果然还是在实践中学习，仿制效果个人还觉得ok吧，下次开始制作更复杂的页面吧。右上感觉是js的内容，就没制作。</p>
+</code></pre><p>ok,这就完成了，果然还是在实践中学习，仿制效果个人还觉得ok吧，下次开始制作更复杂的页面吧。</p>
 
       
     </div>
@@ -472,22 +472,6 @@ span{
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="posts/21095/" data-title="HTML+CSS练习之百度首页" data-content="" data-url="http://mrone.top/posts/21095/">
-  <div class="ds-share-inline">
-    <ul class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -499,7 +483,11 @@ span{
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/21095/" data-title="HTML+CSS练习之百度首页" data-url="http://mrone.top/posts/21095/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -705,30 +693,35 @@ span{
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"mrone123"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'your-disqus-shortname';
+      var disqus_identifier = 'posts/21095/';
+      var disqus_title = "HTML+CSS练习之百度首页";
+      var disqus_url = 'http://mrone.top/posts/21095/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+    </script>
+  
 
 
 
