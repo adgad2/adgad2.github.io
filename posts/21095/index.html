@@ -96,8 +96,7 @@
 链接：http://mrone.top/%E7%99%BE%E5%BA%A6.html是学完一段时间后捡回来学的，感觉都快丢光了，加油吧，啊啊啊，好想换工作。真正制作才会发现学和做是两回事，首先是细节，多翻手册，然后，重要的是制作时善用google">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%99%BE%E5%BA%A6%E5%8E%9F%E5%9B%BE.jpg">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%BB%BF%E5%88%B6%E5%9B%BE.png">
-<meta property="og:image" content="http://mrone.top/./bd_logo.png">
-<meta property="og:updated_time" content="2017-05-18T10:33:58.169Z">
+<meta property="og:updated_time" content="2017-05-18T10:42:18.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML+CSS练习之百度首页">
 <meta name="twitter:description" content="稍微学了下html+css，决定做个小练习，本来想做google，发现即使是外面像也不容易，于是选择相对简单的百度。先上百度原图：
@@ -331,7 +330,7 @@
         &lt;a href=&quot;#&quot; id=&quot;list&quot; style=&quot;font-weight: normal;&quot;&gt;更多产品&lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</code></pre><p>css部分写的有点乱：<br>*{margin:0;padding:0};<br>    body{ text-align:center}<br>    .div{ margin:0 auto; border:1px solid #F00}<br>    img{border:none}</p>
+</code></pre><p>css部分写的有点乱：<br>    *{margin:0;padding:0};<br>        body{ text-align:center}<br>        .div{ margin:0 auto; border:1px solid #F00}<br>    img{border:none}</p>
 <pre><code>#top{
     width: 100%;
     height: 32px;
@@ -364,13 +363,21 @@
     font-weight: normal;
 }
 </code></pre><p>这里只用了一个内嵌套，主要是排班和颜色的调整，没什么难度、</p>
-<p>logo和搜索框部分的html：<br>    <hr color="#EEEEEEEE;" size="1px;"><br>    <div id="logo"><img src="./bd_logo.png" alt="" width="270" height="129"></div></p>
-<pre><code>&lt;form action=&quot;form_action.asp&quot;&gt;
+<p>logo和搜索框部分的html：</p>
+<pre><code>&lt;hr color=&quot;#EEEEEEEE;&quot; size=&quot;1px;&quot; /&gt;
+&lt;div id=&quot;logo&quot;&gt;&lt;img src=&quot;./bd_logo.png&quot; alt=&quot;&quot; width=&quot;270&quot; height=&quot;129&quot;&gt;&lt;/div&gt;
+
+&lt;form action=&quot;form_action.asp&quot;&gt;
     &lt;span&gt;&lt;input id=&apos;search&apos; type=&quot;text&quot; name=&quot;search&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;input id=&quot;button&quot; type=&quot;button&quot; value=&quot;百度一下&quot;&gt;&lt;/span&gt;
 &lt;/form&gt;
 </code></pre><p>这里用的是一个表单，最上面是分隔线，略微调整一下color和size即可。<br>css比较简单，主要是框和long大小、位置的调整：</p>
-<p>#logo{<br>            text-align: center;<br>            margin-top: 73px;<br>            width: 100%;<br>        }</p>
-<pre><code>    form{
+<pre><code>    #logo{
+        text-align: center;
+        margin-top: 73px;
+        width: 100%;
+    }
+
+    form{
         text-align: center;
         margin-top: 18px;
         margin-left: 390px;
