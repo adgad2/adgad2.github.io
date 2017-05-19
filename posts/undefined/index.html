@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="JS练习之实现真正的百度搜索标签（空格分隔）： 未分类
-
-继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
-修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，                alert(“该网页仅做个人学习使用，不用做任何商业用途”);            function">
+<meta name="description" content="继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
+修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    alert(&amp;quot;该网页仅做个人学习使用，不用做任何商业用途&amp;quot;)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用JS使仿制页实现真正的百度搜索功能">
 <meta property="og:url" content="http://mrone.top/posts/undefined/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="JS练习之实现真正的百度搜索标签（空格分隔）： 未分类
-
-继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
-修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，                alert(“该网页仅做个人学习使用，不用做任何商业用途”);            function">
-<meta property="og:updated_time" content="2017-05-19T09:28:08.660Z">
+<meta property="og:description" content="继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
+修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    alert(&amp;quot;该网页仅做个人学习使用，不用做任何商业用途&amp;quot;)">
+<meta property="og:updated_time" content="2017-05-19T09:35:22.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用JS使仿制页实现真正的百度搜索功能">
-<meta name="twitter:description" content="JS练习之实现真正的百度搜索标签（空格分隔）： 未分类
-
-继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
-修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，                alert(“该网页仅做个人学习使用，不用做任何商业用途”);            function">
+<meta name="twitter:description" content="继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
+修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    alert(&amp;quot;该网页仅做个人学习使用，不用做任何商业用途&amp;quot;)">
 
 
 
@@ -306,13 +306,6 @@
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/undefined/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="posts/undefined/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -332,17 +325,30 @@
       
 
       
-        <h1 id="JS练习之实现真正的百度搜索"><a href="#JS练习之实现真正的百度搜索" class="headerlink" title="JS练习之实现真正的百度搜索"></a>JS练习之实现真正的百度搜索</h1><p>标签（空格分隔）： 未分类</p>
-<hr>
-<p>继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。</p>
-<h2 id="修改后的仿制网页：点击打开"><a href="#修改后的仿制网页：点击打开" class="headerlink" title="修改后的仿制网页：点击打开"></a>修改后的仿制网页：<strong><a href="http://mrone.top/%E7%99%BE%E5%BA%A6.html">点击打开</a></strong></h2><p>首先写好JavaScript的代码部分，放在head里，<br>    <script type="text/javascript"><br>            alert(“该网页仅做个人学习使用，不用做任何商业用途”);<br>            function baidu(){//打开百度搜索页<br>                var key=document.getElementById(‘search’).value;<br>                r=confirm(“注意！以下将会跳出本博客打开百度搜索结果页面，请按\“确定\”继续”);<br>                if(r){<br>                    window.open(“<a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=&quot;+key,&quot;_blank">https://www.baidu.com/s?ie=UTF-8&amp;wd=&quot;+key,&quot;_blank</a>“)<br>                }//这里第一次出错了，记住要加上<a href="https://使打开绝对路径">https://使打开绝对路径</a><br>            }<br>            function EnterPress(){//响应文本框的回车<br>                if(event.keyCode == 13){<br>                    baidu();<br>                }<br>            }</p>
-<pre><code>&lt;/script&gt;
-</code></pre><p>然后给form里的搜索框和按钮加上响应事件</p>
-<pre><code>&lt;form action=&quot;form_action.asp&quot;&gt;
+        <p>继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。</p>
+<h2 id="修改后的仿制网页：点击打开"><a href="#修改后的仿制网页：点击打开" class="headerlink" title="修改后的仿制网页：点击打开"></a>修改后的仿制网页：<strong><a href="http://mrone.top/%E7%99%BE%E5%BA%A6.html">点击打开</a></strong></h2><p>首先写好JavaScript的代码部分，放在head里，代码：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    alert(&quot;该网页仅做个人学习使用，不用做任何商业用途&quot;);
+    function baidu(){//打开百度搜索页
+        var key=document.getElementById(&apos;search&apos;).value;
+        r=confirm(&quot;注意！以下将会跳出本博客打开百度搜索结果页面，请按\“确定\&quot;继续&quot;);
+        if(r){
+            window.open(&quot;https://www.baidu.com/s?ie=UTF-8&amp;wd=&quot;+key,&quot;_blank&quot;)
+        }//这里第一次出错了，记住要加上https://使打开绝对路径
+    }
+    function EnterPress(){//响应文本框的回车
+        if(event.keyCode == 13){
+            baidu();
+        }
+    }
+
+&lt;/script&gt;
+</code></pre><p>然后给form里的搜索框和按钮加上响应事件：</p>
+<pre><code>&lt;form &gt;
     &lt;span&gt;&lt;input id=&apos;search&apos; type=&quot;text&quot; name=&quot;search&quot; onkeypress=&quot;EnterPress()&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;input id=&quot;button&quot; type=&quot;button&quot; value=&quot;百度一下&quot; onclick=&quot;baidu()&quot;&gt;&lt;/span&gt;
 &lt;/form&gt;
 </code></pre><p>OK，大功告成。</p>
-</script></p>
+
       
     </div>
 
@@ -398,13 +404,6 @@
 
           
   <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     
   </div>
 
@@ -496,7 +495,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS练习之实现真正的百度搜索"><span class="nav-number">1.</span> <span class="nav-text">JS练习之实现真正的百度搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改后的仿制网页：点击打开"><span class="nav-number">1.1.</span> <span class="nav-text">修改后的仿制网页：点击打开</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改后的仿制网页：点击打开"><span class="nav-number">1.</span> <span class="nav-text">修改后的仿制网页：点击打开</span></a></li></ol></div>
             
           </div>
         </section>
@@ -611,32 +610,6 @@
 
 
 
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'your-disqus-shortname';
-      var disqus_identifier = 'posts/undefined/';
-      var disqus_title = "使用JS使仿制页实现真正的百度搜索功能";
-      var disqus_url = 'http://mrone.top/posts/undefined/';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
-        };
-        run_disqus_script('embed.js');
-      
-    </script>
   
 
 
