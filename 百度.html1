@@ -29,26 +29,26 @@
 			font-weight: normal;
 		}
 
-		#top #list{
+		#list{
 			float: right;
 			height: 32px;
 			width: 86px;
 			background: #398bfb;
-			color: #FFFFFF;
+			color: white;
 			text-align: center;
 			text-decoration: none;
 			font-weight: normal;
 		}
 		#logo{
 			text-align: center;
-			margin-top: 8%;
-			margin-bottom: 10px;
+			margin-top: 73px;
 			width: 100%;
 		}
 
 		form{
-			align: center;
-			margin-left: 33%;
+			text-align: center;
+			margin-top: 18px;
+			margin-left: 390px;
 		}
 		#search{
 			width: 536px;
@@ -67,7 +67,6 @@
 		}
 	span{
 		float: left;display: inline-block;height: 40px;
-		text-align: center;
 	}
 	#footer{
 		vertical-align:middle;
@@ -82,26 +81,8 @@
 		color: #999;
 		line-height: 16px;
 	}
+
 	</style>
-
-
-	<script>
-		alert("该网页仅做个人学习使用，不用做任何商业用途");
-		function baidu(){
-			var key=document.getElementById('search').value;
-			r=confirm("注意！以下将会跳出本博客打开百度搜索结果页面，请按\“确定\"继续");
-			if(r){
-				window.open("https://www.baidu.com/s?ie=UTF-8&wd="+key,"_blank")
-			}//打开百度搜索页
-		}
-		function EnterPress(){
-			if(event.keyCode == 13){
-				baidu();
-			}
-		}
-
-	</script>
-
 
 </head>
 <body>
@@ -115,14 +96,14 @@
 		<a href="#">学术</a>
 		<a href="#" style="font-weight: normal;">百度账号ID显示处</a>
 		<a href="#" style="font-weight: normal;">设置</a>
-		<a href="#" id="list">更多产品</a>
+		<a href="#" id="list" style="font-weight: normal;">更多产品</a>
 	</div>
 </div>
-<hr color="#EEEEEEEE;" size="1px;">
+<hr color="#EEEEEEEE;" size="1px;" />
 <div id="logo"><img src="./bd_logo.png" alt="" width="270" height="129"></div>
 
-<form>
-	<span><input id="search" type="text" name="search" onkeypress="EnterPress()"></span><span><input id="button" type="button" value="百度一下" onclick="baidu()"></span>
+<form action="form_action.asp">
+	<span><input id='search' type="text" name="search"></span><span><input id="button" type="button" value="百度一下"></span>
 </form>
 
 <div id="footer">
@@ -130,10 +111,10 @@
 		<p style="display: inline-block;font-size: 13px; ">©2017 Baidu </p>
 		<a href="#">使用百度前必读</a>
 		<a href="#">意见反馈</a>
-		<p style="display: inline-block;margin-right: -5px;">京ICP证030173号&nbsp;</p>
-		<img width="13" height="16" align="center" src="./copy_right.png">
+		<p style="display: inline-block;margin-right: -5px;">京ICP证030173号</p>
+		<img width="13" height="16" align ="center" src="./copy_right.png">
 		<a href="#" style="display: block;text-decoration: none;line-height: 30px;">
-		<img align="center" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/icon-police.png?v=md5" alt=""> 京公网安备11000002000001号</a>
+		<img align ="center" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/icon-police.png?v=md5" alt=""> 京公网安备11000002000001号</a>
 </div>
 
 </body>
