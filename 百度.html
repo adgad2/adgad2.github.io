@@ -90,10 +90,8 @@
 		function onlione(){
 		alert("该网页仅做个人学习使用，不用做任何商业用途");
 				}
-		if(a==0){
-			a++;
-			onlione();
-		}
+		onlione();
+
 		function baidu(){
 			var key=document.getElementById('search').value;
 			r=confirm("注意！以下将会跳出本博客打开百度搜索结果页面，请按\“确定\"继续");
@@ -131,7 +129,7 @@
 <form>
 	<span><input id="search" type="text" name="search" onkeypress="EnterPress()"></span>
 	<span><input id="button1" type="button" value="百度一下" onclick="baidu()"></span>
-	<input type="text" style="visibility:hidden;" 如果非块状元素，需要加上一句display:block;="">
+	<input type="text" style="visibility:hidden;">
 </form>
 
 <div id="footer">
