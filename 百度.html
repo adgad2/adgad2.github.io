@@ -48,14 +48,14 @@
 
 		form{
 			align: center;
-			margin-left: 33%;
+			margin-left: 30%;
 		}
 		#search{
 			width: 536px;
 			height: 38px;
 			border-color: ;
 		}
-		#button{
+		#button1{
 			width: 102px;
 			height: 42px;
 			border: 0px;
@@ -86,12 +86,18 @@
 
 
 	<script>
+		function onlione(){
 		alert("该网页仅做个人学习使用，不用做任何商业用途");
+				}
+		if(a==0){
+			a++;
+			onlione();
+		}
 		function baidu(){
 			var key=document.getElementById('search').value;
 			r=confirm("注意！以下将会跳出本博客打开百度搜索结果页面，请按\“确定\"继续");
 			if(r){
-				window.open("https://www.baidu.com/s?ie=UTF-8&wd="+key,"_blank")
+				window.open("https://www.baidu.com/s?ie=UTF-8&wd="+key,"_blank");
 			}//打开百度搜索页
 		}
 		function EnterPress(){
@@ -122,7 +128,9 @@
 <div id="logo"><img src="./bd_logo.png" alt="" width="270" height="129"></div>
 
 <form>
-	<span><input id="search" type="text" name="search" onkeypress="EnterPress()"></span><span><input id="button" type="button" value="百度一下" onclick="baidu()"></span>
+	<span><input id="search" type="text" name="search" onkeypress="EnterPress()"></span>
+	<span><input id="button1" type="button" value="百度一下" onclick="baidu()"></span>
+	<input type="text" style="overflow: hidden; height:0;width: 0" 如果非块状元素，需要加上一句display:block;="">
 </form>
 
 <div id="footer">
