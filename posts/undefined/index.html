@@ -96,7 +96,7 @@
 继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
 修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
 &amp;lt;scrip">
-<meta property="og:updated_time" content="2017-05-21T08:31:34.495Z">
+<meta property="og:updated_time" content="2017-05-21T11:49:33.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用JS使仿制页实现真正的百度搜索功能V2">
 <meta name="twitter:description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题；修复搜索框在不同浏览器窗口大小下不居中的问题。
@@ -350,7 +350,7 @@
 &lt;/form&gt;
 </code></pre><p>OK，大功告成。</p>
 <p>V2更新：测试之后发现一问题，在搜索框按下回车后会导致页面刷新的问题。</p>
-<p>一开始以为是事件keypress的原因，找了很久，发现单击“百度一下”按钮并不会触发该问题，Google许久后发现是form表单的问题:<br>如果一个form标签中只有一个文本框<input type="text">的话，在框中输入数据回车后，就会触发该问题。<br>解决方法：在form标签中再增加一个隐藏的text文本框，代码如下：</p>
+<p>一开始以为是事件keypress的原因，找了很久，发现单击“百度一下”按钮并不会触发该问题，Google许久后发现是form表单的问题:<br>如果一个form标签中只有一个文本框 <code>&lt;input type=&quot;text&quot; /&gt;</code>的话，在框中输入数据回车后，就会触发该问题。<br>解决方法：在form标签中再增加一个隐藏的text文本框，代码如下：</p>
 <pre><code>&lt;input type=&quot;text&quot;  style=&quot;visibility:hidden;&quot; /&gt;
 </code></pre><p>不居中的解决方法：给form加一个宽度，然后设置margin:auto;</p>
 
