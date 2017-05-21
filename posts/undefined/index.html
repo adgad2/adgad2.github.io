@@ -84,25 +84,25 @@
 
 
 
-<meta name="description" content="继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
+<meta name="description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题。
+继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
 修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-    alert(&amp;quot;该网页仅做个人学习使用，不用做任何商业用途&amp;quot;)">
+&amp;lt;script type=&amp;quot;text/javas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用JS使仿制页实现真正的百度搜索功能">
+<meta property="og:title" content="使用JS使仿制页实现真正的百度搜索功能V2">
 <meta property="og:url" content="http://mrone.top/posts/undefined/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
+<meta property="og:description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题。
+继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
 修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-    alert(&amp;quot;该网页仅做个人学习使用，不用做任何商业用途&amp;quot;)">
-<meta property="og:updated_time" content="2017-05-19T09:46:16.148Z">
+&amp;lt;script type=&amp;quot;text/javas">
+<meta property="og:updated_time" content="2017-05-21T07:36:22.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用JS使仿制页实现真正的百度搜索功能">
-<meta name="twitter:description" content="继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
+<meta name="twitter:title" content="使用JS使仿制页实现真正的百度搜索功能V2">
+<meta name="twitter:description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题。
+继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
 修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-    alert(&amp;quot;该网页仅做个人学习使用，不用做任何商业用途&amp;quot;)">
+&amp;lt;script type=&amp;quot;text/javas">
 
 
 
@@ -126,7 +126,7 @@
   <link rel="canonical" href="http://mrone.top/posts/undefined/">
 
 
-  <title> 使用JS使仿制页实现真正的百度搜索功能 | 虚无の城堡 </title>
+  <title> 使用JS使仿制页实现真正的百度搜索功能V2 | 虚无の城堡 </title>
 </head>
 
 <body itemscope="" itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +266,7 @@
             
             
               
-                使用JS使仿制页实现真正的百度搜索功能
+                使用JS使仿制页实现真正的百度搜索功能V2
               
             
           </h1>
@@ -325,7 +325,8 @@
       
 
       
-        <p>继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。</p>
+        <p>5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题。</p>
+<p>继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。</p>
 <h2 id="修改后的仿制网页：点击打开"><a href="#修改后的仿制网页：点击打开" class="headerlink" title="修改后的仿制网页：点击打开"></a>修改后的仿制网页：<a href="http://mrone.top/%E7%99%BE%E5%BA%A6.html" target="_blank">点击打开</a></h2><p>首先写好JavaScript的代码部分，放在head里，代码：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
     alert(&quot;该网页仅做个人学习使用，不用做任何商业用途&quot;);
@@ -348,7 +349,10 @@
     &lt;span&gt;&lt;input id=&apos;search&apos; type=&quot;text&quot; name=&quot;search&quot; onkeypress=&quot;EnterPress()&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;input id=&quot;button&quot; type=&quot;button&quot; value=&quot;百度一下&quot; onclick=&quot;baidu()&quot;&gt;&lt;/span&gt;
 &lt;/form&gt;
 </code></pre><p>OK，大功告成。</p>
-
+<p>V2更新：测试之后发现一问题，在搜索框按下回车后会导致页面刷新的问题。</p>
+<p>一开始以为是事件keypress的原因，找了很久，发现单击“百度一下”按钮并不会触发该问题，Google许久后发现是form表单的问题:<br>如果一个form标签中只有一个文本框<input type="text">的话，在框中输入数据回车后，就会触发该问题。<br>解决方法：在form标签中再增加一个隐藏的text文本框，代码如下：</p>
+<pre><code>&lt;input type=&quot;text&quot;  style=&quot;overflow: hidden; height:0;width: 0&quot;//如果非块状元素，需要加上一句display:block; /&gt;
+</code></pre>
       
     </div>
 
