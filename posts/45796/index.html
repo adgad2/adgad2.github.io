@@ -84,25 +84,33 @@
 
 
 
-<meta name="description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题；修复搜索框在不同浏览器窗口大小下不居中的问题。
-继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
-修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
-&amp;lt;scrip">
+<meta name="description" content="看的是慕课网的视频学习的，通过视频更深一部了解这方面的情况，先看成品。管理文章里包括删除和修改。管理文章页面：说一下删除功能的实现，先上代码。
+&amp;lt;?php 
+require_once(&amp;apos;../connect.php&amp;apos;);//连接文件，引入这个文件，已经成功连接到数据库
+$id=$_GET[&amp;apos;id&amp;apos;];//得到要删除的文章ID
+$deletdsql=&amp;q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用JS使仿制页实现真正的百度搜索功能V2">
-<meta property="og:url" content="http://mrone.top/posts/undefined/index.html">
+<meta property="og:title" content="PHP与Mysql的关系揭秘之建立一个后台文章管理系统">
+<meta property="og:url" content="http://mrone.top/posts/45796/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题；修复搜索框在不同浏览器窗口大小下不居中的问题。
-继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
-修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
-&amp;lt;scrip">
-<meta property="og:updated_time" content="2017-05-21T11:49:33.641Z">
+<meta property="og:description" content="看的是慕课网的视频学习的，通过视频更深一部了解这方面的情况，先看成品。管理文章里包括删除和修改。管理文章页面：说一下删除功能的实现，先上代码。
+&amp;lt;?php 
+require_once(&amp;apos;../connect.php&amp;apos;);//连接文件，引入这个文件，已经成功连接到数据库
+$id=$_GET[&amp;apos;id&amp;apos;];//得到要删除的文章ID
+$deletdsql=&amp;q">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.jpg">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%AE%A1%E7%90%86%E6%96%87%E7%AB%A0%E9%A1%B5%E9%9D%A2.jpg">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%89%8D%E5%8F%B0%E9%A1%B5%E9%9D%A2.jpg">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BE%93%E5%87%BA%E6%95%B0%E6%8D%AE.jpg">
+<meta property="og:updated_time" content="2017-07-05T12:20:04.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用JS使仿制页实现真正的百度搜索功能V2">
-<meta name="twitter:description" content="5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题；修复搜索框在不同浏览器窗口大小下不居中的问题。
-继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。
-修改后的仿制网页：点击打开首先写好JavaScript的代码部分，放在head里，代码：
-&amp;lt;scrip">
+<meta name="twitter:title" content="PHP与Mysql的关系揭秘之建立一个后台文章管理系统">
+<meta name="twitter:description" content="看的是慕课网的视频学习的，通过视频更深一部了解这方面的情况，先看成品。管理文章里包括删除和修改。管理文章页面：说一下删除功能的实现，先上代码。
+&amp;lt;?php 
+require_once(&amp;apos;../connect.php&amp;apos;);//连接文件，引入这个文件，已经成功连接到数据库
+$id=$_GET[&amp;apos;id&amp;apos;];//得到要删除的文章ID
+$deletdsql=&amp;q">
+<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.jpg">
 
 
 
@@ -123,10 +131,10 @@
 
 
 
-  <link rel="canonical" href="http://mrone.top/posts/undefined/">
+  <link rel="canonical" href="http://mrone.top/posts/45796/">
 
 
-  <title> 使用JS使仿制页实现真正的百度搜索功能V2 | 虚无の城堡 </title>
+  <title> PHP与Mysql的关系揭秘之建立一个后台文章管理系统 | 虚无の城堡 </title>
 </head>
 
 <body itemscope="" itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +274,7 @@
             
             
               
-                使用JS使仿制页实现真正的百度搜索功能V2
+                PHP与Mysql的关系揭秘之建立一个后台文章管理系统
               
             
           </h1>
@@ -278,30 +286,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-20T01:21:53+08:00" content="2017-05-19">
-              2017-05-19
+            <time itemprop="dateCreated" datetime="2017-07-06T04:11:09+08:00" content="2017-07-05">
+              2017-07-05
             </time>
           </span>
 
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术向/" itemprop="url" rel="index">
-                    <span itemprop="name">技术向</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -325,34 +314,92 @@
       
 
       
-        <p>5.20再次更新：修复在搜索框按回车键后，无论confirm返回值为1或0，都会导致页面刷新再次弹出alert的问题；修复搜索框在不同浏览器窗口大小下不居中的问题。</p>
-<p>继html+css后稍微学了下JavaScript，于是想利用JavaScript的功能让仿制的百度页面可以真正地进行搜索。</p>
-<h2 id="修改后的仿制网页：点击打开"><a href="#修改后的仿制网页：点击打开" class="headerlink" title="修改后的仿制网页：点击打开"></a>修改后的仿制网页：<a href="http://mrone.top/%E7%99%BE%E5%BA%A6.html" target="_blank">点击打开</a></h2><p>首先写好JavaScript的代码部分，放在head里，代码：</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-    alert(&quot;该网页仅做个人学习使用，不用做任何商业用途&quot;);
-    function baidu(){//打开百度搜索页
-        var key=document.getElementById(&apos;search&apos;).value;
-        r=confirm(&quot;注意！以下将会跳出本博客打开百度搜索结果页面，请按\“确定\&quot;继续&quot;);
-        if(r){
-            window.open(&quot;https://www.baidu.com/s?ie=UTF-8&amp;wd=&quot;+key,&quot;_blank&quot;)
-        }//这里第一次出错了，记住要加上https://使打开绝对路径
-    }
-    function EnterPress(){//响应文本框的回车
-        if(event.keyCode == 13){
-            baidu();
-        }
-    }
+        <p>看的是慕课网的视频学习的，通过视频更深一部了解这方面的情况，先看成品。<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.jpg" alt="主页图片"><br>管理文章里包括删除和修改。<br>管理文章页面：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E7%AE%A1%E7%90%86%E6%96%87%E7%AB%A0%E9%A1%B5%E9%9D%A2.jpg" alt="管理文章页面"><br>说一下删除功能的实现，先上代码。</p>
+<pre><code>&lt;?php 
+require_once(&apos;../connect.php&apos;);//连接文件，引入这个文件，已经成功连接到数据库
+$id=$_GET[&apos;id&apos;];//得到要删除的文章ID
+$deletdsql=&quot;delete from article where id = $id&quot;; //通过sql语句进行删除
 
-&lt;/script&gt;
-</code></pre><p>然后给form里的搜索框和按钮加上响应事件：</p>
-<pre><code>&lt;form &gt;
-    &lt;span&gt;&lt;input id=&apos;search&apos; type=&quot;text&quot; name=&quot;search&quot; onkeypress=&quot;EnterPress()&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;input id=&quot;button&quot; type=&quot;button&quot; value=&quot;百度一下&quot; onclick=&quot;baidu()&quot;&gt;&lt;/span&gt;
-&lt;/form&gt;
-</code></pre><p>OK，大功告成。</p>
-<p>V2更新：测试之后发现一问题，在搜索框按下回车后会导致页面刷新的问题。</p>
-<p>一开始以为是事件keypress的原因，找了很久，发现单击“百度一下”按钮并不会触发该问题，Google许久后发现是form表单的问题:<br>如果一个form标签中只有一个文本框 <code>&lt;input type=&quot;text&quot; /&gt;</code>的话，在框中输入数据回车后，就会触发该问题。<br>解决方法：在form标签中再增加一个隐藏的text文本框，代码如下：</p>
-<pre><code>&lt;input type=&quot;text&quot;  style=&quot;visibility:hidden;&quot; /&gt;
-</code></pre><p>不居中的解决方法：给form加一个宽度，然后设置margin:auto;</p>
+if( mysqli_query($con,$deletdsql)){
+    echo &quot;&lt;script&gt;alert(&apos;删除成功&apos;);window.location.href=&apos;article.manage.php&lt;/script&gt;&quot;;
+}else{
+    echo &quot;&lt;script&gt;alert(&apos;删除失败&apos;);window.location.href=&apos;article.manage.php&lt;/script&gt;&quot;;
+}
+ ?&gt;
+</code></pre><p> 删除功能比较简单。</p>
+<p> 然后是修改功能，先上代码。</p>
+<pre><code>&lt;?php
+require_once(&apos;../connect.php&apos;);
+$id = $_GET[&apos;id&apos;];//得到旧文章的ID
+$query = mysqli_query($con,&quot;select * from article where id=$id&quot;);//通过ID获取到这个资源
+$data = mysqli_fetch_assoc($query);//打开资源
+?&gt;
+</code></pre><p>之后在下面的form表单中将打开的资源输出：</p>
+<p>之后在通过post模式将表单发送到另一个php，代码如下：</p>
+<pre><code>&lt;?php 
+require_once(&apos;../connect.php&apos;);
+
+$id = $_POST[&apos;id&apos;];//以下都是获取post传递进来的需要修改的数据。
+$title = $_POST[&apos;title&apos;];
+$author = $_POST[&apos;author&apos;];
+$description = $_POST[&apos;description&apos;];
+$content = $_POST[&apos;content&apos;];
+$dateline =  time();
+$updatesql = &quot;update article set title=&apos;$title&apos;,author=&apos;$author&apos;,description=&apos;$description&apos;,content=&apos;$content&apos;,dateline=$dateline where id=$id&quot;;//用update语句进行更新
+if(mysqli_query($con,$updatesql)){//显示成功或不成功，并返回到管理页面
+    echo &quot;&lt;script&gt;alert(&apos;修改文章成功&apos;);window.location.href=&apos;article.manage.php&apos;;&lt;/script&gt;&quot;;
+}else{
+    echo &quot;&lt;script&gt;alert(&apos;修改文章失败&apos;);window.location.href=&apos;article.manage.php&apos;;&lt;/script&gt;&quot;;
+}
+?&gt;
+</code></pre><p>发布的文章的和修改类似，也是通过post传递，然后使用insert语句加入到数据库里。</p>
+<p>之后是文章的前台页面：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E5%89%8D%E5%8F%B0%E9%A1%B5%E9%9D%A2.jpg" alt="前台页面">：<br>首先是前台php代码的实现：</p>
+<pre><code>&lt;?php 
+require_once(&apos;connect.php&apos;);
+$sql = &quot;select * from article order by dateline desc&quot;; //将文章根据时间降序取出
+$query = mysqli_query($con,$sql);
+if($query&amp;&amp;mysqli_num_rows($query)){//当$query语句执行正确并且数据不为0时输出文章
+    while($row = mysqli_fetch_assoc($query)){
+        $data[] = $row;//将数据放入数组中，成为一个二维数组
+    }
+}
+?&gt;
+</code></pre><p>输出</p>
+<pre><code>&lt;?php
+    if(empty($data)){    
+        echo &quot;当前没有文章，请管理员在后台添加文章&quot;;
+    }else{
+        foreach($data as $value){//通过foreach的方式输出文章
+?&gt;
+    &lt;div class=&quot;post&quot;&gt;//依次输出
+        &lt;h1 class=&quot;title&quot;&gt;&lt;?php echo $value[&apos;title&apos;]?&gt;&lt;span style=&quot;color:#ccc;font-size:14px;&quot;&gt;　　作者：&lt;!--作者放置到这里--&gt;&lt;?php echo $value[&apos;author&apos;]?&gt;&lt;/span&gt;&lt;/h1&gt;
+        &lt;div class=&quot;entry&quot;&gt;
+            &lt;?php echo $value[&apos;description&apos;]?&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;meta&quot;&gt;
+            &lt;p class=&quot;links&quot;&gt;&lt;a href=&quot;article.show.php?id=&lt;?php echo $value[&apos;id&apos;]?&gt;&quot; class=&quot;more&quot;&gt;查看详细&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;raquo;&amp;nbsp;&amp;nbsp;&lt;/p&gt;//查看详情，这里跳转到显示详情页，通过get方式传递
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;?php
+        }//注意这2个括号，和上面的相对
+    }
+?&gt;
+</code></pre><p>然后是查看详情页的代码：</p>
+<pre><code>&lt;?php 
+require_once(&apos;connect.php&apos;);
+$id = intval($_GET[&apos;id&apos;]);//防止注入
+$sql = &quot;select * from article where id=$id&quot;;//通过ID获取表中的数据
+$query = mysqli_query($con,$sql);
+if($query&amp;&amp;mysqli_num_rows($query)){
+    $row = mysqli_fetch_assoc($query);//得到数据
+}else{
+    echo &quot;这篇文章不存在&quot;;
+    exit;
+}
+?&gt;
+</code></pre><p>输出数据的代码实现：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%BE%93%E5%87%BA%E6%95%B0%E6%8D%AE.jpg" alt="输出数据代码"></p>
+<p>到这里，基本就已经完工了，后面添加的关于我们，联系我们等都是小问题，可使用静态页面，也可以使用数据库来输出实现。不说了。</p>
+<p>看完这个课程，对2者的联系又深入了一层理解，继续学习吧，准备下个做一个商城项目。</p>
 
       
     </div>
@@ -378,17 +425,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/21095/" rel="next" title="HTML+CSS练习之百度首页">
-                <i class="fa fa-chevron-left"></i> HTML+CSS练习之百度首页
+              <a href="/posts/1541/" rel="next" title="正则表达式的总结">
+                <i class="fa fa-chevron-left"></i> 正则表达式的总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/1541/" rel="prev" title="正则表达式的总结">
-                正则表达式的总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,7 +547,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改后的仿制网页：点击打开"><span class="nav-number">1.</span> <span class="nav-text">修改后的仿制网页：点击打开</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
