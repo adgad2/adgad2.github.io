@@ -1,20 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
 
 
 
@@ -34,38 +45,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="Hexo, NexT">
@@ -73,11 +73,6 @@
 
 
 
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.2">
 
 
 
@@ -96,31 +91,39 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
-      userId: 'undefined',
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://mrone.top/">
 
 
-  <title> 虚无の城堡 </title>
-</head>
 
-<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+
+  <title>虚无の城堡</title>
   
 
 
@@ -130,38 +133,43 @@
 
 
 
+</head>
 
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">虚无の城堡</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">虚无の城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -174,7 +182,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             首页
           </a>
@@ -184,7 +192,7 @@
         <li class="menu-item menu-item-life">
           <a href="/categories/生活/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             生活
           </a>
@@ -194,7 +202,7 @@
         <li class="menu-item menu-item-read">
           <a href="/categories/阅读/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             阅读
           </a>
@@ -204,7 +212,7 @@
         <li class="menu-item menu-item-tech">
           <a href="/categories/技术向/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-wrench"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             技术向
           </a>
@@ -214,7 +222,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             归档
           </a>
@@ -227,6 +235,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -241,13 +251,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/57680/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
 
     
       <header class="post-header">
@@ -255,38 +279,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/posts/57680/" itemprop="url">
-                  如何在手机上给电脑上的网易云音乐切歌？
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/posts/57680/" itemprop="url">如何在手机上给电脑上的网易云音乐切歌？</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-16T19:15:31Z" content="2017-02-16">
-              2017-02-16
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T19:15:31Z">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/技术向/" itemprop="url" rel="index">
                     <span itemprop="name">技术向</span>
                   </a>
@@ -294,7 +322,6 @@
 
                 
                 
-
               
             </span>
           
@@ -304,16 +331,21 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -323,28 +355,31 @@
         
           
           博主因为喜欢在床上听歌，但是床又和电脑有点远，切歌太麻烦了。买个蓝牙接音箱听的是手机上的歌，不妥。最初我想的是在某宝上买一个这个但是这个不仅麻烦，而且很不实用的样子，考虑再三还是没入手。
-经研究后，发现安装一个叫”远程遥控器”的应用可以解决。使用这个的条件是：1、电脑和手机在同个网络里。2、电脑和手机上安装有相应的软件。
-首先在下载电脑上的软件，PC端的没汉化，并不影响使用，下载后解压，运行RemoteServer.exe文件，设置如下：打开后就不用管了。然后手机（安卓）安装APP，运行，就会发
+经研究后，发现安装一个叫”远程遥控器”的应用可以解决。使用这个的条件是：1、电脑和手机在同个网络里。2、电脑和手
           ...
-
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/posts/57680/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -354,6 +389,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -361,13 +400,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/48045/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
 
     
       <header class="post-header">
@@ -375,38 +428,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/posts/48045/" itemprop="url">
-                  N日一书之《稀缺:我们是如何陷入贫穷与忙碌的》
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/posts/48045/" itemprop="url">N日一书之《稀缺:我们是如何陷入贫穷与忙碌的》</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-19T19:45:31Z" content="2017-01-19">
-              2017-01-19
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-19T19:45:31Z">
+                2017-01-19
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/阅读/" itemprop="url" rel="index">
                     <span itemprop="name">阅读</span>
                   </a>
@@ -414,7 +471,6 @@
 
                 
                 
-
               
             </span>
           
@@ -424,16 +480,21 @@
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -445,28 +506,31 @@
           推荐指数：★★★★☆
 说实话，这种毒鸡汤类标题的书，一般我是不会看的。之所以看了这本书，是因为简介里说了，这本书是做了许多实验得出了结论而写的，但最重要的是，丹尼尔·卡尼曼[^1]的推荐。
 丹尼尔·卡尼曼是我很推崇的作家，他的著作《思考，快与慢》十分值得一看，可谓是里程碑似的著作。
-Anyway，花了几天时间，我看完了这本书。不得不说，作者的假定还是有几分道理的。因为某些原因，我在近期也经历了“稀缺”，而我在或长期，或短期里，也有各种各样的“稀缺”存在，包括金钱，时间，精力等等。
-“稀缺”有好有
+Anyway，花
           ...
-
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/posts/48045/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -476,6 +540,10 @@ Anyway，花了几天时间，我看完了这本书。不得不说，作者的�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -483,13 +551,27 @@ Anyway，花了几天时间，我看完了这本书。不得不说，作者的�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/36044/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
 
     
       <header class="post-header">
@@ -497,27 +579,27 @@ Anyway，花了几天时间，我看完了这本书。不得不说，作者的�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/posts/36044/" itemprop="url">
-                  电脑优化手册 win7篇 关于日常软件 其一
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/posts/36044/" itemprop="url">电脑优化手册 win7篇 关于日常软件 其一</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-19T20:49:09Z" content="2016-12-19">
-              2016-12-19
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-19T20:49:09Z">
+                2016-12-19
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -527,16 +609,21 @@ Anyway，花了几天时间，我看完了这本书。不得不说，作者的�
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -547,28 +634,31 @@ Anyway，花了几天时间，我看完了这本书。不得不说，作者的�
           
           由于这系列文章是面向小白的，所以尽量选简单易上手的，可以长期使用不更新，不费心，良心的软件。
 资源管理器：CloverClover的功能就是给资源管理器加上 Chrome 一样的标签页。高端玩家似乎都用Total Commander（简称TC），不过这个上手难度略高。
-Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全部移植，简单好用，谁用谁知道。
-影音播放：potplayer（前KMplayer）。世面上最好用的本地播放器，没有之一。好用小巧，速度快，功能多，解码多，也是
+Clover 把 Chrome
           ...
-
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/posts/36044/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -578,6 +668,10 @@ Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -585,13 +679,27 @@ Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/59234/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
 
     
       <header class="post-header">
@@ -599,38 +707,42 @@ Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/posts/59234/" itemprop="url">
-                  关于阅读过的书 短评
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/posts/59234/" itemprop="url">关于阅读过的书 短评</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-18T21:36:22Z" content="2016-12-18">
-              2016-12-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-18T21:36:22Z">
+                2016-12-18
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/阅读/" itemprop="url" rel="index">
                     <span itemprop="name">阅读</span>
                   </a>
@@ -638,7 +750,6 @@ Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全�
 
                 
                 
-
               
             </span>
           
@@ -648,16 +759,21 @@ Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全�
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -666,29 +782,31 @@ Clover 把 Chrome 标签页有的样式、功能、右键菜单、快捷键全�
       
         
           
-          《一万小时天才理论》值得一读，告诉我们世界上是不存在“天才”的，你看到的是天才身前的光鲜，看不到的是他背后夜以继日的汗水。引入了“髓鞘质”这一概念（虽然以中文似乎还搜不到什么信息），将“天才”拉下神坛，在这个过度讲究“天赋”的世界，还是很给人安抚的。“天才”变成了普通人，不，应该说，“天才”就是”努力+坚持的普通人”。
-ps:所以不要看我现在博文还写得烂，将来一定会越写越好的哦….嗯，如果我坚持的话。
-《无声告白》“我们终此一生，就是要摆脱他人的期待，找到真正的自己。”十分推荐阅读，文笔就不多说
+          《一万小时天才理论》值得一读，告诉我们世界上是不存在“天才”的，你看到的是天才身前的光鲜，看不到的是他背后夜以继日的汗水。引入了“髓鞘质”这一概念（虽然以中文似乎还搜不到什么信息），将“天才”拉下神坛，在这个过度讲究“天赋”的世界，还是很给人安抚的。“天才”变成了普通人，不，应该说，“天才”就是”努
           ...
-
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/posts/59234/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -698,6 +816,10 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -705,13 +827,27 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/5a268b59/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
 
     
       <header class="post-header">
@@ -719,27 +855,27 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/posts/5a268b59/" itemprop="url">
-                  电脑优化手册 FanQiang篇
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/posts/5a268b59/" itemprop="url">电脑优化手册 FanQiang篇</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-16T17:37:23Z" content="2016-11-16">
-              2016-11-16
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-16T17:37:23Z">
+                2016-11-16
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -749,16 +885,21 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -768,30 +909,31 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
         
           
           电脑上，使用最多的应该是浏览器，而在使用最多的浏览器里，最常用的非“搜索”莫属。国内的百度之流，根本不懂搜索，所以这篇教大家FanQiang，进而使用Google搜索，和上一些网站，如fb,推特和DMM等。
-初级篇：首先点击这里下载一个ShadowSocks（以下简称SS），解压运行，初次运行的朋友，打开看到的应该是这样的。
-这个时候你还需要一个节点，这里推荐使用Nico.one的节点。
-节点的数量多，在各个地区都有节点，速度也很快，看YouTube速度妥妥的。
-注册账号后会赠送5水滴（该网站的
+初级篇：首先点击这里下载一个ShadowSocks（以下简称SS），解压运行，初次运行的朋友
           ...
-
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/posts/5a268b59/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -801,6 +943,10 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -808,13 +954,27 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-life " itemscope="" itemtype="//schema.org/Article">
+  <article class="post post-type-life" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/18254/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
 
     
       <header class="post-header">
@@ -822,27 +982,27 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/posts/18254/" itemprop="url">
-                  Hello,everyone
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/posts/18254/" itemprop="url">Hello,everyone</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T20:52:59Z" content="2016-11-04">
-              2016-11-04
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-04T20:52:59Z">
+                2016-11-04
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -852,16 +1012,21 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -875,29 +1040,31 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
 种一棵树最早的时间是十年前，其次是现在。
 
 所以我是觉得never too late啦。
-所有这个博客究竟是干什么的呢？ 我会用它来写写随笔，写一些菜鸟向的《电脑使用手册》，分享自己写的代码和学习中遇到问题的解决方法，偶尔也会更新自己的生活近况。
-写这个博客的原因，是希望自己可以有动力去学习，去追求“更高”。
-我是一个很懒散
+所有这个博客究竟是干什么的呢？ 我会
           ...
-
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/posts/18254/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -907,6 +1074,10 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -935,63 +1106,77 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
-          <p class="site-author-name" itemprop="name">一男</p>
-          <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前，其次是现在。</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">6</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
+            
+              <p class="site-author-name" itemprop="name">一男</p>
+              <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前，其次是现在。</p>
           </div>
 
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index-1.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
           
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">分类</span>
-              
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3936160&site=qq&menu=yes" target="_blank" title="QQ" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
             </div>
           
 
           
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
-            
-              <span class="links-of-author-item">
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=3936160&site=qq&menu=yes" target="_blank" title="QQ" rel="external nofollow noopener noreferrer">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  QQ
-                </a>
-              </span>
-            
+
           
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
       </section>
+
+      
 
       
 
@@ -1005,28 +1190,38 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">一男</span>
+
+  
 </div>
 
 
 
-
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
   
@@ -1049,42 +1244,62 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
 
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+  
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
 
 
 
@@ -1093,7 +1308,21 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
 
 
 
@@ -1101,19 +1330,27 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
 
 
 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 
 
 
-  
-    
-    
-  
 
-
-
-  
   
 
   
@@ -1121,24 +1358,13 @@ ps:所以不要看我现在博文还写得烂，将来一定会越写越好的�
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
+  
 
   
 
+  
+
+  
 
 </body>
 </html>
