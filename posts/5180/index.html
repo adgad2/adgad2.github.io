@@ -88,9 +88,7 @@
 
 复制完成后，以下是需要注意的事项：
 
-如果有数据盘，数据盘需要手动挂载才能找到
-root密码会在创建时重新指定。
-因为配置不">
+复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里云自己手动复制ECS注意事项">
 <meta property="og:url" content="http://mrone.top/posts/5180/index.html">
@@ -104,10 +102,8 @@ root密码会在创建时重新指定。
 
 复制完成后，以下是需要注意的事项：
 
-如果有数据盘，数据盘需要手动挂载才能找到
-root密码会在创建时重新指定。
-因为配置不">
-<meta property="og:updated_time" content="2018-01-07T02:49:50.899Z">
+复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab">
+<meta property="og:updated_time" content="2018-02-04T10:09:13.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云自己手动复制ECS注意事项">
 <meta name="twitter:description" content="因为项目做大，服务器需要做负载均衡，阿里云上的，按照原来的设想，决定复制一个镜像来做服务器，复制中还是遇到了不少坑，记录一下。
@@ -119,9 +115,7 @@ root密码会在创建时重新指定。
 
 复制完成后，以下是需要注意的事项：
 
-如果有数据盘，数据盘需要手动挂载才能找到
-root密码会在创建时重新指定。
-因为配置不">
+复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab">
 
 
 
@@ -392,11 +386,11 @@ root密码会在创建时重新指定。
 </ul>
 <p>复制完成后，以下是需要注意的事项：</p>
 <ul>
-<li>如果有数据盘，数据盘需要手动挂载才能找到</li>
+<li>复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab文件，来做到自动挂载数据盘。（fdisk -l 查看硬盘信息，因为是复制所来，不需要做分区格式化等操作，直接挂载mount /dev/sdb1 /web即可，然后vim /etc/fstab，使其开机挂载）</li>
 <li>root密码会在创建时重新指定。</li>
-<li>因为配置不同，可能需要更改php-fpm的配置（线程数量等）</li>
-<li>需要更改nginx的配置（主要是域名）</li>
-<li>需要配置数据库的防火墙和ECS的白名单等</li>
+<li>因为配置不同，可能需要更改php-fpm的配置（线程数量等），修改后需要重启/etc/init.d/php-fpm56  restart）</li>
+<li>需要更改nginx的配置（主要是域名），修改完记得重启（/usr/local/nginx/sbin/nginx -s reload）</li>
+<li>需要配置数据库的防火墙和RDS/DRDS的白名单等</li>
 <li>代码上几乎什么没有需要改动的，不过第三方的应用（如支付等）可能会因为安全域名等原因无法使用。经之后测试，修改完相应的配置后，是可以正常支付的。</li>
 </ul>
 <p>大概就是这些。</p>
@@ -501,7 +495,7 @@ root密码会在创建时重新指定。
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
             
               <p class="site-author-name" itemprop="name">一男</p>
-              <p class="site-description motion-element" itemprop="description">种一棵树最好的时间是十年前，其次是现在。</p>
+              <p class="site-description motion-element" itemprop="description">天才就是一万个小时的刻意练习。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -511,7 +505,7 @@ root密码会在创建时重新指定。
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -521,7 +515,7 @@ root密码会在创建时重新指定。
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-2.html">
+                <a href="/categories/index-1.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
