@@ -79,43 +79,37 @@
 
 
 
-<meta name="description" content="系统学习Nginx之深度学习篇标签（空格分隔）： 未分类
-
-动静分离：通过中间键将动态请求和静态请求分离。
+<meta name="description" content="动静分离：通过中间键将动态请求和静态请求分离。
 代码实例：
 location ~ \.php$ {
     root           html;
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
-    fastcgi_param  SCRIPT_FILE">
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统学习Nginx之深度学习">
 <meta property="og:url" content="http://mrone.top/posts/17710/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="系统学习Nginx之深度学习篇标签（空格分隔）： 未分类
-
-动静分离：通过中间键将动态请求和静态请求分离。
+<meta property="og:description" content="动静分离：通过中间键将动态请求和静态请求分离。
 代码实例：
 location ~ \.php$ {
     root           html;
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
-    fastcgi_param  SCRIPT_FILE">
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%85%B3%E4%BA%8E$1$2.jpg">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/flag.jpg">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/https%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86.jpg">
-<meta property="og:updated_time" content="2018-03-04T03:17:26.871Z">
+<meta property="og:updated_time" content="2018-03-04T03:17:48.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习Nginx之深度学习">
-<meta name="twitter:description" content="系统学习Nginx之深度学习篇标签（空格分隔）： 未分类
-
-动静分离：通过中间键将动态请求和静态请求分离。
+<meta name="twitter:description" content="动静分离：通过中间键将动态请求和静态请求分离。
 代码实例：
 location ~ \.php$ {
     root           html;
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
-    fastcgi_param  SCRIPT_FILE">
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_">
 <meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%85%B3%E4%BA%8E$1$2.jpg">
 
 
@@ -378,9 +372,7 @@ location ~ \.php$ {
       
 
       
-        <h1 id="系统学习Nginx之深度学习篇"><a href="#系统学习Nginx之深度学习篇" class="headerlink" title="系统学习Nginx之深度学习篇"></a>系统学习Nginx之深度学习篇</h1><p>标签（空格分隔）： 未分类</p>
-<hr>
-<h1 id="动静分离："><a href="#动静分离：" class="headerlink" title="动静分离："></a>动静分离：</h1><p>通过中间键将动态请求和静态请求分离。</p>
+        <h1 id="动静分离："><a href="#动静分离：" class="headerlink" title="动静分离："></a>动静分离：</h1><p>通过中间键将动态请求和静态请求分离。</p>
 <p>代码实例：</p>
 <pre><code>location ~ \.php$ {
     root           html;
@@ -613,7 +605,7 @@ rewrite ^ http://www.nginx.org$request_uri?;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系统学习Nginx之深度学习篇"><span class="nav-number">1.</span> <span class="nav-text">系统学习Nginx之深度学习篇</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动静分离："><span class="nav-number">2.</span> <span class="nav-text">动静分离：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rewrite规则的作用："><span class="nav-number">2.1.</span> <span class="nav-text">rewrite规则的作用：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用rewrite重定向："><span class="nav-number">3.</span> <span class="nav-text">使用rewrite重定向：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#规则优先级"><span class="nav-number">3.1.</span> <span class="nav-text">规则优先级:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx高级模块："><span class="nav-number">4.</span> <span class="nav-text">Nginx高级模块：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#secure-link-module模块："><span class="nav-number">4.1.</span> <span class="nav-text">secure_link_module模块：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geoip-module模块："><span class="nav-number">4.2.</span> <span class="nav-text">geoip_module模块： </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS服务："><span class="nav-number">5.</span> <span class="nav-text">HTTPS服务：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要HTTPS："><span class="nav-number">5.1.</span> <span class="nav-text">为什么需要HTTPS：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS的优化："><span class="nav-number">5.2.</span> <span class="nav-text">HTTPS的优化：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动静分离："><span class="nav-number">1.</span> <span class="nav-text">动静分离：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rewrite规则的作用："><span class="nav-number">1.1.</span> <span class="nav-text">rewrite规则的作用：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用rewrite重定向："><span class="nav-number">2.</span> <span class="nav-text">使用rewrite重定向：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#规则优先级"><span class="nav-number">2.1.</span> <span class="nav-text">规则优先级:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx高级模块："><span class="nav-number">3.</span> <span class="nav-text">Nginx高级模块：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#secure-link-module模块："><span class="nav-number">3.1.</span> <span class="nav-text">secure_link_module模块：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geoip-module模块："><span class="nav-number">3.2.</span> <span class="nav-text">geoip_module模块： </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS服务："><span class="nav-number">4.</span> <span class="nav-text">HTTPS服务：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要HTTPS："><span class="nav-number">4.1.</span> <span class="nav-text">为什么需要HTTPS：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS的优化："><span class="nav-number">4.2.</span> <span class="nav-text">HTTPS的优化：</span></a></li></ol></li></ol></div>
             
 
           </div>

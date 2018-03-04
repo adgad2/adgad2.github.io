@@ -1235,13 +1235,12 @@ QPS:
       
         
           
-          系统学习Nginx之深度学习篇标签（空格分隔）： 未分类
-
-动静分离：通过中间键将动态请求和静态请求分离。
+          动静分离：通过中间键将动态请求和静态请求分离。
 代码实例：
 location ~ \.php$ {
     root           html;
     fastcgi_pass   127.0.0.1:9000;
+    fastcgi_index  index.php;
     fastcg
           ...
           <!--noindex-->
