@@ -4,8 +4,44 @@
 
     
   <url>
+    <loc>http://mrone.top/posts/35653/</loc>
+    <lastmod>2018-03-18T12:35:40.849Z</lastmod>
+    <data>
+        <display>
+        <title>本地开发环境从wamp迁移为wnmp</title>
+        <pubTime>2018-03-18T20:32:06.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="技术向" url="http://mrone.top/categories/%E6%8A%80%E6%9C%AF%E5%90%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mrone.top/posts/64129/</loc>
+    <lastmod>2018-03-11T12:47:49.004Z</lastmod>
+    <data>
+        <display>
+        <title>系统学习Nginx之架构篇</title>
+        <pubTime>2017-08-17T19:42:15.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="技术向" url="http://mrone.top/categories/%E6%8A%80%E6%9C%AF%E5%90%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mrone.top/posts/40985/</loc>
-    <lastmod>2018-03-11T11:39:17.685Z</lastmod>
+    <lastmod>2018-03-11T11:39:32.325Z</lastmod>
     <data>
         <display>
         <title>开发时遇到的一百万种坑</title>
@@ -31,24 +67,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://mrone.top/posts/64129/</loc>
-    <lastmod>2018-03-04T10:46:57.340Z</lastmod>
-    <data>
-        <display>
-        <title>系统学习Nginx之架构篇</title>
-        <pubTime>2017-08-17T19:42:15.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="技术向" url="http://mrone.top/categories/%E6%8A%80%E6%9C%AF%E5%90%91/"/>
-          
         </display>
     </data>
     </url>

@@ -80,21 +80,21 @@
 
 
 <meta name="description" content="常见问题：相同server_name多个虚拟主机优先级访问优先使用最先读取到的配置。
-location匹配优先级= 进行普通字符精确匹配  #找到后不会再往下匹配^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的~、~ 表示执行一个正则匹配()  # ~不区分大小写，~区分
-try_file的使用：按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径对应">
+location匹配优先级= 进行普通字符精确匹配  #找到后不会再往下匹配^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的~、~* 表示执行一个正则匹配()  # ~*不区分大小写，~区分
+try_file的使用：按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统学习Nginx之架构篇">
 <meta property="og:url" content="http://mrone.top/posts/64129/index.html">
 <meta property="og:site_name" content="虚无の城堡">
 <meta property="og:description" content="常见问题：相同server_name多个虚拟主机优先级访问优先使用最先读取到的配置。
-location匹配优先级= 进行普通字符精确匹配  #找到后不会再往下匹配^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的~、~ 表示执行一个正则匹配()  # ~不区分大小写，~区分
-try_file的使用：按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径对应">
-<meta property="og:updated_time" content="2018-03-04T10:46:57.340Z">
+location匹配优先级= 进行普通字符精确匹配  #找到后不会再往下匹配^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的~、~* 表示执行一个正则匹配()  # ~*不区分大小写，~区分
+try_file的使用：按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径">
+<meta property="og:updated_time" content="2018-03-11T12:47:49.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习Nginx之架构篇">
 <meta name="twitter:description" content="常见问题：相同server_name多个虚拟主机优先级访问优先使用最先读取到的配置。
-location匹配优先级= 进行普通字符精确匹配  #找到后不会再往下匹配^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的~、~ 表示执行一个正则匹配()  # ~不区分大小写，~区分
-try_file的使用：按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径对应">
+location匹配优先级= 进行普通字符精确匹配  #找到后不会再往下匹配^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的~、~* 表示执行一个正则匹配()  # ~*不区分大小写，~区分
+try_file的使用：按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径">
 
 
 
@@ -357,7 +357,7 @@ try_file的使用：按顺序检查文件是否存在，如存在返回文件内
 
       
         <h1 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h1><h2 id="相同server-name多个虚拟主机优先级访问"><a href="#相同server-name多个虚拟主机优先级访问" class="headerlink" title="相同server_name多个虚拟主机优先级访问"></a>相同server_name多个虚拟主机优先级访问</h2><p>优先使用最先读取到的配置。</p>
-<h2 id="location匹配优先级"><a href="#location匹配优先级" class="headerlink" title="location匹配优先级"></a>location匹配优先级</h2><p>= 进行普通字符精确匹配  #找到后不会再往下匹配<br>^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的<br>~、~<em> 表示执行一个正则匹配()  # ~</em>不区分大小写，~区分</p>
+<h2 id="location匹配优先级"><a href="#location匹配优先级" class="headerlink" title="location匹配优先级"></a>location匹配优先级</h2><p>= 进行普通字符精确匹配  #找到后不会再往下匹配<br>^~ 表示普通字符匹配，使用前缀匹配 #下同，匹配到后，还会继续寻找，是否有匹配度更高的<br>~、~* 表示执行一个正则匹配()  # ~*不区分大小写，~区分</p>
 <h2 id="try-file的使用："><a href="#try-file的使用：" class="headerlink" title="try_file的使用："></a>try_file的使用：</h2><p>按顺序检查文件是否存在，如存在返回文件内容，不存在根据路径对应规则</p>
 <h2 id="alias和root的区别："><a href="#alias和root的区别：" class="headerlink" title="alias和root的区别："></a>alias和root的区别：</h2><h2 id="用什么样的方式传递用户的真实IP："><a href="#用什么样的方式传递用户的真实IP：" class="headerlink" title="用什么样的方式传递用户的真实IP："></a>用什么样的方式传递用户的真实IP：</h2><p>假设用户经过多重代理访问<br>虽然X-Forwarded-For可以定位，当有可能会被篡改，所以最应该和常用的方式是和第一层代理取得联系，加上用户的IP信息，set x_real_ip=$remote_addr</p>
 <h2 id="Nginx常见错误码："><a href="#Nginx常见错误码：" class="headerlink" title="Nginx常见错误码："></a>Nginx常见错误码：</h2><p>413 Request Entity Too Large #用户请求的文件太大<br>对用户上传分级限制 修改client_max_body_size</p>
@@ -531,7 +531,7 @@ gzip_http_version 1.1;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
