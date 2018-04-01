@@ -79,43 +79,30 @@
 
 
 
-<meta name="description" content="因为项目做大，服务器需要做负载均衡，阿里云上的，按照原来的设想，决定复制一个镜像来做服务器，复制中还是遇到了不少坑，记录一下。
-复制镜像的过程如下：
+<meta name="description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
 
-创建一个快照
-以这个快照创建一个自定义镜像
-使用这个镜像创建一台新的ECS（注意这里的网络类型，ECS类型应当尽量一致）
-
-复制完成后，以下是需要注意的事项：
-
-复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab">
+安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
+打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云自己手动复制ECS注意事项">
-<meta property="og:url" content="http://mrone.top/posts/5180/index.html">
+<meta property="og:title" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
+<meta property="og:url" content="http://mrone.top/posts/28436/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="因为项目做大，服务器需要做负载均衡，阿里云上的，按照原来的设想，决定复制一个镜像来做服务器，复制中还是遇到了不少坑，记录一下。
-复制镜像的过程如下：
+<meta property="og:description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
 
-创建一个快照
-以这个快照创建一个自定义镜像
-使用这个镜像创建一台新的ECS（注意这里的网络类型，ECS类型应当尽量一致）
-
-复制完成后，以下是需要注意的事项：
-
-复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab">
-<meta property="og:updated_time" content="2018-02-04T10:09:13.679Z">
+安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
+打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/PHPstorm%E9%85%8D%E7%BD%AE1.png">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/phps%E9%85%8D%E7%BD%AE2.png">
+<meta property="og:updated_time" content="2018-04-01T13:08:20.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云自己手动复制ECS注意事项">
-<meta name="twitter:description" content="因为项目做大，服务器需要做负载均衡，阿里云上的，按照原来的设想，决定复制一个镜像来做服务器，复制中还是遇到了不少坑，记录一下。
-复制镜像的过程如下：
+<meta name="twitter:title" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
+<meta name="twitter:description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
 
-创建一个快照
-以这个快照创建一个自定义镜像
-使用这个镜像创建一台新的ECS（注意这里的网络类型，ECS类型应当尽量一致）
-
-复制完成后，以下是需要注意的事项：
-
-复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab">
+安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
+打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
+<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
 
 
 
@@ -145,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://mrone.top/posts/5180/">
+  <link rel="canonical" href="http://mrone.top/posts/28436/">
 
 
 
 
 
-  <title>阿里云自己手动复制ECS注意事项 | 虚无の城堡</title>
+  <title>wnmp套件配合PHPstorm断点调试以及安装redis扩展 | 虚无の城堡</title>
   
 
 
@@ -288,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/5180/">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/28436/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="一男">
@@ -305,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">阿里云自己手动复制ECS注意事项</h1>
+          <h1 class="post-title" itemprop="name headline">wnmp套件配合PHPstorm断点调试以及安装redis扩展</h1>
         
 
         <div class="post-meta">
@@ -317,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-07T18:48:22+08:00">
-                2018-01-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T05:07:17+08:00">
+                2018-04-01
               </time>
             
 
@@ -377,23 +364,38 @@
       
 
       
-        <p>因为项目做大，服务器需要做负载均衡，阿里云上的，按照原来的设想，决定复制一个镜像来做服务器，复制中还是遇到了不少坑，记录一下。</p>
-<p>复制镜像的过程如下：</p>
-<ul>
-<li>创建一个快照</li>
-<li>以这个快照创建一个自定义镜像</li>
-<li>使用这个镜像创建一台新的ECS（注意这里的网络类型，ECS类型应当尽量一致）</li>
-</ul>
-<p>复制完成后，以下是需要注意的事项：</p>
-<ul>
-<li>复制出来的ECS需要手动挂载数据盘，因为是复制出来的，需要手动修改/etc/fstab文件，来做到自动挂载数据盘。（fdisk -l 查看硬盘信息，因为是复制所来，不需要做分区格式化等操作，直接挂载mount /dev/sdb1 /web即可，然后vim /etc/fstab，使其开机挂载）</li>
-<li>root密码会在创建时重新指定。</li>
-<li>因为配置不同，可能需要更改php-fpm的配置（线程数量等），修改后需要重启/etc/init.d/php-fpm56  restart）</li>
-<li>需要更改nginx的配置（主要是域名），修改完记得重启（/usr/local/nginx/sbin/nginx -s reload）</li>
-<li>需要配置数据库的防火墙和RDS/DRDS的白名单等</li>
-<li>代码上几乎什么没有需要改动的，不过第三方的应用（如支付等）可能会因为安全域名等原因无法使用。经之后测试，修改完相应的配置后，是可以正常支付的。</li>
-</ul>
-<p>大概就是这些。</p>
+        <h1 id="wnmp套件配合PHPstorm断点调试以及安装redis扩展"><a href="#wnmp套件配合PHPstorm断点调试以及安装redis扩展" class="headerlink" title="wnmp套件配合PHPstorm断点调试以及安装redis扩展"></a>wnmp套件配合PHPstorm断点调试以及安装redis扩展</h1><p>标签（空格分隔）： 未分类</p>
+<hr>
+<h1 id="安装debug扩展及配合调试："><a href="#安装debug扩展及配合调试：" class="headerlink" title="安装debug扩展及配合调试："></a>安装debug扩展及配合调试：</h1><p>关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。</p>
+<p>打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去<a href="https://xdebug.org/download.php下载对应的xdebug版本。" rel="external nofollow noopener noreferrer" target="_blank">https://xdebug.org/download.php下载对应的xdebug版本。</a></p>
+<p>下载的dll放在PHP目录下的ext目录下，然后需要在php.ini手动添加如下配置项（经我测试，在wnmp套件面板中手动打钩扩展并不会生效）</p>
+<pre><code>[Xdebug]
+zend_extension=D:\SalamanderWnmp\php\ext\php_xdebug-2.6.0-7.1-vc14-nts-x86_64.dll ;这里使用绝对路径
+xdebug.remote_enable=1 ;是否打开全程调试
+;xdebug.remote_host=&lt;the host where PhpStorm is running (e.g. localhost)&gt;
+xdebug.idekey=&apos;PHPSTORM&apos;  ; sessionkey
+xdebug.remote_timeout=600 ;调试超时时间，这里设置为10分钟
+xdebug.remote_port=9001 ;监听端口，因为phpfgi使用的也是9000，冲突了，所以这里使用9001
+</code></pre><p>打开phpinfo，查看配置是否正确：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png" alt="此处输入图片的描述"></p>
+<p><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png" alt="此处输入图片的描述"></p>
+<p>然后安装Chrome插件xdebug helper</p>
+<p>打开PHPstorm继续配置：<br><img src="http://oggrg5gdo.bkt.clouddn.com/PHPstorm%E9%85%8D%E7%BD%AE1.png" alt="此处输入图片的描述"></p>
+<p><img src="http://oggrg5gdo.bkt.clouddn.com/phps%E9%85%8D%E7%BD%AE2.png" alt="此处输入图片的描述"></p>
+<p>然后开始调试，点击xdebug helper图标，选择debug，灰色图标变成绿色<br>在phpstorm中将需要调试的代码打上断点，点击右上角电话图标开启调试监听，由一头绿一头红变成两头绿即可<br>在浏览器中运行程序，在phpstorm的debugger窗口可以看到调试结果</p>
+<p>postman直接使用即可</p>
+<p>说几个断点调试的快捷键：<br>你可以按F7，程序会一步一步往下走，碰到函数的话，会跳转到该函数；按F8则是在当前代码页一行一行的往下走，碰到函数不会跳转。这两个功能是断点调试的最为实用和关键功能。<br>当你想直接从某个断点跳到另一行处断点时，你可以在进入断点后，在你想在另一行断点处，点击断点，然后按下F9或者点击下边框中的绿色按钮，如下图。 </p>
+<p>当你由于断点调试，在多处断点，并且打开了多个文件，想查看你在那些地方断点，可以按Ctrl+Shift+F8 浏览断点 </p>
+<h1 id="安装redis扩展："><a href="#安装redis扩展：" class="headerlink" title="安装redis扩展："></a>安装redis扩展：</h1><p>同样的，我们需要知道php的版本信息，然后进去 <a href="https://pecl.php.net/package/redis" rel="external nofollow noopener noreferrer" target="_blank">https://pecl.php.net/package/redis</a> 下载对应版本的redis扩展，我这里安装的3.1.6。</p>
+<p>下载完成后扔进ext文件夹，在php.ini里添加，经测试，手动安装的扩展在套件里打钩似乎没有效果，装了2个都是这样，不知道其他如何：</p>
+<pre><code>; php_redis
+extension=php_redis.dll
+</code></pre><p>在wnmp面板里重启php,此时打开phpinfo()页面，应该可以看到对应的redis扩展信息。<br>接着打开wnmp面板的redis程序，随便建个php文件测试如下代码：</p>
+<pre><code>$redis = new \Redis();
+$redis-&gt;connect(C(&apos;REDIS_HOST&apos;), C(&apos;REDIS_PORT&apos;));
+$redis-&gt;set(&apos;key&apos;, &apos;hello,world&apos;); //设置值
+$res = $redis-&gt;get(&apos;key&apos;);
+echo $res;
+</code></pre><p>此时如果打印出’hello,world’，则表示安装成功。</p>
 
       
     </div>
@@ -418,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/64129/" rel="next" title="系统学习Nginx之架构篇">
-                <i class="fa fa-chevron-left"></i> 系统学习Nginx之架构篇
+              <a href="/posts/35653/" rel="next" title="本地开发环境从wamp迁移为wnmp">
+                <i class="fa fa-chevron-left"></i> 本地开发环境从wamp迁移为wnmp
               </a>
             
           </div>
@@ -427,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/61971/" rel="prev" title="php基础回顾">
-                php基础回顾 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -551,6 +558,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wnmp套件配合PHPstorm断点调试以及安装redis扩展"><span class="nav-number">1.</span> <span class="nav-text">wnmp套件配合PHPstorm断点调试以及安装redis扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装debug扩展及配合调试："><span class="nav-number">2.</span> <span class="nav-text">安装debug扩展及配合调试：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装redis扩展："><span class="nav-number">3.</span> <span class="nav-text">安装redis扩展：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
