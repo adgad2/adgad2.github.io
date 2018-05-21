@@ -91,7 +91,7 @@ select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from
 简单：第二高的薪水：自己写的傻乎乎的SQL：
 select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from employee group by salary order by Salary desc limit 1,1)
 说起来还是">
-<meta property="og:updated_time" content="2018-05-09T14:33:00.544Z">
+<meta property="og:updated_time" content="2018-05-09T14:33:14.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode练习之MySql-初级篇">
 <meta name="twitter:description" content="MySQL的题目不多，只有寥寥十几道，花了几天时间做完了，梳理如下
@@ -409,6 +409,10 @@ inner join weather w2 on w1.Temperature &gt; w2.Temperature and DATEDIFF(w1.Reco
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/52572/" rel="prev" title="leetcode练习之MySql-中高级篇">
+                leetcode练习之MySql-中高级篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -491,7 +495,7 @@ inner join weather w2 on w1.Temperature &gt; w2.Temperature and DATEDIFF(w1.Reco
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

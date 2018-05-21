@@ -79,30 +79,27 @@
 
 
 
-<meta name="description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
-
-安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
-打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
+<meta name="description" content="中高级题目不多，一起写了。
+中级篇：连续出现的数字：先贴通过测试的SQL：
+select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;amp;&amp;amp; a.id=c.id-2 and a.num=b.num &amp;amp;&amp;amp; a.num=c.num
+虽然通过了，但是如果遇到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
-<meta property="og:url" content="http://mrone.top/posts/28436/index.html">
+<meta property="og:title" content="leetcode练习之MySql-中高级篇">
+<meta property="og:url" content="http://mrone.top/posts/52572/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
-
-安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
-打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/PHPstorm%E9%85%8D%E7%BD%AE1.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/phps%E9%85%8D%E7%BD%AE2.png">
-<meta property="og:updated_time" content="2018-04-01T13:08:36.483Z">
+<meta property="og:description" content="中高级题目不多，一起写了。
+中级篇：连续出现的数字：先贴通过测试的SQL：
+select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;amp;&amp;amp; a.id=c.id-2 and a.num=b.num &amp;amp;&amp;amp; a.num=c.num
+虽然通过了，但是如果遇到">
+<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
+<meta property="og:updated_time" content="2018-05-21T13:40:01.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
-<meta name="twitter:description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
-
-安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
-打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
+<meta name="twitter:title" content="leetcode练习之MySql-中高级篇">
+<meta name="twitter:description" content="中高级题目不多，一起写了。
+中级篇：连续出现的数字：先贴通过测试的SQL：
+select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;amp;&amp;amp; a.id=c.id-2 and a.num=b.num &amp;amp;&amp;amp; a.num=c.num
+虽然通过了，但是如果遇到">
+<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
 
 
 
@@ -132,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://mrone.top/posts/28436/">
+  <link rel="canonical" href="http://mrone.top/posts/52572/">
 
 
 
 
 
-  <title>wnmp套件配合PHPstorm断点调试以及安装redis扩展 | 虚无の城堡</title>
+  <title>leetcode练习之MySql-中高级篇 | 虚无の城堡</title>
   
 
 
@@ -257,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/28436/">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/52572/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="一男">
@@ -274,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">wnmp套件配合PHPstorm断点调试以及安装redis扩展</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode练习之MySql-中高级篇</h1>
         
 
         <div class="post-meta">
@@ -286,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T05:07:17+08:00">
-                2018-04-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-22T05:39:26+08:00">
+                2018-05-21
               </time>
             
 
@@ -346,39 +343,95 @@
       
 
       
-        <h1 id="wnmp套件配合PHPstorm断点调试以及安装redis扩展"><a href="#wnmp套件配合PHPstorm断点调试以及安装redis扩展" class="headerlink" title="wnmp套件配合PHPstorm断点调试以及安装redis扩展"></a>wnmp套件配合PHPstorm断点调试以及安装redis扩展</h1><p>标签（空格分隔）： 未分类</p>
-<hr>
-<h1 id="安装debug扩展及配合调试："><a href="#安装debug扩展及配合调试：" class="headerlink" title="安装debug扩展及配合调试："></a>安装debug扩展及配合调试：</h1><p>关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。</p>
-<p>打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去<a href="https://xdebug.org/download.php下载对应的xdebug版本。" rel="external nofollow noopener noreferrer" target="_blank">https://xdebug.org/download.php下载对应的xdebug版本。</a></p>
-<p>下载的dll放在PHP目录下的ext目录下，然后需要在php.ini手动添加如下配置项（经我测试，在wnmp套件面板中手动打钩扩展并不会生效）</p>
-<pre><code>[Xdebug]
-zend_extension=D:\SalamanderWnmp\php\ext\php_xdebug-2.6.0-7.1-vc14-nts-x86_64.dll ;这里使用绝对路径
-xdebug.remote_enable=1 ;是否打开全程调试
-;xdebug.remote_host=&lt;the host where PhpStorm is running (e.g. localhost)&gt;
-xdebug.idekey=&apos;PHPSTORM&apos;  ; sessionkey
-xdebug.remote_timeout=600 ;调试超时时间，这里设置为10分钟
-xdebug.remote_port=9001 ;监听端口，因为phpfgi使用的也是9000，冲突了，所以这里使用9001
-</code></pre><p>打开phpinfo，查看配置是否正确：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png" alt="此处输入图片的描述"></p>
-<p><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png" alt="此处输入图片的描述"></p>
-<p>然后安装Chrome插件xdebug helper</p>
-<p>打开PHPstorm继续配置：<br><img src="http://oggrg5gdo.bkt.clouddn.com/PHPstorm%E9%85%8D%E7%BD%AE1.png" alt="此处输入图片的描述"></p>
-<p><img src="http://oggrg5gdo.bkt.clouddn.com/phps%E9%85%8D%E7%BD%AE2.png" alt="此处输入图片的描述"></p>
-<p>然后开始调试，点击xdebug helper图标，选择debug，灰色图标变成绿色<br>在phpstorm中将需要调试的代码打上断点，点击右上角电话图标开启调试监听，由一头绿一头红变成两头绿即可<br>在浏览器中运行程序，在phpstorm的debugger窗口可以看到调试结果</p>
-<p>postman直接使用即可</p>
-<p>说几个断点调试的快捷键：<br>你可以按F7，程序会一步一步往下走，碰到函数的话，会跳转到该函数；按F8则是在当前代码页一行一行的往下走，碰到函数不会跳转。这两个功能是断点调试的最为实用和关键功能。<br>当你想直接从某个断点跳到另一行处断点时，你可以在进入断点后，在你想在另一行断点处，点击断点，然后按下F9或者点击下边框中的绿色按钮，如下图。 </p>
-<p>当你由于断点调试，在多处断点，并且打开了多个文件，想查看你在那些地方断点，可以按Ctrl+Shift+F8 浏览断点 </p>
-<h1 id="安装redis扩展："><a href="#安装redis扩展：" class="headerlink" title="安装redis扩展："></a>安装redis扩展：</h1><p>同样的，我们需要知道php的版本信息，然后进去 <a href="https://pecl.php.net/package/redis" rel="external nofollow noopener noreferrer" target="_blank">https://pecl.php.net/package/redis</a> 下载对应版本的redis扩展，我这里安装的3.1.6。</p>
-<p>下载完成后扔进ext文件夹，在php.ini里添加，经测试，手动安装的扩展在套件里打钩似乎没有效果，装了2个都是这样，不知道其他如何：</p>
-<pre><code>; php_redis
-extension=php_redis.dll
-</code></pre><p>在wnmp面板里重启php,此时打开phpinfo()页面，应该可以看到对应的redis扩展信息。<br>接着打开wnmp面板的redis程序，随便建个php文件测试如下代码：</p>
-<pre><code>$redis = new \Redis();
-$redis-&gt;connect(C(&apos;REDIS_HOST&apos;), C(&apos;REDIS_PORT&apos;));
-$redis-&gt;set(&apos;key&apos;, &apos;hello,world&apos;); //设置值
-$res = $redis-&gt;get(&apos;key&apos;);
-echo $res;
-</code></pre><p>此时如果打印出’hello,world’，则表示安装成功。</p>
+        <p>中高级题目不多，一起写了。</p>
+<h1 id="中级篇："><a href="#中级篇：" class="headerlink" title="中级篇："></a>中级篇：</h1><h2 id="连续出现的数字："><a href="#连续出现的数字：" class="headerlink" title="连续出现的数字："></a><a href="https://leetcode-cn.com/problems/consecutive-numbers/description/" rel="external nofollow noopener noreferrer" target="_blank">连续出现的数字</a>：</h2><p>先贴通过测试的SQL：</p>
+<pre><code>select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;&amp; a.id=c.id-2 and a.num=b.num &amp;&amp; a.num=c.num
+</code></pre><p>虽然通过了，但是如果遇到ID不连续的情况就会……<br>一开始我是这么写的：</p>
+<pre><code>select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1=c.id-2 and a.num=b.num =c.num
+</code></pre><p>但是这种写法在本地测试的过程中出现了很奇怪的问题，我查询a.id,b.id,c.id，出现了这个结果：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png" alt="此处输入图片的描述"></p>
+<p>经过一般测试和猜想，我怀疑mysql是使用或来解释a.id=b.id-1=c.id-2这样的条件的，所以我们需要a.num=b.num &amp;&amp; a.num=c.num这样写。</p>
+<p>然后贴个别人的sql：</p>
+<pre><code>select distinct Num ConsecutiveNums from
+(select Num, @C:= case when @N = (@N:=Num) then @C+1 else 1 end C from (select @C:=0, @N:=-1) _init, Logs) X where X.C &gt;= 3
+</code></pre><p><a href="https://leetcode-cn.com/problems/department-highest-salary/description/" rel="external nofollow noopener noreferrer" target="_blank">部门工资最高的员工</a>：</p>
+<p>自己想了很久，写出一个SQL：</p>
+<pre><code>select b.name as Department,a.name as Employee,salary from (select * from Employee order by Salary desc) a left join Department b on a.DepartmentId=b.id group by DepartmentId order by salary
+</code></pre><p>然而，我不知道为什么，同样的数据，在网站上和本地的查询结果不一样，明明SQL架构都是一样的。但是继而也想到一个问题，如果部门里有2个或以上工资并列最高的人，这个sql只能取出其中一个，于是继续改造，最终通过的SQL如下：</p>
+<pre><code>select b.name as Department,a.name as Employee,salary from Employee a join Department b on a.DepartmentId=b.id and Salary=(Select max(Salary) from Employee where DepartmentId=b.Id)
+</code></pre><h2 id="换座位："><a href="#换座位：" class="headerlink" title="换座位："></a>换座位：</h2><p>SQL:</p>
+<pre><code>select id,IFNULL((case when mod(id,2)=1 then (select student from seat where id =id+1) when mod(id,2)=0 then (select student from seat where id =id-1)  end),student) as student from seat
+</code></pre><p>这里要注意一点，case column when condition then…，这里的condition不能写表达式，只能写常量或是结果，第一次我没注意，结果一直出错了。</p>
+<p>贴几个我觉得还可以的SQL：<br>通过修改ID来实现：</p>
+<pre><code>SELECT 
+    IF(id &lt; (SELECT MAX(id) From seat),IF(id%2=0,id-1,id+1),IF(id%2=0,id-1,id)) AS id, #不要漏了这里的逗号。给行取别名为id
+    student
+FROM seat #不要AS t，这会给seat取别名为t
+ORDER BY id ASC;
 
+
+select (case
+   when mod(id,2)!=0 and id!=counts then id+1
+   when mod(id,2)!=0 and id=counts then id
+   else id-1
+   end)as id,student
+   from seat,(select count(*)as counts
+             from seat)as seat_counts
+             order by id asc
+</code></pre><h2 id="第N高的薪水："><a href="#第N高的薪水：" class="headerlink" title="第N高的薪水："></a><a href="https://leetcode-cn.com/problems/nth-highest-salary/" rel="external nofollow noopener noreferrer" target="_blank">第N高的薪水</a>：</h2><p>老实说，这个有点想不着思路，摸不着头脑，因为limit后面不可以跟表达式，最终还是看了其他人的SQL才得以通过，但我想这个在程序应该简单些，毕竟程序可以对N做相关的运算。<br>下面语句的逻辑是，假如我们要找第二高的薪水，那么我们允许其中一个最大值存在，然后在其余的数字中找出最大的，即为整个的第二大的值；<br>一开始我不是很理解，后来我想唯一解释就是 e1 这张表的数据并不是固定不变的，而是会随着条件变化，我们可以通过select *测试而来，当n的值改变，结果也会改变。感觉还是有点抽象的<br>SQL:</p>
+<pre><code>SELECT MAX(Salary) FROM Employee E1
+WHERE n-1 =
+(SELECT COUNT(DISTINCT(E2.Salary)) FROM Employee E2
+WHERE E2.Salary &gt; E1.Salary);
+</code></pre><p>看到到简单的方法…怪我对mysql的function不熟悉吧，毕竟用的真的太少了</p>
+<pre><code>CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    declare M int;
+    SET M = N-1;
+  RETURN (
+      # Write your MySQL query statement below.
+      SELECT distinct salary FROM Employee ORDER BY salary desc limit M,1
+  );
+END
+</code></pre><p><a href="https://leetcode-cn.com/problems/rank-scores/" rel="external nofollow noopener noreferrer" target="_blank">分数排名</a>：<br>SQL:</p>
+<pre><code>SELECT Score
+, CASE 
+    WHEN @preScore = score THEN CAST(@rank AS signed)
+    WHEN @preScore := score THEN CAST(@rank := @rank + 1 AS signed)
+    ELSE CAST(@rank := @rank + 1 AS signed)
+END AS Rank
+FROM scores s, (
+        SELECT @rank := 0, @preScore := NULL
+    ) p
+ORDER BY score DESC
+</code></pre><p>CAST函数是拿来做类型转换的。。。<br>他人的SQL：</p>
+<pre><code>select b.Score,(select count(distinct a.Score)from Scores as a  where a.Score&gt;=b.Score) as Rank from Scores as b order by Rank 
+</code></pre><h1 id="困难篇"><a href="#困难篇" class="headerlink" title="困难篇"></a>困难篇</h1><h2 id="行程和用户："><a href="#行程和用户：" class="headerlink" title="行程和用户："></a><a href="https://leetcode-cn.com/problems/trips-and-users/description/" rel="external nofollow noopener noreferrer" target="_blank">行程和用户</a>：</h2><p>感觉就是复杂，并不难。<br>SQL：</p>
+<pre><code>SELECT Request_at AS Day
+, ROUND(SUM(if(a.status = &apos;cancelled_by_driver&apos;
+        OR a.status = &apos;cancelled_by_client&apos;, 1, 0)) / COUNT(a.status), 2) AS &quot;`Cancellation Rate`&quot;
+FROM Trips a
+    JOIN users b
+    ON a.Client_Id = b.users_id
+        AND b.banned = &apos;No&apos;
+        AND a.request_at BETWEEN &apos;2013-10-01&apos; AND &apos;2013-10-03&apos;
+GROUP BY a.request_at
+</code></pre><h2 id="体育馆的流量："><a href="#体育馆的流量：" class="headerlink" title="体育馆的流量："></a><a href="https://leetcode-cn.com/problems/human-traffic-of-stadium/description/" rel="external nofollow noopener noreferrer" target="_blank">体育馆的流量</a>：</h2><pre><code>select distinct(a.id),a.date,a.people
+from stadium as a,stadium as b, stadium as c
+where a.people&gt;=100 and b.people&gt;=100 and c.people&gt;=100
+and ((a.id-b.id=1 and b.id-c.id=1) or(b.id-a.id=1 and a.id-c.id=1) or(c.id-b.id=1 and b.id-a.id=1))
+order by a.id
+</code></pre><h2 id="部门工资前三高的员工："><a href="#部门工资前三高的员工：" class="headerlink" title="部门工资前三高的员工："></a><a href="https://leetcode-cn.com/submissions/detail/2354640/" rel="external nofollow noopener noreferrer" target="_blank">部门工资前三高的员工</a>：</h2><p>SQL：</p>
+<pre><code>SELECT b.Name AS Department, a.name AS Employee, Salary
+FROM Employee a
+    JOIN Department b ON a.DepartmentId = b.id
+WHERE (
+    SELECT COUNT(DISTINCT Salary)
+    FROM Employee a2
+    WHERE a2.DepartmentId = a.DepartmentId
+        AND Salary &gt; a.Salary
+) &lt; 3
+ORDER BY b.Name, Salary DESC
+</code></pre>
       
     </div>
     
@@ -402,8 +455,8 @@ echo $res;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/35653/" rel="next" title="本地开发环境从wamp迁移为wnmp">
-                <i class="fa fa-chevron-left"></i> 本地开发环境从wamp迁移为wnmp
+              <a href="/posts/13544/" rel="next" title="leetcode练习之MySql-初级篇">
+                <i class="fa fa-chevron-left"></i> leetcode练习之MySql-初级篇
               </a>
             
           </div>
@@ -411,10 +464,6 @@ echo $res;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/11923/" rel="prev" title="开发红包功能">
-                开发红包功能 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +603,7 @@ echo $res;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wnmp套件配合PHPstorm断点调试以及安装redis扩展"><span class="nav-number">1.</span> <span class="nav-text">wnmp套件配合PHPstorm断点调试以及安装redis扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装debug扩展及配合调试："><span class="nav-number">2.</span> <span class="nav-text">安装debug扩展及配合调试：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装redis扩展："><span class="nav-number">3.</span> <span class="nav-text">安装redis扩展：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中级篇："><span class="nav-number">1.</span> <span class="nav-text">中级篇：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连续出现的数字："><span class="nav-number">1.1.</span> <span class="nav-text">连续出现的数字：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换座位："><span class="nav-number">1.2.</span> <span class="nav-text">换座位：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第N高的薪水："><span class="nav-number">1.3.</span> <span class="nav-text">第N高的薪水：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#困难篇"><span class="nav-number">2.</span> <span class="nav-text">困难篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#行程和用户："><span class="nav-number">2.1.</span> <span class="nav-text">行程和用户：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体育馆的流量："><span class="nav-number">2.2.</span> <span class="nav-text">体育馆的流量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部门工资前三高的员工："><span class="nav-number">2.3.</span> <span class="nav-text">部门工资前三高的员工：</span></a></li></ol></li></ol></div>
             
 
           </div>
