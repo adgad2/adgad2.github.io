@@ -79,25 +79,43 @@
 
 
 
-<meta name="description" content="MySQL的题目不多，只有寥寥十几道，花了几天时间做完了，梳理如下
+<meta name="description" content="MySQL的题目不多，只有寥寥十几道，梳理如下
 简单：第二高的薪水：自己写的傻乎乎的SQL：
-select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from employee group by salary order by Salary desc limit 1,1)
-说起来还是">
+SELECT SUM(Salary) AS SecondHighestSalary
+FROM employee
+WHERE id = (
+    SELECT id
+    FROM employee
+    GROUP BY salary
+    ORDER BY Salary DESC
+    LIM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode练习之MySql-初级篇">
 <meta property="og:url" content="http://mrone.top/posts/13544/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="MySQL的题目不多，只有寥寥十几道，花了几天时间做完了，梳理如下
+<meta property="og:description" content="MySQL的题目不多，只有寥寥十几道，梳理如下
 简单：第二高的薪水：自己写的傻乎乎的SQL：
-select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from employee group by salary order by Salary desc limit 1,1)
-说起来还是">
-<meta property="og:updated_time" content="2018-05-09T14:33:14.713Z">
+SELECT SUM(Salary) AS SecondHighestSalary
+FROM employee
+WHERE id = (
+    SELECT id
+    FROM employee
+    GROUP BY salary
+    ORDER BY Salary DESC
+    LIM">
+<meta property="og:updated_time" content="2018-06-17T01:31:04.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode练习之MySql-初级篇">
-<meta name="twitter:description" content="MySQL的题目不多，只有寥寥十几道，花了几天时间做完了，梳理如下
+<meta name="twitter:description" content="MySQL的题目不多，只有寥寥十几道，梳理如下
 简单：第二高的薪水：自己写的傻乎乎的SQL：
-select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from employee group by salary order by Salary desc limit 1,1)
-说起来还是">
+SELECT SUM(Salary) AS SecondHighestSalary
+FROM employee
+WHERE id = (
+    SELECT id
+    FROM employee
+    GROUP BY salary
+    ORDER BY Salary DESC
+    LIM">
 
 
 
@@ -341,9 +359,17 @@ select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from
       
 
       
-        <p>MySQL的题目不多，只有寥寥十几道，花了几天时间做完了，梳理如下</p>
+        <p>MySQL的题目不多，只有寥寥十几道，梳理如下</p>
 <h1 id="简单："><a href="#简单：" class="headerlink" title="简单："></a>简单：</h1><h2 id="第二高的薪水："><a href="#第二高的薪水：" class="headerlink" title="第二高的薪水："></a><a href="https://leetcode-cn.com/problems/second-highest-salary/description/" rel="external nofollow noopener noreferrer" target="_blank">第二高的薪水</a>：</h2><p>自己写的傻乎乎的SQL：</p>
-<pre><code>select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from employee group by salary order by Salary desc limit 1,1)
+<pre><code>SELECT SUM(Salary) AS SecondHighestSalary
+FROM employee
+WHERE id = (
+    SELECT id
+    FROM employee
+    GROUP BY salary
+    ORDER BY Salary DESC
+    LIMIT 1, 1
+)
 </code></pre><p>说起来还是自己对MySql不够熟悉，通过的时候我还在想，这种SQL到底有什么用？根本不可能放线上运行，看了其他人的答案，五花八门，发现自己是真的太年轻了，选个自己觉得比较好的</p>
 <p>他人答案：</p>
 <pre><code>SELECT MAX(Salary) AS SecondHighestSalary 
@@ -352,28 +378,60 @@ select SUM(Salary) as SecondHighestSalary from employee WHERE id=(select id from
                  FROM Employee) 
 </code></pre><p>虽然看网站的给的数据，在效率上看不出来，不够感觉还是应该他人的sql更好些，具体也不好说。</p>
 <h2 id="寻找重复的电子邮箱："><a href="#寻找重复的电子邮箱：" class="headerlink" title="寻找重复的电子邮箱："></a><a href="https://leetcode-cn.com/problems/duplicate-emails/description/" rel="external nofollow noopener noreferrer" target="_blank">寻找重复的电子邮箱</a>：</h2><p>SQL:</p>
-<pre><code>select email from person group by email having count(email)&gt;1
+<pre><code>SELECT email
+FROM person
+GROUP BY email
+HAVING COUNT(email) &gt; 1
 </code></pre><p>他人的差不多，感觉还是自己的比较好吧</p>
 <h2 id="超过经理收入的员工"><a href="#超过经理收入的员工" class="headerlink" title="超过经理收入的员工"></a><a href="https://leetcode-cn.com/problems/employees-earning-more-than-their-managers/description/" rel="external nofollow noopener noreferrer" target="_blank">超过经理收入的员工</a></h2><p>SQL：</p>
-<pre><code>SELECT a.name Employee  FROM employee a,employee b where a.managerid =b.id and a.salary&gt;b.salary
+<pre><code>SELECT a.name AS Employee
+FROM employee a, employee b
+WHERE a.managerid = b.id
+    AND a.salary &gt; b.salary
 </code></pre><h2 id="从不订购的客户"><a href="#从不订购的客户" class="headerlink" title="从不订购的客户 :"></a><a href="https://leetcode-cn.com/problems/customers-who-never-order/description/" rel="external nofollow noopener noreferrer" target="_blank">从不订购的客户</a> :</h2><p>SQL:</p>
-<pre><code>select a.name as Customers from Customers a left outer join Orders b on a.id=b. CustomerId where b.id is null
+<pre><code>SELECT a.name AS Customers
+FROM Customers a
+    LEFT JOIN Orders b ON a.id = b.CustomerId
+WHERE b.id IS NULL
 </code></pre><h2 id="交换工资"><a href="#交换工资" class="headerlink" title="交换工资:"></a><a href="https://leetcode-cn.com/problems/swap-salary/description/" rel="external nofollow noopener noreferrer" target="_blank">交换工资</a>:</h2><p>SQL：</p>
-<pre><code>update salary set sex = if(sex=&quot;m&quot;,&quot;f&quot;,&quot;m&quot;)
+<pre><code>UPDATE salary
+SET sex = if(sex = &quot;m&quot;, &quot;f&quot;, &quot;m&quot;)
 </code></pre><h2 id="上升的温度："><a href="#上升的温度：" class="headerlink" title="上升的温度："></a><a href="https://leetcode-cn.com/problems/rising-temperature" rel="external nofollow noopener noreferrer" target="_blank">上升的温度</a>：</h2><p>SQL：</p>
-<pre><code>select a.id from Weather a,weather b where a.Temperature &gt; b.Temperature and a.RecordDate=date_add(b.RecordDate, interval 1 day)
+<pre><code>SELECT a.id
+FROM Weather a, weather b
+WHERE a.Temperature &gt; b.Temperature
+    AND a.RecordDate = date_add(b.RecordDate, INTERVAL 1 DAY)
 </code></pre><p>赶脚这个还是有点难的和难理解的，一开始我还理解错了题意，甚至还是我偶然出错通过的，事后分析了一会才分析出来。</p>
 <p>第一个条件a.Temperature &gt; b.Temperature当然不用说，今天的要比昨天的温度更高，说一下a.RecordDate=date_add(b.RecordDate, interval 1 day)，题意是今天的比前一天的更高，而不加后面那个条件，会选出所有比今天温度更低的日期，这个等式保证了b.RecordDate是前一天，因为b.RecordDate+1天 == 今天。<br>相比之下，这种写法则更容易理解：</p>
-<pre><code>select w1.Id from weather w1  
-inner join weather w2 on w1.Temperature &gt; w2.Temperature and DATEDIFF(w1.RecordDate, w2.RecordDate) = 1; 
+<pre><code>SELECT w1.Id
+FROM weather w1
+    INNER JOIN weather w2
+    ON w1.Temperature &gt; w2.Temperature
+        AND DATEDIFF(w1.RecordDate, w2.RecordDate) = 1;
 </code></pre><h2 id="大的国家："><a href="#大的国家：" class="headerlink" title="大的国家："></a><a href="https://leetcode-cn.com/problems/big-countries/description/" rel="external nofollow noopener noreferrer" target="_blank">大的国家</a>：</h2><p>SQL：</p>
-<pre><code>select name,population ,area from World where population&gt;25000000 or area&gt;3000000;
+<pre><code>SELECT name, population, area
+FROM World
+WHERE population &gt; 25000000
+    OR area &gt; 3000000;
 </code></pre><h2 id="超过5名学生的课"><a href="#超过5名学生的课" class="headerlink" title="超过5名学生的课:"></a><a href="https://leetcode-cn.com/problems/classes-more-than-5-students/description/" rel="external nofollow noopener noreferrer" target="_blank">超过5名学生的课</a>:</h2><p>SQL:</p>
-<pre><code>select class from (select distinct student,class from courses) a group by class having count(class) &gt;= 5
+<pre><code>SELECT class
+FROM (
+    SELECT DISTINCT student, class
+    FROM courses
+) a
+GROUP BY class
+HAVING COUNT(class) &gt;= 5
 </code></pre><p>感觉他人更好的SQL:</p>
-<pre><code>select class from courses group by class having count(distinct student)&gt;=5
+<pre><code>SELECT class
+FROM courses
+GROUP BY class
+HAVING COUNT(DISTINCT student) &gt;= 5
 </code></pre><h2 id="有趣的电影："><a href="#有趣的电影：" class="headerlink" title="有趣的电影："></a><a href="https://leetcode-cn.com/problems/not-boring-movies/description/" rel="external nofollow noopener noreferrer" target="_blank">有趣的电影</a>：</h2><p>SQL:</p>
-<pre><code>select * from cinema where id&amp;1 and description &lt;&gt;&quot;boring&quot; order by rating desc
+<pre><code>SELECT *
+FROM cinema
+WHERE id &amp; 1
+    AND description &lt;&gt; &quot;boring&quot;
+ORDER BY rating DESC
 </code></pre><p>至此，简单部分完。中级难度开始。</p>
 
       
@@ -505,7 +563,7 @@ inner join weather w2 on w1.Temperature &gt; w2.Temperature and DATEDIFF(w1.Reco
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-1.html">
+                <a href="/categories/index-2.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>

@@ -81,24 +81,39 @@
 
 <meta name="description" content="中高级题目不多，一起写了。
 中级篇：连续出现的数字：先贴通过测试的SQL：
-select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;amp;&amp;amp; a.id=c.id-2 and a.num=b.num &amp;amp;&amp;amp; a.num=c.num
-虽然通过了，但是如果遇到">
+SELECT DISTINCT a.num AS ConsecutiveNums
+FROM logs a, logs b, logs c
+WHERE a.id = b.id - 1
+    AND a.id = c.id - 2
+    AND a.num = b.num
+    AND a.num = c.num
+虽然通">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode练习之MySql-中高级篇">
 <meta property="og:url" content="http://mrone.top/posts/52572/index.html">
 <meta property="og:site_name" content="虚无の城堡">
 <meta property="og:description" content="中高级题目不多，一起写了。
 中级篇：连续出现的数字：先贴通过测试的SQL：
-select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;amp;&amp;amp; a.id=c.id-2 and a.num=b.num &amp;amp;&amp;amp; a.num=c.num
-虽然通过了，但是如果遇到">
+SELECT DISTINCT a.num AS ConsecutiveNums
+FROM logs a, logs b, logs c
+WHERE a.id = b.id - 1
+    AND a.id = c.id - 2
+    AND a.num = b.num
+    AND a.num = c.num
+虽然通">
 <meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
-<meta property="og:updated_time" content="2018-05-21T13:40:01.136Z">
+<meta property="og:updated_time" content="2018-06-17T01:31:44.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode练习之MySql-中高级篇">
 <meta name="twitter:description" content="中高级题目不多，一起写了。
 中级篇：连续出现的数字：先贴通过测试的SQL：
-select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;amp;&amp;amp; a.id=c.id-2 and a.num=b.num &amp;amp;&amp;amp; a.num=c.num
-虽然通过了，但是如果遇到">
+SELECT DISTINCT a.num AS ConsecutiveNums
+FROM logs a, logs b, logs c
+WHERE a.id = b.id - 1
+    AND a.id = c.id - 2
+    AND a.num = b.num
+    AND a.num = c.num
+虽然通">
 <meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
 
 
@@ -345,21 +360,63 @@ select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id
       
         <p>中高级题目不多，一起写了。</p>
 <h1 id="中级篇："><a href="#中级篇：" class="headerlink" title="中级篇："></a>中级篇：</h1><h2 id="连续出现的数字："><a href="#连续出现的数字：" class="headerlink" title="连续出现的数字："></a><a href="https://leetcode-cn.com/problems/consecutive-numbers/description/" rel="external nofollow noopener noreferrer" target="_blank">连续出现的数字</a>：</h2><p>先贴通过测试的SQL：</p>
-<pre><code>select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1 &amp;&amp; a.id=c.id-2 and a.num=b.num &amp;&amp; a.num=c.num
+<pre><code>SELECT DISTINCT a.num AS ConsecutiveNums
+FROM logs a, logs b, logs c
+WHERE a.id = b.id - 1
+    AND a.id = c.id - 2
+    AND a.num = b.num
+    AND a.num = c.num
 </code></pre><p>虽然通过了，但是如果遇到ID不连续的情况就会……<br>一开始我是这么写的：</p>
 <pre><code>select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1=c.id-2 and a.num=b.num =c.num
 </code></pre><p>但是这种写法在本地测试的过程中出现了很奇怪的问题，我查询a.id,b.id,c.id，出现了这个结果：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png" alt="此处输入图片的描述"></p>
 <p>经过一般测试和猜想，我怀疑mysql是使用或来解释a.id=b.id-1=c.id-2这样的条件的，所以我们需要a.num=b.num &amp;&amp; a.num=c.num这样写。</p>
 <p>然后贴个别人的sql：</p>
-<pre><code>select distinct Num ConsecutiveNums from
-(select Num, @C:= case when @N = (@N:=Num) then @C+1 else 1 end C from (select @C:=0, @N:=-1) _init, Logs) X where X.C &gt;= 3
+<pre><code>SELECT DISTINCT Num AS ConsecutiveNums
+FROM (
+    SELECT Num, @C := CASE 
+            WHEN @N = (@N := Num) THEN @C + 1
+            ELSE 1
+        END AS C
+    FROM (
+        SELECT @C := 0, @N := -1
+    ) _init, Logs
+) X
+WHERE X.C &gt;= 3
 </code></pre><p><a href="https://leetcode-cn.com/problems/department-highest-salary/description/" rel="external nofollow noopener noreferrer" target="_blank">部门工资最高的员工</a>：</p>
 <p>自己想了很久，写出一个SQL：</p>
-<pre><code>select b.name as Department,a.name as Employee,salary from (select * from Employee order by Salary desc) a left join Department b on a.DepartmentId=b.id group by DepartmentId order by salary
+<pre><code>SELECT b.name AS Department, a.name AS Employee, salary
+FROM (
+    SELECT *
+    FROM Employee
+    ORDER BY Salary DESC
+) a
+    LEFT JOIN Department b ON a.DepartmentId = b.id
+GROUP BY DepartmentId
+ORDER BY salary
 </code></pre><p>然而，我不知道为什么，同样的数据，在网站上和本地的查询结果不一样，明明SQL架构都是一样的。但是继而也想到一个问题，如果部门里有2个或以上工资并列最高的人，这个sql只能取出其中一个，于是继续改造，最终通过的SQL如下：</p>
-<pre><code>select b.name as Department,a.name as Employee,salary from Employee a join Department b on a.DepartmentId=b.id and Salary=(Select max(Salary) from Employee where DepartmentId=b.Id)
+<pre><code>SELECT b.name AS Department, a.name AS Employee, salary
+FROM Employee a
+    JOIN Department b
+    ON a.DepartmentId = b.id
+        AND Salary = (
+            SELECT MAX(Salary)
+            FROM Employee
+            WHERE DepartmentId = b.Id
+        )
 </code></pre><h2 id="换座位："><a href="#换座位：" class="headerlink" title="换座位："></a>换座位：</h2><p>SQL:</p>
-<pre><code>select id,IFNULL((case when mod(id,2)=1 then (select student from seat where id =id+1) when mod(id,2)=0 then (select student from seat where id =id-1)  end),student) as student from seat
+<pre><code>SELECT id, IFNULL(CASE 
+    WHEN mod(id, 2) = 1 THEN (
+        SELECT student
+        FROM seat
+        WHERE id = id + 1
+    )
+    WHEN mod(id, 2) = 0 THEN (
+        SELECT student
+        FROM seat
+        WHERE id = id - 1
+    )
+END, student) AS student
+FROM seat
 </code></pre><p>这里要注意一点，case column when condition then…，这里的condition不能写表达式，只能写常量或是结果，第一次我没注意，结果一直出错了。</p>
 <p>贴几个我觉得还可以的SQL：<br>通过修改ID来实现：</p>
 <pre><code>SELECT 
@@ -465,6 +522,10 @@ ORDER BY b.Name, Salary DESC
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/11923/" rel="prev" title="开发红包功能">
+                开发红包功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -557,7 +618,7 @@ ORDER BY b.Name, Salary DESC
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-1.html">
+                <a href="/categories/index-2.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>

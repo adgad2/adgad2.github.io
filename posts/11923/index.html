@@ -79,28 +79,22 @@
 
 
 
-<meta name="description" content="关于PHP开发红包功能的思路及具体方案标签（空格分隔）： 未分类
+<meta name="description" content="16月17日更新：使用发布订阅的方式来回收红包，存在2个问题：
 
-最近业务需要，要开发红包，AA收款等功能，这里把主要的设计思想以及具体的实现方案进行介绍，如有设计或实现的纰漏，或是存在漏洞，还请大家指教指教。
-红包的功能大家应该都很熟悉了，这里简单的对红包功能进行梳理。
-红包的业务主要有4个部分，红包发送，红包接收（这里是2步，打开-抢），红包记录查询，以及红包过期回收机制。以下这几部分依次分">
+第一个原因和Redis系统的稳定性有关。对于旧版Redis来说，如果一个客户端订阅了某个或某些频道，但它读取消息的速度却不够快的话，那么不断积压的消息就会使得Redis输出缓冲区的体积变得越来越大，这可能会导致Redis的速度变慢，甚至直接崩溃。也可能会导致Redis被操作系统强制杀死，甚至导致操作系统本身不可用。新版的Redis不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发红包功能">
 <meta property="og:url" content="http://mrone.top/posts/11923/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="关于PHP开发红包功能的思路及具体方案标签（空格分隔）： 未分类
+<meta property="og:description" content="16月17日更新：使用发布订阅的方式来回收红包，存在2个问题：
 
-最近业务需要，要开发红包，AA收款等功能，这里把主要的设计思想以及具体的实现方案进行介绍，如有设计或实现的纰漏，或是存在漏洞，还请大家指教指教。
-红包的功能大家应该都很熟悉了，这里简单的对红包功能进行梳理。
-红包的业务主要有4个部分，红包发送，红包接收（这里是2步，打开-抢），红包记录查询，以及红包过期回收机制。以下这几部分依次分">
-<meta property="og:updated_time" content="2018-04-26T13:37:54.460Z">
+第一个原因和Redis系统的稳定性有关。对于旧版Redis来说，如果一个客户端订阅了某个或某些频道，但它读取消息的速度却不够快的话，那么不断积压的消息就会使得Redis输出缓冲区的体积变得越来越大，这可能会导致Redis的速度变慢，甚至直接崩溃。也可能会导致Redis被操作系统强制杀死，甚至导致操作系统本身不可用。新版的Redis不">
+<meta property="og:updated_time" content="2018-06-17T02:13:22.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发红包功能">
-<meta name="twitter:description" content="关于PHP开发红包功能的思路及具体方案标签（空格分隔）： 未分类
+<meta name="twitter:description" content="16月17日更新：使用发布订阅的方式来回收红包，存在2个问题：
 
-最近业务需要，要开发红包，AA收款等功能，这里把主要的设计思想以及具体的实现方案进行介绍，如有设计或实现的纰漏，或是存在漏洞，还请大家指教指教。
-红包的功能大家应该都很熟悉了，这里简单的对红包功能进行梳理。
-红包的业务主要有4个部分，红包发送，红包接收（这里是2步，打开-抢），红包记录查询，以及红包过期回收机制。以下这几部分依次分">
+第一个原因和Redis系统的稳定性有关。对于旧版Redis来说，如果一个客户端订阅了某个或某些频道，但它读取消息的速度却不够快的话，那么不断积压的消息就会使得Redis输出缓冲区的体积变得越来越大，这可能会导致Redis的速度变慢，甚至直接崩溃。也可能会导致Redis被操作系统强制杀死，甚至导致操作系统本身不可用。新版的Redis不">
 
 
 
@@ -284,8 +278,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-27T05:36:48+08:00">
-                2018-04-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-17T18:16:48+08:00">
+                2018-06-17
               </time>
             
 
@@ -344,7 +338,25 @@
       
 
       
-        <h1 id="关于PHP开发红包功能的思路及具体方案"><a href="#关于PHP开发红包功能的思路及具体方案" class="headerlink" title="关于PHP开发红包功能的思路及具体方案"></a>关于PHP开发红包功能的思路及具体方案</h1><p>标签（空格分隔）： 未分类</p>
+        <h2 id="16月17日更新："><a href="#16月17日更新：" class="headerlink" title="16月17日更新："></a>16月17日更新：</h2><p>使用发布订阅的方式来回收红包，存在2个问题：</p>
+<blockquote>
+<p>第一个原因和Redis系统的稳定性有关。对于旧版Redis来说，如果一个客户端订阅了某个或某些频道，但它读取消息的速度却不够快的话，那么不断积压的消息就会使得Redis输出缓冲区的体积变得越来越大，这可能会导致Redis的速度变慢，甚至直接崩溃。也可能会导致Redis被操作系统强制杀死，甚至导致操作系统本身不可用。新版的Redis不会出现这种问题，因为它会自动断开不符合client-output-buffer-limit pubsub 配置选项要求的订阅客户端（本书第8章将对这个选项做更详细的介绍）。<br>第二个原因和数据传输的可靠性有关。任何网络系统在执行操作时都可能会遇上断线情况，而断线产生的连接错误通常会使得网络连接两端中的其中一端进行重新连接。本书使用的Python语言的Redis客户端会在连接失效时自动进行重新连接，也会自动处理连接池（connection pool，具体信息将在第4章介绍），诸如此类。但是，如果客户端在执行订阅操作的过程中断线，那么客户端将丢失在断线期间发送的所有消息，因此依靠频道来接收消息的用户可能会对Redis提供的PUBLISH 命令和SUBSCRIBE 命令的语义感到失望。</p>
+</blockquote>
+<p>第一个问题目前来说应该不算问题了，但第二个仍然是个问题，如果监听程序因为某些原因奔溃的话就会丢失在奔溃期间所接收到的消息，我更希望是像聊天那样，即使你不在线，在上线之后也会接收到离线期间他人发送给你的消息，所以进行了改造，保证其高可用性，说一下思路。</p>
+<p>使用有序集合（ZSET）来做处理，member记何种类型的红包以及红包ID，score记过期的时间戳，因为是有序集合，可以对时间戳进行排序，因而可以保证先过期的红包先被回收，写一下伪代码：</p>
+<pre><code>//24小时监听
+while(1){
+    $redis=Yii::$app-&gt;redis;//建立一个redis连接
+    $arr=$redis-&gt;zrange(&apos;recycle_packet&apos;,0,1,&apos;withscore&apos;);//取出第一条记录
+    //$arr是一个索引数组，0为member，1为score
+    if($arr[1)&lt;time()){//如果还没有过期
+        sleep(1)；//等待一秒
+        continute;
+    }
+    pacekt_func($arr[0]);把member传给回收红包的函数；过长这里不再贴出
+    $redis-&gt;zrem(&apos;recycle_packet&apos;,$arr[0]);//从集中中已出这个任务;
+}
+</code></pre><p>大概就是这样，其中为了保证不出错，每次调用回收函数应当记录日志</p>
 <hr>
 <p>最近业务需要，要开发红包，AA收款等功能，这里把主要的设计思想以及具体的实现方案进行介绍，如有设计或实现的纰漏，或是存在漏洞，还请大家指教指教。</p>
 <p>红包的功能大家应该都很熟悉了，这里简单的对红包功能进行梳理。</p>
@@ -442,8 +454,8 @@ Yii::$app-&gt;redis_queue-&gt;subscribe(&apos;test&apos;, function($instance, $c
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/28436/" rel="next" title="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
-                <i class="fa fa-chevron-left"></i> wnmp套件配合PHPstorm断点调试以及安装redis扩展
+              <a href="/posts/52572/" rel="next" title="leetcode练习之MySql-中高级篇">
+                <i class="fa fa-chevron-left"></i> leetcode练习之MySql-中高级篇
               </a>
             
           </div>
@@ -451,10 +463,6 @@ Yii::$app-&gt;redis_queue-&gt;subscribe(&apos;test&apos;, function($instance, $c
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/25462/" rel="prev" title="讲讲今年的规划与学习计划">
-                讲讲今年的规划与学习计划 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -548,7 +556,7 @@ Yii::$app-&gt;redis_queue-&gt;subscribe(&apos;test&apos;, function($instance, $c
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-1.html">
+                <a href="/categories/index-2.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -594,7 +602,7 @@ Yii::$app-&gt;redis_queue-&gt;subscribe(&apos;test&apos;, function($instance, $c
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于PHP开发红包功能的思路及具体方案"><span class="nav-number">1.</span> <span class="nav-text">关于PHP开发红包功能的思路及具体方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包发送："><span class="nav-number">2.</span> <span class="nav-text">红包发送：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包接收："><span class="nav-number">3.</span> <span class="nav-text">红包接收：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包过期回收："><span class="nav-number">4.</span> <span class="nav-text">红包过期回收：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包记录查询："><span class="nav-number">5.</span> <span class="nav-text">红包记录查询：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#16月17日更新："><span class="nav-number">1.</span> <span class="nav-text">16月17日更新：</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#红包发送："><span class="nav-number"></span> <span class="nav-text">红包发送：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包接收："><span class="nav-number"></span> <span class="nav-text">红包接收：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包过期回收："><span class="nav-number"></span> <span class="nav-text">红包过期回收：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#红包记录查询："><span class="nav-number"></span> <span class="nav-text">红包记录查询：</span></a></li></div>
             
 
           </div>
