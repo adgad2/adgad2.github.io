@@ -79,31 +79,37 @@
 
 
 
-<meta name="description" content="民拿桑，康尼奇哇。本来很早就想弄一个博客了，但我是个懒散的人，最空闲的大学时光没有用来干这种“正事”，现在工作了反正有了动力。嘛，虽然不是在最安逸的2.5年里弄的，但是，
+<meta name="description" content="场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：
+class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
 
-种一棵树最早的时间是十年前，其次是现在。
-
-所以我是觉得never too late啦。
-所有这个博客究竟是干什么的呢？ 我会用它来写写随笔，写一些菜鸟向的《电脑使用手册》，分享自己写的代码和学习中遇到问题的解决方法，偶尔也会">
+    public function getCacheModel()
+    {
+        return">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello,everyone">
-<meta property="og:url" content="http://mrone.top/posts/18254/index.html">
+<meta property="og:title" content="注释@return让PHPstorm动态返回类">
+<meta property="og:url" content="http://mrone.top/posts/50281/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="民拿桑，康尼奇哇。本来很早就想弄一个博客了，但我是个懒散的人，最空闲的大学时光没有用来干这种“正事”，现在工作了反正有了动力。嘛，虽然不是在最安逸的2.5年里弄的，但是，
+<meta property="og:description" content="场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：
+class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
 
-种一棵树最早的时间是十年前，其次是现在。
-
-所以我是觉得never too late啦。
-所有这个博客究竟是干什么的呢？ 我会用它来写写随笔，写一些菜鸟向的《电脑使用手册》，分享自己写的代码和学习中遇到问题的解决方法，偶尔也会">
-<meta property="og:updated_time" content="2016-11-11T14:18:14.700Z">
+    public function getCacheModel()
+    {
+        return">
+<meta property="og:updated_time" content="2018-07-28T14:01:11.753Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello,everyone">
-<meta name="twitter:description" content="民拿桑，康尼奇哇。本来很早就想弄一个博客了，但我是个懒散的人，最空闲的大学时光没有用来干这种“正事”，现在工作了反正有了动力。嘛，虽然不是在最安逸的2.5年里弄的，但是，
+<meta name="twitter:title" content="注释@return让PHPstorm动态返回类">
+<meta name="twitter:description" content="场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：
+class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
 
-种一棵树最早的时间是十年前，其次是现在。
-
-所以我是觉得never too late啦。
-所有这个博客究竟是干什么的呢？ 我会用它来写写随笔，写一些菜鸟向的《电脑使用手册》，分享自己写的代码和学习中遇到问题的解决方法，偶尔也会">
+    public function getCacheModel()
+    {
+        return">
 
 
 
@@ -133,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://mrone.top/posts/18254/">
+  <link rel="canonical" href="http://mrone.top/posts/50281/">
 
 
 
 
 
-  <title>Hello,everyone | 虚无の城堡</title>
+  <title>注释@return让PHPstorm动态返回类 | 虚无の城堡</title>
   
 
 
@@ -253,12 +259,12 @@
   
   
 
-  <article class="post post-type-life" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/18254/">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/50281/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="一男">
@@ -275,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello,everyone</h1>
+          <h1 class="post-title" itemprop="name headline">注释@return让PHPstorm动态返回类</h1>
         
 
         <div class="post-meta">
@@ -287,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-05T04:52:59+08:00">
-                2016-11-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T05:59:47+08:00">
+                2018-07-28
               </time>
             
 
@@ -297,6 +303,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术向/" itemprop="url" rel="index">
+                    <span itemprop="name">技术向</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -325,16 +353,65 @@
       
 
       
-        <p>民拿桑，康尼奇哇。本来很早就想弄一个博客了，但我是个懒散的人，最空闲的大学时光没有用来干这种“正事”，现在工作了反正有了动力。嘛，虽然不是在最安逸的2.5年里弄的，但是，</p>
+        <p>场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：</p>
+<pre><code>class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
+
+    public function getCacheModel()
+    {
+        return $this-&gt;temp_model;
+    }
+}
+</code></pre><p>这个方法的作用是取得在做参数验证时，从数据库查出的，缓存下来的实例对象。<br>这个时候，问题来了，我在取出这个对象的时候，PHPstorm没有了提示（如方法提示，属性提示等），按照一般的情况，只需要在方法前面加上@return注释就可以了。</p>
+<pre><code>/**
+ * @return static
+ */
+public function getCacheModel()
+{
+    return $this-&gt;temp_model;
+}
+</code></pre><p>我们继续深入研究一下，关于这个static的意思，我特地在PHPDoc上查阅了一下，</p>
 <blockquote>
-<p>种一棵树最早的时间是十年前，其次是现在。</p>
+<p>static<br>An object of the class where this value was consumed, if inherited it will represent the child class. (see late static binding in the PHP manual).</p>
 </blockquote>
-<p>所以我是觉得never too late啦。</p>
-<p>所有这个博客究竟是干什么的呢？ 我会用它来写写随笔，写一些菜鸟向的《电脑使用手册》，分享自己写的代码和学习中遇到问题的解决方法，偶尔也会更新自己的生活近况。</p>
-<p>写这个博客的原因，是希望自己可以有动力去学习，去追求“更高”。</p>
-<p>我是一个很懒散又没有目标和执行力的人，只想着玩乐，遇到困难总是逃避，但是即使是我这种没有什么上进心的人，也希望可以做一些“让自己更好”的事，我希望有一天，当我说“我想要怎么样的时候”，我已经完成这件事了。</p>
-<p>博客新开，很多地方还不完善，如果你点着点着突然跳出一个404，还请多多担待。</p>
-<p>以上。</p>
+<p>Google翻译一下，大意如下：<br>消耗此值的类的对象，如果继承它将表示子类。<br>（参见PHP手册中的<a href="http://php.net/manual/zh/language.oop5.late-static-bindings.php" rel="external nofollow noopener noreferrer" target="_blank">后期静态绑定</a>）。</p>
+<p>大概意思就是就会返回调用这个方法的类，如果是父类方法子类调用，那么将返回子类。</p>
+<p>类似的还有2个</p>
+<blockquote>
+<p>self<br>An object of the class where this type was used, if inherited it will still represent the class where it was originally defined.<br>$this<br>This exact object instance, usually used to denote a fluent interface.</p>
+</blockquote>
+<p>直译如下，<br>self:使用此类型的类的对象，如果继承它，它仍将表示最初定义它的类。<br>大意就是和static差不多，但是父类方法子类调用，仍然返回父类。<br>$this:这个确切的对象实例，通常用于表示流畅的界面。<br>和self差不多。</p>
+<p>但是到了这里，我的问题仍然没有解决，无论我@return的值改成什么，仍然返回的是BaseModel，尽管我在这个getCacheModel()方法里打印 self::className() 时，出现的是子类名。</p>
+<p>于是我们继续往上面看，我是在controller调用的，controller的代码如下：</p>
+<pre><code>public function actionCommitReward()
+{
+    $model=$this-&gt;goCheck(new TakeRewards([&apos;scenario&apos;=&gt;&apos;commit_reward&apos;]));
+
+    //获取实际要修改的数据
+    $reward = $model-&gt;getCacheModel();
+}
+</code></pre><p>看起来没有什么问题，这个时候我们要注意了，  <strong>$model 是由$this-&gt;goCheck()</strong>调用得到的，我们去看一下goCheck方法：</p>
+<pre><code>//验证参数是否合法
+public function goCheck($model, $dada = &apos;&apos;)
+{
+    $data = $this-&gt;postData;//post传入的数据
+    if ($model-&gt;load($data, &apos;&apos;) &amp;&amp; $model-&gt;validate())//数据效验
+</code></pre><p> return $model;</p>
+<pre><code>    else (new PublicFunction())-&gt;returnWayTip(&apos;1001&apos;, PublicFunction::getModelError($model));//这里理解成抛异常
+}
+</code></pre><p>这里不规范的地方出现了，由于这里传入的是model（对象类型），所以PHPstorm并没法知道我们具体传入的是什么类，加上注释后：</p>
+<pre><code>/**
+ * @param object $model
+ * @param string $dada
+ * @return model1|model2
+ */
+</code></pre><p>这样后，问题“勉强解决”。只是每增加一个表，会需要在@return里增加表相对应的类名，而且会有类本来不应该存在的属性被提示。</p>
+<p>为什么这里不能用static呢？  因为这里是$this调用的，返回controller类，并没有什么用，而这个也导致了后面使用$model-&gt;getCacheModel()方法时，没有办法正常识别应该返回的类（返回什么类取决与goCheck的@return注释是什么）。</p>
+<p>当然你可以不写注释，那么你会发现，所以的提示都没有了。<br>这次我才真正意识到了注释的重要性。。。原来PHPstorm之所以都提示，都是因为大家按PHPDoc的规范写了注释啊！</p>
+<p>最后可能有同学会问了，为什么不把goChekc方法放到BaseModel里呢？对的，实际上规范的做法是应该这样的，但是因为我这样把Yii::$app-&gt;request-&gt;post()赋值在controller里的$this-&gt;postData里（虽然这样方便一丢丢），而且在做token换id的一些操作了进行了手动赋值，所以没有办法，因为在model获取不到这个postData，当然你一定要挪进去也是可以的，只不过每次都需要传参$this-&gt;postData，见仁见智吧。</p>
+<p>但是，这2个方法都并不规范，$this-&gt;postData = Yii::$app-&gt;request-&gt;post(); 把全局的变量变成了一个局部变量，规范的做法应该是使用Yii::$app-&gt;request-&gt;post($name,$dafaultValue)来给post数据赋值。</p>
+<p>最后，因为并不是我一个人在写，所以没有办法进行大刀阔斧地改动，只能尽可能地优化。BTW，希望大佬们有更好的意见可以说说，因为个人比较经验也比较不足，都是自己摸索。</p>
 
       
     </div>
@@ -359,15 +436,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/posts/25462/" rel="next" title="讲讲今年的规划与学习计划">
+                <i class="fa fa-chevron-left"></i> 讲讲今年的规划与学习计划
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/5a268b59/" rel="prev" title="电脑优化手册 FanQiang篇">
-                电脑优化手册 FanQiang篇 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
