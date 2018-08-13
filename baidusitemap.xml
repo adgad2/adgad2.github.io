@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>http://mrone.top/posts/undefined/</loc>
+    <lastmod>2018-08-13T11:30:01.028Z</lastmod>
+    <data>
+        <display>
+        <title>使用类似闭包的方式封装事务</title>
+        <pubTime>2018-08-13T19:28:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="技术向" url="http://mrone.top/categories/%E6%8A%80%E6%9C%AF%E5%90%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mrone.top/posts/50281/</loc>
-    <lastmod>2018-07-28T14:01:11.753Z</lastmod>
+    <lastmod>2018-07-28T14:01:30.773Z</lastmod>
     <data>
         <display>
         <title>注释@return让PHPstorm动态返回类</title>
