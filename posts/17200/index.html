@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="虚无の城堡">
 <meta property="og:description" content="迫于项目日渐式微，为节约成本，于是准备从drds上撤下来，换回使用单机的rds，此为背景。
 先说说大体的思路，此次迁移，只涉及到数据库的改动，所以理论上讲，只需要在数据迁移完后在项目的配置文件里把数据库的相关配置改掉即可，不过drds的事务开启前需要特别执行一句”select last_txc_xid()”，所以需要在项目里把这一句的相关代码全部删掉，除此外再无其他。迁移开始前一天，需要提前把数据">
-<meta property="og:updated_time" content="2018-11-06T09:15:18.342Z">
+<meta property="og:updated_time" content="2018-11-06T09:15:34.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次数据库迁移，从分布式数据库drds到单机rds">
 <meta name="twitter:description" content="迫于项目日渐式微，为节约成本，于是准备从drds上撤下来，换回使用单机的rds，此为背景。
@@ -384,6 +384,10 @@ mysqldump --h数据库地址 -u用户名 -p密码 库名  --ignore-table=前面�
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/3378/" rel="prev" title="为了脱单我看了多少书系列——读《沟通的艺术》">
+                为了脱单我看了多少书系列——读《沟通的艺术》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -457,7 +461,7 @@ mysqldump --h数据库地址 -u用户名 -p密码 库名  --ignore-table=前面�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -467,7 +471,7 @@ mysqldump --h数据库地址 -u用户名 -p密码 库名  --ignore-table=前面�
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index-2.html">
+                <a href="/categories/index-1.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
