@@ -93,12 +93,12 @@ $b=$a;">
     $a=1;
 var_dump(memory_get_usage());
 $b=$a;">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%BC%95%E7%94%A8%E9%A2%98%E7%9B%AE.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%BC%98%E5%85%88%E7%BA%A7%E5%AE%9E%E4%BE%8B%EF%BC%9F.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%B1%BB.jpg">
-<meta property="og:updated_time" content="2018-02-04T10:08:45.990Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%BC%95%E7%94%A8%E9%A2%98%E7%9B%AE.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%BC%98%E5%85%88%E7%BA%A7%E5%AE%9E%E4%BE%8B%EF%BC%9F.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%B1%BB.jpg">
+<meta property="og:updated_time" content="2018-12-11T12:50:09.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php基础回顾">
 <meta name="twitter:description" content="新的一年，技术却感觉没有变好多少…最近业务不是很忙，稍微来回顾一下基础知识吧。
@@ -106,7 +106,7 @@ $b=$a;">
     $a=1;
 var_dump(memory_get_usage());
 $b=$a;">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%BC%95%E7%94%A8%E9%A2%98%E7%9B%AE.jpg">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%BC%95%E7%94%A8%E9%A2%98%E7%9B%AE.jpg">
 
 
 
@@ -363,7 +363,7 @@ var_dump(memory_get_usage());
 <pre><code>$b=$a;
 </code></pre><p>这行代码换成</p>
 <pre><code>$b=&amp;$a;
-</code></pre><p>，其他不变，在此运行，会发现3次打印的结果差不多，说明$b和$a指向了同一片内存空间。我们也可以用PHP的扩展xdebug，然后使用xdebug_debug_zval(‘a’)来看是否如此，这里不再细说。<br>讲一道面试题，代码如下：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E5%BC%95%E7%94%A8%E9%A2%98%E7%9B%AE.jpg" alt="关于引用的面试题"></p>
+</code></pre><p>，其他不变，在此运行，会发现3次打印的结果差不多，说明$b和$a指向了同一片内存空间。我们也可以用PHP的扩展xdebug，然后使用xdebug_debug_zval(‘a’)来看是否如此，这里不再细说。<br>讲一道面试题，代码如下：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%BC%95%E7%94%A8%E9%A2%98%E7%9B%AE.jpg" alt="关于引用的面试题"></p>
 <p>答案是[‘a’,’b’,’c’],[‘b’,’b’,’c’],[‘b’,’c’,’c’],为什么呢。<br>第一次的时候</p>
 <pre><code>    $k=0;
 $v=&apos;a&apos;;
@@ -388,8 +388,8 @@ $v=&amp;$d[1];
 <h3 id="NULL的三种情况："><a href="#NULL的三种情况：" class="headerlink" title="NULL的三种情况："></a>NULL的三种情况：</h3><p>直接赋值为NULL，未定义的变量，unset销毁的变量。</p>
 <h3 id="常量："><a href="#常量：" class="headerlink" title="常量："></a>常量：</h3><p>通过const、define定义，但是const更快，因为他是语言结构，define则是函数，define不能用于类常量的定义，const可以。</p>
 <h3 id="魔术常量："><a href="#魔术常量：" class="headerlink" title="魔术常量："></a>魔术常量：</h3><p>PHP中有八个魔术常量，它们的值会随着它们在代码中的位置的改变而改变。这些特殊的常量不区分大小写。<br><strong>LINE</strong> ：返回文件中的当前行号。也可写成<strong>line</strong>。<br><strong>FILE</strong>：返回当前文件的绝对路径（包含文件名）。<br><strong>DIR</strong>：返回当前文件的绝对路径（不包含文件名），等价于 dirname(<strong>FILE</strong>)。<br><strong>FUNCTION</strong>：返回当前函数（或方法）的名称。<br><strong>CLASS</strong>：返回当前的类名（包括该类的作用区域或命名空间）。<br><strong>TRAIT</strong>：返回当前的trait名称（包括该trait的作用区域或命名空间）。<br><strong>METHOD</strong>：返回当前的方法名（包括类名）。<br><strong>NAMESPACE</strong>：返回当前文件的命名空间的名称。</p>
-<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>特殊的运算符——错误控制符@，当将其放置在一个 PHP表达式 之前，该表达式可能产生的 任何错误信息 都将被 忽略掉。<br>运算符注意知道的是优先级，但是在代码中，于用到多运算符的代码，应当加括号来增加可读性。<br>一图表达运算符优先级：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.jpg" alt="运算符的优先级"></p>
-<p>需要注意的短路作用：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E4%BC%98%E5%85%88%E7%BA%A7%E5%AE%9E%E4%BE%8B%EF%BC%9F.jpg" alt="此处输入图片的描述"></p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>特殊的运算符——错误控制符@，当将其放置在一个 PHP表达式 之前，该表达式可能产生的 任何错误信息 都将被 忽略掉。<br>运算符注意知道的是优先级，但是在代码中，于用到多运算符的代码，应当加括号来增加可读性。<br>一图表达运算符优先级：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.jpg" alt="运算符的优先级"></p>
+<p>需要注意的短路作用：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%BC%98%E5%85%88%E7%BA%A7%E5%AE%9E%E4%BE%8B%EF%BC%9F.jpg" alt="此处输入图片的描述"></p>
 <h1 id="流程控制："><a href="#流程控制：" class="headerlink" title="流程控制："></a>流程控制：</h1><p>基础的就不说了，谈谈几个要注意的。</p>
 <h3 id="数组循环的三种方式："><a href="#数组循环的三种方式：" class="headerlink" title="数组循环的三种方式："></a>数组循环的三种方式：</h3><p>for循环，只能遍历索引数组，不能遍历关联数组。<br>foreach循环，可以遍历索引和关联数组。<br>while，list(),each()数组循环，这种方式不会reset()。</p>
 <h3 id="switch…case…循环"><a href="#switch…case…循环" class="headerlink" title="switch…case…循环"></a>switch…case…循环</h3><p>注意switch后面跟的控制表达式的数据类型只能是整型、浮点型或者是字符串。在switch中,continu相当于break,如果需要跳出switch外的循环，可以用continu2,（跳出2层循环 ）</p>
@@ -416,8 +416,8 @@ function loopDir($dir){
 <pre><code>面向对象：
 ===
 PHP是单一继承，使用public，protect，private这3个关键字来做访问控制，还有相应的__construct构造函数等。不多说了。
-</code></pre><h1 id="网咯协议："><a href="#网咯协议：" class="headerlink" title="网咯协议："></a>网咯协议：</h1><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。<br>常见的请求方法：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95.jpg" alt="请求方法"></p>
-<p>几个状态码的分类：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%B1%BB.jpg" alt="状态码分类"></p>
+</code></pre><h1 id="网咯协议："><a href="#网咯协议：" class="headerlink" title="网咯协议："></a>网咯协议：</h1><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。<br>常见的请求方法：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95.jpg" alt="请求方法"></p>
+<p>几个状态码的分类：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%B1%BB.jpg" alt="状态码分类"></p>
 <p>具体的可以看<a href="http://www.runoob.com/http/http-status-codes.html。" rel="external nofollow noopener noreferrer" target="_blank">http://www.runoob.com/http/http-status-codes.html。</a></p>
 <p>以上，暂时就这些吧。</p>
 

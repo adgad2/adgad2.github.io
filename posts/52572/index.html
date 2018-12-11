@@ -101,8 +101,8 @@ WHERE a.id = b.id - 1
     AND a.num = b.num
     AND a.num = c.num
 虽然通">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
-<meta property="og:updated_time" content="2018-06-17T01:31:44.732Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
+<meta property="og:updated_time" content="2018-12-11T12:50:02.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode练习之MySql-中高级篇">
 <meta name="twitter:description" content="中高级题目不多，一起写了。
@@ -114,7 +114,7 @@ WHERE a.id = b.id - 1
     AND a.num = b.num
     AND a.num = c.num
 虽然通">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png">
 
 
 
@@ -368,7 +368,7 @@ WHERE a.id = b.id - 1
     AND a.num = c.num
 </code></pre><p>虽然通过了，但是如果遇到ID不连续的情况就会……<br>一开始我是这么写的：</p>
 <pre><code>select DISTINCT(a.num) as ConsecutiveNums  from logs a,logs b,logs c where  a.id=b.id-1=c.id-2 and a.num=b.num =c.num
-</code></pre><p>但是这种写法在本地测试的过程中出现了很奇怪的问题，我查询a.id,b.id,c.id，出现了这个结果：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png" alt="此处输入图片的描述"></p>
+</code></pre><p>但是这种写法在本地测试的过程中出现了很奇怪的问题，我查询a.id,b.id,c.id，出现了这个结果：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97.png" alt="此处输入图片的描述"></p>
 <p>经过一般测试和猜想，我怀疑mysql是使用或来解释a.id=b.id-1=c.id-2这样的条件的，所以我们需要a.num=b.num &amp;&amp; a.num=c.num这样写。</p>
 <p>然后贴个别人的sql：</p>
 <pre><code>SELECT DISTINCT Num AS ConsecutiveNums

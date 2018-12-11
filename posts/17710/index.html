@@ -97,10 +97,10 @@ location ~ \.php$ {
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
     fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%85%B3%E4%BA%8E$1$2.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/flag.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/https%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86.jpg">
-<meta property="og:updated_time" content="2018-03-04T03:19:40.080Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%85%B3%E4%BA%8E$1$2.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/flag.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/https%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86.jpg">
+<meta property="og:updated_time" content="2018-12-11T12:50:14.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习Nginx之深度学习">
 <meta name="twitter:description" content="动静分离：通过中间键将动态请求和静态请求分离。
@@ -110,7 +110,7 @@ location ~ \.php$ {
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
     fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%85%B3%E4%BA%8E$1$2.jpg">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%85%B3%E4%BA%8E$1$2.jpg">
 
 
 
@@ -372,8 +372,8 @@ location ~ \.php$ {
 
 实例：
 rewrite ^(.*)$ /page/maintain.html break; #匹配线上所有的URL请求，替换成/page/maintain.html，维护时使用
-</code></pre><p>关于正则：<br>()   用于匹配括号之间的内容，通过$1、$2调用<br>举例:<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E5%85%B3%E4%BA%8E$1$2.jpg" alt="此处输入图片的描述"></p>
-<p>flag作用：<br><img src="http://oggrg5gdo.bkt.clouddn.com/flag.jpg" alt="flag作用"></p>
+</code></pre><p>关于正则：<br>()   用于匹配括号之间的内容，通过$1、$2调用<br>举例:<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%85%B3%E4%BA%8E$1$2.jpg" alt="此处输入图片的描述"></p>
+<p>flag作用：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/flag.jpg" alt="flag作用"></p>
 <p>last,break具体区别,break会在匹配到之后立即中断，不会继续执行，而last还会继续往下匹配，如果nginx中还有location匹配到，则会执行匹配到的location的内容。</p>
 <p>redirec  返回302临时重定向，每次会像服务器请求<br>permanent 返回301永久重定向，第二次不会再对服务器请求，自动重定向到相应地址</p>
 <h1 id="使用rewrite重定向："><a href="#使用rewrite重定向：" class="headerlink" title="使用rewrite重定向："></a>使用rewrite重定向：</h1><p>rewrite规则：</p>
@@ -396,7 +396,7 @@ rewrite ^ http://www.nginx.org$request_uri?;
 </code></pre><h2 id="geoip-module模块："><a href="#geoip-module模块：" class="headerlink" title="geoip_module模块： "></a>geoip_module模块： </h2><p>基于IP地址匹配MaxMind GeoIP二进制文件，读取IP所在地狱信息<br>使用yum install nginx-moule-geoip;安装</p>
 <p>使用场景：<br>1.区别国内外做HTTP访问规则<br>2.区别国内城市地狱做HTTP访问规则</p>
 <h1 id="HTTPS服务："><a href="#HTTPS服务：" class="headerlink" title="HTTPS服务："></a>HTTPS服务：</h1><h2 id="为什么需要HTTPS："><a href="#为什么需要HTTPS：" class="headerlink" title="为什么需要HTTPS："></a>为什么需要HTTPS：</h2><p>HTTP不安全：<br>1.传输数据被中间人盗用，信息泄露<br>2.数据内容挟持，篡改</p>
-<p>HTTPS加密协议原理：<br><img src="http://oggrg5gdo.bkt.clouddn.com/https%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86.jpg" alt="HTTPS协议原理"></p>
+<p>HTTPS加密协议原理：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/https%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86.jpg" alt="HTTPS协议原理"></p>
 <p>HTTPS语法配置：</p>
 <pre><code>语法：ssl on|off;#是否开启ssl
 默认：ssl off

@@ -91,18 +91,18 @@
 
 安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
 打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/PHPstorm%E9%85%8D%E7%BD%AE1.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/phps%E9%85%8D%E7%BD%AE2.png">
-<meta property="og:updated_time" content="2018-04-01T13:08:36.483Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/PHPstorm%E9%85%8D%E7%BD%AE1.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/phps%E9%85%8D%E7%BD%AE2.png">
+<meta property="og:updated_time" content="2018-12-11T12:50:11.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
 <meta name="twitter:description" content="wnmp套件配合PHPstorm断点调试以及安装redis扩展标签（空格分隔）： 未分类
 
 安装debug扩展及配合调试：关于PHPstorm断点调试配置的文章已经很多，so，这里不会写得很详细，重点写难点、注意点。
 打开查看phpinfo()，查看自己使用的PHP版本和相关信息，我使用的套件PHP版本为php7.1 nts vc14，然后去https://xdebug.org/download.">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png">
 
 
 
@@ -358,11 +358,11 @@ xdebug.remote_enable=1 ;是否打开全程调试
 xdebug.idekey=&apos;PHPSTORM&apos;  ; sessionkey
 xdebug.remote_timeout=600 ;调试超时时间，这里设置为10分钟
 xdebug.remote_port=9001 ;监听端口，因为phpfgi使用的也是9000，冲突了，所以这里使用9001
-</code></pre><p>打开phpinfo，查看配置是否正确：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png" alt="此处输入图片的描述"></p>
-<p><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png" alt="此处输入图片的描述"></p>
+</code></pre><p>打开phpinfo，查看配置是否正确：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE.png" alt="此处输入图片的描述"></p>
+<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE2.png" alt="此处输入图片的描述"></p>
 <p>然后安装Chrome插件xdebug helper</p>
-<p>打开PHPstorm继续配置：<br><img src="http://oggrg5gdo.bkt.clouddn.com/PHPstorm%E9%85%8D%E7%BD%AE1.png" alt="此处输入图片的描述"></p>
-<p><img src="http://oggrg5gdo.bkt.clouddn.com/phps%E9%85%8D%E7%BD%AE2.png" alt="此处输入图片的描述"></p>
+<p>打开PHPstorm继续配置：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/PHPstorm%E9%85%8D%E7%BD%AE1.png" alt="此处输入图片的描述"></p>
+<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/phps%E9%85%8D%E7%BD%AE2.png" alt="此处输入图片的描述"></p>
 <p>然后开始调试，点击xdebug helper图标，选择debug，灰色图标变成绿色<br>在phpstorm中将需要调试的代码打上断点，点击右上角电话图标开启调试监听，由一头绿一头红变成两头绿即可<br>在浏览器中运行程序，在phpstorm的debugger窗口可以看到调试结果</p>
 <p>postman直接使用即可</p>
 <p>说几个断点调试的快捷键：<br>你可以按F7，程序会一步一步往下走，碰到函数的话，会跳转到该函数；按F8则是在当前代码页一行一行的往下走，碰到函数不会跳转。这两个功能是断点调试的最为实用和关键功能。<br>当你想直接从某个断点跳到另一行处断点时，你可以在进入断点后，在你想在另一行断点处，点击断点，然后按下F9或者点击下边框中的绿色按钮，如下图。 </p>

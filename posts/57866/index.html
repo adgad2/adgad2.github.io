@@ -89,15 +89,15 @@ CDN：使用CDN服务可以很好地为静态资源提供支持。
 <meta property="og:description" content="静态资源WEB服务：哪些是静态资源？简单来说，能直接把相应文件发送到客户端的文件都是静态资源，如视频、html页面，js等资源
 CDN：使用CDN服务可以很好地为静态资源提供支持。
 静态资源的相关设置：sendfile:语法：sendfile on|off  #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，减少用户空间到内核空间的上下文切换。对于普">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6%E7%8A%B6%E6%80%81.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg">
-<meta property="og:updated_time" content="2018-03-04T01:40:28.980Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6%E7%8A%B6%E6%80%81.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg">
+<meta property="og:updated_time" content="2018-12-11T12:50:14.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统学习Nginx之场景实践">
 <meta name="twitter:description" content="静态资源WEB服务：哪些是静态资源？简单来说，能直接把相应文件发送到客户端的文件都是静态资源，如视频、html页面，js等资源
 CDN：使用CDN服务可以很好地为静态资源提供支持。
 静态资源的相关设置：sendfile:语法：sendfile on|off  #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，减少用户空间到内核空间的上下文切换。对于普">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6%E7%8A%B6%E6%80%81.jpg">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6%E7%8A%B6%E6%80%81.jpg">
 
 
 
@@ -437,8 +437,8 @@ upstream  backend  {
         proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
     }
-</code></pre><p>后端服务器在负载均衡调度中的状态：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6%E7%8A%B6%E6%80%81.jpg" alt="此处输入图片的描述"></p>
-<p>调度算法：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg" alt="调度算法"></p>
+</code></pre><p>后端服务器在负载均衡调度中的状态：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%AD%E7%9A%84%E8%B0%83%E5%BA%A6%E7%8A%B6%E6%80%81.jpg" alt="此处输入图片的描述"></p>
+<p>调度算法：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95.jpg" alt="调度算法"></p>
 <p>url_hash<br>hash关键字轮询：</p>
 <pre><code>语法：hash key [consistent]; 举例hash $request_uri;
 默认：--

@@ -91,29 +91,29 @@ RBD的三种方式:save（同步），bgsave（异步），自动">
 方式：快照（MySQL Dump、Redis RDB），写日志（MySQL Binlog、Hbase Hlog、Redis AOF）
 什么是RDB：RBD持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）
 RBD的三种方式:save（同步），bgsave（异步），自动">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%BB%80%E4%B9%88%E6%98%AFRBD.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/save%E5%91%BD%E4%BB%A4.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/bgsave%E5%91%BD%E4%BB%A4.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/save%E4%B8%8Ebgsave%E5%AF%B9%E6%AF%94.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/rbd%E8%80%97%E6%97%B6%E8%80%97%E6%80%A7%E8%83%BD.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/RDB%E4%B8%A2%E5%A4%B1%E6%95%B0%E6%8D%AE.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/AOF%E5%8E%9F%E7%90%86.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/always%E7%AD%96%E7%95%A5.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/everysec%E7%AD%96%E7%95%A5.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/no%E7%AD%96%E7%95%A5.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%B8%89%E7%A7%8Daof%E4%BC%98%E7%BC%BA%E7%82%B9.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/AOF%E9%87%8D%E5%86%99%E5%8E%9F%E7%90%86.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/bgrewriteaof.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/AOF%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.png">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/2%E4%B8%AA%E6%AF%94%E8%BE%83.png">
-<meta property="og:updated_time" content="2018-02-25T12:38:30.599Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%BB%80%E4%B9%88%E6%98%AFRBD.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/save%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/bgsave%E5%91%BD%E4%BB%A4.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/save%E4%B8%8Ebgsave%E5%AF%B9%E6%AF%94.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/rbd%E8%80%97%E6%97%B6%E8%80%97%E6%80%A7%E8%83%BD.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/RDB%E4%B8%A2%E5%A4%B1%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/AOF%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/always%E7%AD%96%E7%95%A5.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/everysec%E7%AD%96%E7%95%A5.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/no%E7%AD%96%E7%95%A5.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%B8%89%E7%A7%8Daof%E4%BC%98%E7%BC%BA%E7%82%B9.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/AOF%E9%87%8D%E5%86%99%E5%8E%9F%E7%90%86.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/bgrewriteaof.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/AOF%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/2%E4%B8%AA%E6%AF%94%E8%BE%83.png">
+<meta property="og:updated_time" content="2018-12-11T12:50:11.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis运维之持久化的取舍和选择">
 <meta name="twitter:description" content="什么是持久化：redis所有数据保存在内存中，对数据的更新将异步地保存到磁盘上。
 方式：快照（MySQL Dump、Redis RDB），写日志（MySQL Binlog、Hbase Hlog、Redis AOF）
 什么是RDB：RBD持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）
 RBD的三种方式:save（同步），bgsave（异步），自动">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%BB%80%E4%B9%88%E6%98%AFRBD.png">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%BB%80%E4%B9%88%E6%98%AFRBD.png">
 
 
 
@@ -359,11 +359,11 @@ RBD的三种方式:save（同步），bgsave（异步），自动">
       
         <h1 id="什么是持久化："><a href="#什么是持久化：" class="headerlink" title="什么是持久化："></a>什么是持久化：</h1><p>redis所有数据保存在内存中，对数据的更新将异步地保存到磁盘上。</p>
 <p>方式：快照（MySQL Dump、Redis RDB），写日志（MySQL Binlog、Hbase Hlog、Redis AOF）</p>
-<h1 id="什么是RDB："><a href="#什么是RDB：" class="headerlink" title="什么是RDB："></a>什么是RDB：</h1><p>RBD持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E4%BB%80%E4%B9%88%E6%98%AFRBD.png" alt="什么是RBD"></p>
+<h1 id="什么是RDB："><a href="#什么是RDB：" class="headerlink" title="什么是RDB："></a>什么是RDB：</h1><p>RBD持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%BB%80%E4%B9%88%E6%98%AFRBD.png" alt="什么是RBD"></p>
 <h2 id="RBD的三种方式"><a href="#RBD的三种方式" class="headerlink" title="RBD的三种方式:"></a>RBD的三种方式:</h2><p>save（同步），bgsave（异步），自动</p>
-<p>save：复杂度O(n),如果旧文件存在，旧文件将被新文件替换<br><img src="http://oggrg5gdo.bkt.clouddn.com/save%E5%91%BD%E4%BB%A4.png" alt="save命令"></p>
-<p>bgsave： 同save，但它是异步执行的，将fork出一个进程执行<br><img src="http://oggrg5gdo.bkt.clouddn.com/bgsave%E5%91%BD%E4%BB%A4.png" alt="bgsve命令"></p>
-<p>对比：<img src="http://oggrg5gdo.bkt.clouddn.com/save%E4%B8%8Ebgsave%E5%AF%B9%E6%AF%94.png" alt="2个比较"></p>
+<p>save：复杂度O(n),如果旧文件存在，旧文件将被新文件替换<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/save%E5%91%BD%E4%BB%A4.png" alt="save命令"></p>
+<p>bgsave： 同save，但它是异步执行的，将fork出一个进程执行<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/bgsave%E5%91%BD%E4%BB%A4.png" alt="bgsve命令"></p>
+<p>对比：<img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/save%E4%B8%8Ebgsave%E5%AF%B9%E6%AF%94.png" alt="2个比较"></p>
 <p>自动策略：在配置中修改，</p>
 <pre><code>rdbcompression yes #存储至本地数据库时（持久化到rdb文件）是否压缩数据，默认为yes
 dbfilename dump.rdb #本地持久化数据库文件名，默认值为dump.rdb
@@ -373,14 +373,14 @@ rdbcompression yes #备份时是否压缩，一般yes
 rdbchecksum #是否采用效验的方式 一般yes
 </code></pre><p>其他触发机制：全量复制、debug reload、shutdown。</p>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>1.RDB是Redis内存到硬盘的快照，用于持久化<br>2.save通常会阻塞Redis<br>3.bgsave不会阻塞Redis，但是会fork新进程<br>4.save自动配置满足任一就会被执行<br>5.有些触发机制不容忽视</p>
-<h1 id="AOF机制："><a href="#AOF机制：" class="headerlink" title="AOF机制："></a>AOF机制：</h1><p>RDB有什么问题：<br>耗时、耗性能：<br><img src="http://oggrg5gdo.bkt.clouddn.com/rbd%E8%80%97%E6%97%B6%E8%80%97%E6%80%A7%E8%83%BD.png" alt="rbd耗时耗性能"></p>
-<p>不可控，会丢失数据：<br><img src="http://oggrg5gdo.bkt.clouddn.com/RDB%E4%B8%A2%E5%A4%B1%E6%95%B0%E6%8D%AE.png" alt="rbd不可控，会丢失数据"></p>
-<p>AOF原理：<br><img src="http://oggrg5gdo.bkt.clouddn.com/AOF%E5%8E%9F%E7%90%86.png" alt="AOF原理"></p>
-<h2 id="三种策略："><a href="#三种策略：" class="headerlink" title="三种策略："></a>三种策略：</h2><p>always：<br><img src="http://oggrg5gdo.bkt.clouddn.com/always%E7%AD%96%E7%95%A5.png" alt="always"><br>everysec：<br><img src="http://oggrg5gdo.bkt.clouddn.com/everysec%E7%AD%96%E7%95%A5.png" alt="everysec"><br>no：<br><img src="http://oggrg5gdo.bkt.clouddn.com/no%E7%AD%96%E7%95%A5.png" alt="no策略"></p>
-<p>对比<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E4%B8%89%E7%A7%8Daof%E4%BC%98%E7%BC%BA%E7%82%B9.png" alt="三种aof对比"></p>
-<p>原理：<br><img src="http://oggrg5gdo.bkt.clouddn.com/AOF%E9%87%8D%E5%86%99%E5%8E%9F%E7%90%86.png" alt="AOF重写原理"></p>
+<h1 id="AOF机制："><a href="#AOF机制：" class="headerlink" title="AOF机制："></a>AOF机制：</h1><p>RDB有什么问题：<br>耗时、耗性能：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/rbd%E8%80%97%E6%97%B6%E8%80%97%E6%80%A7%E8%83%BD.png" alt="rbd耗时耗性能"></p>
+<p>不可控，会丢失数据：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/RDB%E4%B8%A2%E5%A4%B1%E6%95%B0%E6%8D%AE.png" alt="rbd不可控，会丢失数据"></p>
+<p>AOF原理：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/AOF%E5%8E%9F%E7%90%86.png" alt="AOF原理"></p>
+<h2 id="三种策略："><a href="#三种策略：" class="headerlink" title="三种策略："></a>三种策略：</h2><p>always：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/always%E7%AD%96%E7%95%A5.png" alt="always"><br>everysec：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/everysec%E7%AD%96%E7%95%A5.png" alt="everysec"><br>no：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/no%E7%AD%96%E7%95%A5.png" alt="no策略"></p>
+<p>对比<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%B8%89%E7%A7%8Daof%E4%BC%98%E7%BC%BA%E7%82%B9.png" alt="三种aof对比"></p>
+<p>原理：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/AOF%E9%87%8D%E5%86%99%E5%8E%9F%E7%90%86.png" alt="AOF重写原理"></p>
 <p>AOF重写作用：<br>减少硬盘占用量<br>加速恢复速度</p>
-<p>实现方式：<br>bgrewriteaof：<br><img src="http://oggrg5gdo.bkt.clouddn.com/bgrewriteaof.png" alt="bgrewriteaof实现"></p>
+<p>实现方式：<br>bgrewriteaof：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/bgrewriteaof.png" alt="bgrewriteaof实现"></p>
 <p>AOF重写配置：</p>
 <pre><code>auto-aof-rewrite-min-size:AOF文件重写需要的尺寸，如aof文件文件达到某个大小，开始重写。
 auwo-aof-rewrite-percentage :AOF文件增长率，假设该值为10，如果AOF重写后文件100M，增长到110M，则重写
@@ -392,7 +392,7 @@ aof_base_size:AOF上次启动和重写的尺寸（单位：字节）
 触发时机（同时满足）：
 aof_current_size&gt;auto-aof-rewrite-min-size
 aof_current_size-aof_base_size/aof_base_size&gt;auto-aof-rewrite-percentage
-</code></pre><p>重写流程：<br><img src="http://oggrg5gdo.bkt.clouddn.com/AOF%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.png" alt="AOF重写流程"></p>
+</code></pre><p>重写流程：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/AOF%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.png" alt="AOF重写流程"></p>
 <p>配置：</p>
 <pre><code>appendonly yes  #是否开启AOF
 appendfilename &apos;appendonly-${port}.aof&apos; #AOF文件名称
@@ -402,7 +402,7 @@ no-appendfsync-on-rewrite yes #写下
 auto-aof-rewrite-percentage 100
 auto-aof-rewrite-min-size-64mb
 </code></pre><p>关于no-appendfsync-on-rewrite配置：bgrewriteaof机制，在一个子进程中进行AOF的重写，从而不阻塞主进程对其余命令的处理，同时解决了aof文件过大问题。<br>现在问题出现了，同时在执行bgrewriteaof操作和主进程写AOF文件的操作，两者都会操作磁盘，而bgrewriteaof往往会涉及大量磁盘操作，这样就会造成主进程在写AOF文件的时候出现阻塞的情形，现在no-appendfsync-on-rewrite参数出场了。如果该参数设置为no，是最安全的方式，不会丢失数据，但是要忍受阻塞的问题。如果设置为yes呢？这就相当于将appendfsync设置为no，这说明并没有执行磁盘操作，只是写入了缓冲区，因此这样并不会造成阻塞（因为没有竞争磁盘），但是如果这个时候redis挂掉，就会丢失数据。丢失多少数据呢？在linux的操作系统的默认设置下，最多会丢失30s的数据。<br>因此，如果应用系统无法忍受延迟，而可以容忍少量的数据丢失，则设置为yes。如果应用系统无法忍受数据丢失，则设置为no。</p>
-<p>2种持久化的选择：<br>对比：<br><img src="http://oggrg5gdo.bkt.clouddn.com/2%E4%B8%AA%E6%AF%94%E8%BE%83.png" alt="2个方式比较"><br>PS：这里的“轻/重”指的是消耗资源（I/O等）的开销。</p>
+<p>2种持久化的选择：<br>对比：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/2%E4%B8%AA%E6%AF%94%E8%BE%83.png" alt="2个方式比较"><br>PS：这里的“轻/重”指的是消耗资源（I/O等）的开销。</p>
 <p>RDB最佳策略：“关”、集中管理、主从，从开？</p>
 <p>AOF最佳策略：“开”：缓存和存储、AOF重写集中管理，everysec。</p>
 <p>最佳：小分片，缓存或者存储，监控（硬盘、内存、负载、网络）、足够的内存</p>

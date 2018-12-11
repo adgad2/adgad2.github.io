@@ -91,21 +91,21 @@ redis的可执行文件说明：redis-server:redis服务器redis-cli:redis命令
 Redis的特性：速度快、持久化、多种数据结构、支持多种编程语言、功能丰富、简单、主从复制、高可用、分布式
 典型场景：缓存系统，计数器，消息队列系统，排行榜，社交网络，实时系统， 
 redis的可执行文件说明：redis-server:redis服务器redis-cli:redis命令行客户端redi">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string1.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string2.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AFhash.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E4%B8%89%E7%A7%8D%E6%96%B9%E6%A1%88%E6%AF%94%E8%BE%83.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E9%9B%86%E5%90%88VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E5%88%97%E8%A1%A8VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg">
-<meta property="og:image" content="http://oggrg5gdo.bkt.clouddn.com/%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93.jpg">
-<meta property="og:updated_time" content="2018-02-04T10:36:38.894Z">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string1.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string2.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AFhash.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%B8%89%E7%A7%8D%E6%96%B9%E6%A1%88%E6%AF%94%E8%BE%83.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E9%9B%86%E5%90%88VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%88%97%E8%A1%A8VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93.jpg">
+<meta property="og:updated_time" content="2018-12-11T12:50:10.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis初识">
 <meta name="twitter:description" content="初识RedisRedis是什么？：开源、基于键值的存储服务系统、多种数据结构，高性能、功能丰富。
 Redis的特性：速度快、持久化、多种数据结构、支持多种编程语言、功能丰富、简单、主从复制、高可用、分布式
 典型场景：缓存系统，计数器，消息队列系统，排行榜，社交网络，实时系统， 
 redis的可执行文件说明：redis-server:redis服务器redis-cli:redis命令行客户端redi">
-<meta name="twitter:image" content="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string1.jpg">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string1.jpg">
 
 
 
@@ -424,10 +424,10 @@ hvals key #返回hash key对应所有的field的value
 hkeys key #返回hash key对应所有的field
 以上皆是O(n)
 </code></pre><p>hgetall key单线程原因，慎用。</p>
-<p>用户信息存储，字符串与hash对比：<br>string实现v1 ：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string1.jpg" alt="用户信息stringV1"></p>
-<p>每次需要序列化或者反序列化<br>string实现v2：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string2.jpg" alt="用户信息stringv2"><br>麻烦</p>
-<p>hash实现：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AFhash.jpg" alt="用户信息hash"></p>
-<p>三种方案比较：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E4%B8%89%E7%A7%8D%E6%96%B9%E6%A1%88%E6%AF%94%E8%BE%83.jpg" alt="三种方案比较"></p>
+<p>用户信息存储，字符串与hash对比：<br>string实现v1 ：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string1.jpg" alt="用户信息stringV1"></p>
+<p>每次需要序列化或者反序列化<br>string实现v2：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E5%82%A8%E5%AD%98string2.jpg" alt="用户信息stringv2"><br>麻烦</p>
+<p>hash实现：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AFhash.jpg" alt="用户信息hash"></p>
+<p>三种方案比较：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E4%B8%89%E7%A7%8D%E6%96%B9%E6%A1%88%E6%AF%94%E8%BE%83.jpg" alt="三种方案比较"></p>
 <p>查缺补漏：</p>
 <pre><code>hsetnx key field value #设置hash key对应的field的value（如field已经存在，则失败）
 hincrby key field intCounter #hash key 对应的field的value自增intCounter
@@ -479,8 +479,8 @@ spop srandmember区别，spop从集合弹出，srandmember区别不会破坏集�
 sinter key1 key2=value #交集
 sunion key1 key2 =value #并集
 sdiff|sinter|suion+store... #将交集、差集、并集结果保存在destkey中
-</code></pre><h2 id="有序集合Sorted-Set："><a href="#有序集合Sorted-Set：" class="headerlink" title="有序集合Sorted Set："></a>有序集合Sorted Set：</h2><p>VS集合：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E9%9B%86%E5%90%88VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg" alt="此处输入图片的描述"></p>
-<p>VS列表：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E5%88%97%E8%A1%A8VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg" alt="此处输入图片的描述"></p>
+</code></pre><h2 id="有序集合Sorted-Set："><a href="#有序集合Sorted-Set：" class="headerlink" title="有序集合Sorted Set："></a>有序集合Sorted Set：</h2><p>VS集合：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E9%9B%86%E5%90%88VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg" alt="此处输入图片的描述"></p>
+<p>VS列表：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%88%97%E8%A1%A8VS%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88.jpg" alt="此处输入图片的描述"></p>
 <p>API:</p>
 <pre><code>zadd key score element（可以是多对） #添加score和element O(logN)
 zrem key element (可以是多个） #删除元素 O(1)
@@ -493,7 +493,7 @@ zcount key minScore maxScore #返回有序集合内在指定分数范围内个�
 zremrangbyrank key start end #删除指定排名内的升序元素
 zremrangbyscore key minScore maxScore #删除指定分数内的升序元素
 </code></pre><p>场景：排行榜</p>
-<p>总结：<br><img src="http://oggrg5gdo.bkt.clouddn.com/%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93.jpg" alt="此处输入图片的描述"></p>
+<p>总结：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E6%80%BB%E7%BB%93.jpg" alt="此处输入图片的描述"></p>
 <p>查缺补漏：<br>zrevrank<br>zrevrange<br>zrevrangebyscore<br>zinterstore<br>zunionstore</p>
 
       
