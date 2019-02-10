@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="高并发和大流量，一直是让企业头疼的问题，所以今天我也专门去看了些视频，在这里做个总结，这里不考虑那种企业有钱堆硬件的情况。
+在面对高并发和大流量之前，我们先来了解几个概念：我们所说的高并发是什么？在互联网时代，所讲的并发、高并发，通常是指并发访问。也就是在某个时间点，有多少个访问同时到来。
+QPS:QPS每秒钟请求或者查询的数量，在互联网领域，指每秒响应请求数（HTTP请求）；
+吞吐量：单位时间内">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于网站高并发大流量的解决思路">
+<meta property="og:url" content="http://mrone.top/posts/59501/index.html">
+<meta property="og:site_name" content="虚无の城堡">
+<meta property="og:description" content="高并发和大流量，一直是让企业头疼的问题，所以今天我也专门去看了些视频，在这里做个总结，这里不考虑那种企业有钱堆硬件的情况。
+在面对高并发和大流量之前，我们先来了解几个概念：我们所说的高并发是什么？在互联网时代，所讲的并发、高并发，通常是指并发访问。也就是在某个时间点，有多少个访问同时到来。
+QPS:QPS每秒钟请求或者查询的数量，在互联网领域，指每秒响应请求数（HTTP请求）；
+吞吐量：单位时间内">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9B%BE.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/CDN%E4%BC%A0%E7%BB%9F%E8%AE%BF%E9%97%AE.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/cdn%E8%AE%BF%E9%97%AE.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%B5%81%E7%A8%8B.png">
+<meta property="og:updated_time" content="2018-12-11T12:50:15.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于网站高并发大流量的解决思路">
+<meta name="twitter:description" content="高并发和大流量，一直是让企业头疼的问题，所以今天我也专门去看了些视频，在这里做个总结，这里不考虑那种企业有钱堆硬件的情况。
+在面对高并发和大流量之前，我们先来了解几个概念：我们所说的高并发是什么？在互联网时代，所讲的并发、高并发，通常是指并发访问。也就是在某个时间点，有多少个访问同时到来。
+QPS:QPS每秒钟请求或者查询的数量，在互联网领域，指每秒响应请求数（HTTP请求）；
+吞吐量：单位时间内">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9B%BE.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrone.top/posts/59501/">
+
+
+
+
+
+  <title>关于网站高并发大流量的解决思路 | 虚无の城堡</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">虚无の城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-notech">
+          <a href="/categories/不谈技术/" rel="section">
+            
+            不谈技术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tech">
+          <a href="/categories/技术向/" rel="section">
+            
+            技术向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/59501/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于网站高并发大流量的解决思路</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T05:11:39+08:00">
+                2018-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术向/" itemprop="url" rel="index">
+                    <span itemprop="name">技术向</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>高并发和大流量，一直是让企业头疼的问题，所以今天我也专门去看了些视频，在这里做个总结，这里不考虑那种企业有钱堆硬件的情况。</p>
+<p>在面对高并发和大流量之前，我们先来了解几个概念：<br><strong>我们所说的高并发是什么？</strong><br>在互联网时代，所讲的并发、高并发，通常是指并发访问。也就是在某个时间点，有多少个访问同时到来。</p>
+<p><strong>QPS</strong>:QPS每秒钟请求或者查询的数量，在互联网领域，指每秒响应请求数（HTTP请求）；</p>
+<p><strong>吞吐量</strong>：单位时间内处理的请求输了（通常由QPS与并发数决定）；</p>
+<p><strong>响应时间</strong>：从请求发出到收到响应花费的时间。例如系统处理一个HTTP请求需要100ms，这个100ms就是系统的响应时间。</p>
+<p><strong>PV</strong>：综合浏览量（Page View），即页面浏览量或者点击量，一个访客在24小时内访问的页面数量。（PS：同一个人浏览你的网站同一页面，只记作一次PV）。<br>UV：独立访客（UniQue Visitor），即一定时间范围内相同访客多次访问网站，只计算为一个独立访客。<br><strong>带宽</strong>：计算带宽的大小需要关注两个指标，峰值流量和页面的平均大小。<br>日网站带宽=PV/统计时间（换算到秒）<em>平均页面大小（单位KB）</em>8；峰值一般是平均值的倍数，根据实际情况来定。</p>
+<p>需要注意的是，QPS并不等于并发连接数。QPS是每秒HTTP请求数量，并发连接数是系统同时处理的请求数量。<br>（总PV数<em>80%）/（6小时秒数</em>20%）=峰值每秒请求数（QPS）；80%的访问量集中在20%的时间。</p>
+<p>对于高并发的问题，我们需要做一个压力测试，才能更好地了解服务器的承受能力，我们需要测试服务器能承受的最大并发和最大承受的QPS值。</p>
+<p>测试工具很多，我们这里使用ab这个测试工具来测试，ab是apache自带的压力测试工具。ab非常实用，它不仅可以对apache服务器进行网站访问压力测试，也可以对或其它类型的服务器进行压力测试。比如nginx、tomcat、IIS等。</p>
+<p>注意，为了测试结果准确，测试机器与被测试机器最好分开，<strong>重要！！！</strong> 不要对线上服务器做压力测试，不要对线上服务器做压力测试，不要对线上服务器做压力测试。<br>一般来说，被测试的前端机的COU，内存，网络等不应该超过最高限度的75%；</p>
+<p>然后说说各等级的QPS应该如何优化：<br>QPS达到100：<br>假设关系型数据库的每次请求在0.01s完成<br>假设单页面只有一个sql查询，那么100QPS意味着1s钟完成100次请求，但是此时我们并不能保证数据查询能完成100次；<br>方案：数据库缓存层、数据库的负载均衡</p>
+<p>QPS达到800：<br>假设我们使用百兆带宽，意味着网站出口的实际带宽是8M左右<br>假设每个页面只有10K，在这个并发条件下，百兆带宽已经吃完<br>方案：CDN加速，负载均衡</p>
+<p>QPS达到1000<br>假设使用Memcache缓存数据库查询数据，每个页面对Memcache的请求远大于直接对DB的请求<br>Memcache的悲观并发数在2W左右，但有可能在之前内网带宽已经吃光，表现出不稳定。<br>方案：静态HTML缓存</p>
+<p>QPS达到2000：<br>这个级别下，文件系统访问锁都成为了灾难<br>方案：做业务分离，分布式存储。</p>
+<p>对应大并发，由前至后，可以从以下方面优化：流量优化（防盗链处理），前端优化（减少HTTP请求、添加异步请求、启用浏览器缓存和文件压缩、CDN加速、建立独立图片服务器），服务端优化（页面静态化、并发处理、队列处理），数据库优化（数据库缓存，分库分表、分区操作，读写分离，负载均衡），Web服务器优化（负载均衡）。</p>
+<p>注意：以下代码仅为示例，请勿直接用于生产环境。</p>
+<h2 id="流量优化："><a href="#流量优化：" class="headerlink" title="流量优化："></a>流量优化：</h2><p><strong>防盗链处理</strong><br>首先，看一下什么是<strong>盗链</strong>：盗链是指服务提供商自己不提供服务的内容，通过技术手段绕过其它有利益的最终用户界面（如广告），直接在自己的网站上向最终用户提供其它服务提供商的服务内容，骗取最终用户的浏览和点击率。受益者不提供资源或提供很少的资源，而真正的服务提供商却得不到任何的收益。<br>常见的是小站盗用大站的图片、音乐、视频、软件等资源，虽然通过盗链的方法可以减轻自己服务器的负担（因为真实的空间和流量均是来着别人的服务器），但这是一种不道德的行为。</p>
+<p><strong>防盗链</strong>：<br>防止别人通过一些技术手段绕过本站的资源展示页面，盗用本站的资源，让绕开本站资源展示页面的资源链接失效。</p>
+<p><strong>防盗链的工作原理</strong>：通过Referer或者签名，网站可以检测目标网页访问的来源网页，如果是资源文件，则可以跟踪显示它的网页地址。一旦检测到来源不是本站即进行阻止或者访问指定的页面。</p>
+<p>通过Referer的方式：<br>需要用到Nginx的模块ngx_http_referer_module，用于阻挡来源非法的域名请求。</p>
+<pre><code>Nginx指令valid_referers，全局变量$invalid_referer
+
+valid_referers none | blocked |server_name|string...;
+none:&apos;Referer&apos;来源头部为空的情况
+blocked:&apos;Referer&apos;来源头部不为空，但是里面的值被代理或者防火墙删除了，这些值不以http://或者https://开头。
+server_names:&quot;Referer&quot;来源头部包含当前的server_names；
+</code></pre><p>实例代码：</p>
+<pre><code>location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$
+{
+    valid_referers none blocked mrone.top *.mrone.top;
+    if($invalid_refer){
+        #return 403:
+        rewrite ^/ http://mrone.top/403.jpg;
+        }
+}        
+</code></pre><p>加上这段代码，那么对于gif|jpg|png|flv|swf|rar|zip文件，如果referer为空，或是代理，或是包含mrone.top，那么可以正常访问，否则会跳到<a href="http://mrone.top/403.jpg这张图片上。">http://mrone.top/403.jpg这张图片上。</a><br>当然也可以针对目录，</p>
+<pre><code>location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$改完location /dir 即可
+</code></pre><p>但是，这种方法有一个弊端，就是他人可以通过伪造referer的方式来继续盗链，这时我们可以使用签名方式。</p>
+<p>这种方式需要用到Nginx的第三方模块HttpAccessKeyModule实现。</p>
+<pre><code>access on|off //模块开关
+accesskey——hashmethod md5|sha-1 //签名加密方式
+accesskey_arg GET参数名称
+accesskey_signature 加密规则
+</code></pre><p>代码如下：</p>
+<pre><code>location ~.*\.(gif|jpg|png|flv|swf|rar|zip)$
+{
+    access on;
+    accesskey——hashmethod md5;
+    accesskey_arg &apos;key&apos;;
+    accesskey_signature &apos;salt$remote_addr&apos;；
+}     
+</code></pre><p>然后PHP代码如下：</p>
+<pre><code>$key=md5(&apos;salt&apos;.$_SERVER[&apos;REMOTE_ADDR&apos;]);
+echo &apos;&lt;img src=&quot;./test.png?key=.$key.&quot;&gt;&apos;;
+</code></pre><p>这种方式虽然安全，但是，如你所见，实现方式也更为复杂，所以需要酌情使用。</p>
+<h1 id="前端优化："><a href="#前端优化：" class="headerlink" title="前端优化："></a>前端优化：</h1><h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p>为什么要减少HTTP请求？<br>先来看一下性能黄金法则：<br>只有10%-20%的最终用户响应时间花在接收请求的HTML文档上，剩下的80%-90%时间花在HTML文档所引用的所有组件（图片，script，css，flash等等）进行的HTTP请求上。<br>所以最好的改善方法就是减少组件的数量，并由此减少HTTP请求的数量。</p>
+<p>HTTP连接产生的开销：<br>域名解析–TCP连接–发送请求–等待–下载资源–解析时间</p>
+<p>减少HTTPS请求（合并CSS，图片等）：<br>使用图片地图：图片地图允许你在一个图片上关联多个URL。目标URL的选择取决于用户单击了图片上的哪个位置。<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9B%BE.png" alt="图片地图"></p>
+<p>使用CSS Sprites：中文翻译为CSS精灵，通过使用合并图片，通过指定css的background-image和background-position来显示元素。</p>
+<p>图片地图和CSS精灵的响应时间基本上相同，但比使用各自独立图片的方式要快50%以上。</p>
+<p>合并脚本和样式表适：使用外部的js和css文件引用的方式，因为这比直接写在页面中性能要更好一点。<br>独立的一个js比用多个js文件组成的页面载入要快38%</p>
+<p>图片使用Base64编码减少页面请求数：采用Base64的编码方式将图片直接嵌入到网页中，而不是从外部载入：</p>
+<pre><code>&lt;img src=&apos;data:image/gif;base,/9j/ASD4ASD....&apos;&gt;
+</code></pre><h2 id="启用浏览器缓存和文件压缩"><a href="#启用浏览器缓存和文件压缩" class="headerlink" title="启用浏览器缓存和文件压缩:"></a>启用浏览器缓存和文件压缩:</h2><p>先来看一下缓存分类：<br>HTTP缓存模型中，如果请求成功会有三种情况：<br><strong>200 from cache</strong>:直接从本地缓存中获取响应，最快速，最省流量，因为根本没有向服务器发送请求；<br><strong>304 Not Modifiied</strong>：协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的效验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存响应，返回304；<br>解释一下：就是本地缓存过期了，你带着头信息向服务器验证，如果服务器告诉你，缓存还可以用，没有过期，那么就读取本地的，否则读取服务器的。<br>这种方式快速，发送的数据很少，只返回一些基本的响应头信息，数据量很小，不发送实际响应体。<br><strong>200 OK</strong>：以上两种缓存全部失败，服务器返回完整响应，没有用到缓存，相对最慢。</p>
+<p>相关的一些Header：<br>本地缓存:<br><strong>Pragma</strong>：HTTP1.0时代的遗留产物，该字段被设置为no-cache时，会告知浏览器禁用本地缓存，即每次都向服务器发送请求。<br><strong>Expries</strong>：HTTP1.0时代用来启用本地缓存的字段，expires值对应一个形如Thu,31 Dec 2037 23:55:55 GMT的格林威治时间，告诉浏览器缓存实现的时刻，如果还没到该时刻，标明缓存有效，无需发送请求。（PS：浏览器与服务器时间无法保持一致，如果时间差距大，就会影响缓存结果）。<br><strong>Cache-Control</strong>：HTTP1.1针对Expires时间不一致的解决方案，运用Cache-Control告知浏览器缓存过期的时间间隔而不是时刻，即使具体时间不一致，也不影响缓存的管理。<br>常见设置的值：no-store:禁止浏览器响应缓存；no-cache：不允许直接使用本地缓存，先发起请求和服务器协商；max-age=delta-seconds：告知浏览器该响应本地缓存有效的最长期限，以秒为单位。<br>优先级：Pragma&gt;Cache-Control&gt;Expries</p>
+<p>协商缓存：<br>当浏览器没有命中本地缓存，如本地缓存过期或者响应中声明不允许直接使用本地缓存，那么浏览器肯定会发起服务端请求。服务端会验证数据是否修改，如果没有通知浏览器使用本地缓存。<br>相关Header：<br>Last-Modified:通知浏览器资源的最后修改时间（格林威治时间）<br>If-Modified-Since:得到资源的最后修改时间后，会将这个信息通过If-Modified-Sinc提交到服务器做检查，如果没有修改，返回304状态码。<br>ETag：HTTP1.1推出，文件的指纹标识符，如果文件内容修改，指纹会改变。<br>对应ETag的Header：If-None-Match：本地缓存失效，会携带此值去请求服务器，服务器判断该资源是否改变，如果没有改变，直接使用本地资源，返回304.</p>
+<p>缓存策略的选择：<br>适合做本地缓存的内容：<br>不变的头像，如LOGO，图标等；js,css静态文件；可下载的内容，媒体文件<br>协商缓存：HTML文件，经常替换的图片，经常修改的js,css文件等<br>js,css文件的加载可以加入文件的签名来拒绝缓存<br>index.css?签名<br>index.签名.js</p>
+<p>不建议缓存的内容：用户隐私等敏感数据，经常改变的api数据接口等</p>
+<p>Nginx本地缓存配置：.</p>
+<pre><code>add_header指令：添加状态码为2XX和3XX的响应头信息
+add_header name value [always];
+可以设置Pragma/Expires/Cache-Control，可以继承。
+expires指令：通知浏览器过期时长：
+expires tims；为负值时表示Cache-Control：no-cache；为正或者0时，就表示Cache-Control：max-age=指定的时间；
+
+在nginx.conf指定：
+expires 12d;(使用最多）
+</code></pre><p>协商缓存：<br>etag on|off //默认开启</p>
+<h2 id="前端代码和资源压缩："><a href="#前端代码和资源压缩：" class="headerlink" title="前端代码和资源压缩："></a>前端代码和资源压缩：</h2><p><strong>优势</strong>：让资源文件更小，加快文件在网络中的传输，让网页更快的展现，降低带宽和流量开销。<br><strong>方式</strong>：JS、css、图片、html代码的压缩，Gzip压缩<br>JS和CSS的压缩原理差不多，去空白符，注释并且优化一些语义规则等。网上有很多在线的压缩根据。<br>HTML则是不台建议代码压缩，有时会破坏代码结构，可以使用Gzip压缩，当然也可以使用htmlcompressor工具，不过转换后一点要检查代码结构。<br>图片压缩工具：tinypng、JpegMini，ImageOptim。</p>
+<p>Gzip压缩：配置Nginx服务</p>
+<pre><code>gzip on|off //是否开启gzip
+gzip_buffers 32 4k|16 8k//缓冲（在内存中几块？每块多大）
+gzip_comp_level[1-9] //推荐6 压缩级别（级别越高，压得越小，越浪费CPU资源）
+gzip_disable //正则匹配UA 什么样的uri不进行gzip
+gzip_min_length 200 //开始压缩的最小长度
+gzip_http_version 1.1|1.1 //开始压缩的http协议版本
+gzip_proxied //设置请求者代理服务器，该如何缓冲
+gzip_types text/plain application/xml //对那些类型的文件启用，如txt、xml、html、css
+gzip_vary on|off //是否传输gzip压缩标志
+</code></pre><h2 id="CDN加速"><a href="#CDN加速" class="headerlink" title="CDN加速"></a>CDN加速</h2><p><strong>什么是CDN</strong>：<br>CDN的全称是Content Delivery Network，即内容分发网络，尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈的环节，使内容传输的更快，更稳定。</p>
+<p><strong>原理</strong>：<br>在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络。<br>CDN系统能过实时地根据网络流量和各节点的连接、负载以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务器节点上。</p>
+<p><strong>CDN的优势</strong>：<br>本地Cache加速，提高了企业站点（尤其含有大量图片和静态页面站点的访问速速）<br>跨运营商的网络加速，保证不同网络的用户都得到良好的访问质量<br>远程访问用户根据DNS负载均衡技术只能自动选择Cache服务器</p>
+<p>它可以自动地生成服务器的远程Mirror（镜像）cache服务器，远程用户访问时从cache服务器上读取数据，减少远程访问的带宽、分担网络流量、减轻原站WEB服务器负载等功能。<br>CDN广泛分布的节点加上节点之间的智能冗余机制，可以有效地预防黑客入侵。</p>
+<p>一般来说，传统的用户访问是这样的：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/CDN%E4%BC%A0%E7%BB%9F%E8%AE%BF%E9%97%AE.png" alt="传统访问"></p>
+<p>使用了CDN后，访问流程变成了这样：<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/cdn%E8%AE%BF%E9%97%AE.png" alt="CDN访问"></p>
+<p>我们来看一张大图了解流程<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%B5%81%E7%A8%8B.png" alt="大概流程"></p>
+<p>适用场景：<br>站点或者应用中大量静态页资源的分发加速，例如：CSS,JS,图片和HTML<br>大文件下载<br>直播网站等。</p>
+<p>实现方式：<br>如果是云服务器，BAT都有提供相应的CDN服务。<br>可以使用LVS做4层负载均衡<br>可用Nginx，Varnish，Squid,Apache,TrafficServer做7层负载均衡和cache。</p>
+<h2 id="建立独立图片服务器；"><a href="#建立独立图片服务器；" class="headerlink" title="建立独立图片服务器；"></a>建立独立图片服务器；</h2><p>为什么要建立独立的图片服务器，并且使用独立的域名：<br>分担Web服务器的I/O负载，将耗费资源的图片服务分离出来，提高服务器的性能和稳定性。<br>能够专门对图片服务器进行优化，为图片服务设置有针对性的缓存方案，减少带宽成本，提高访问速度。<br>提高网站的可扩展性，通过增加图片服务器，提高图片吞吐能力。</p>
+<p>为什么使用独立域名：<br>同一域名下浏览器的并发连接数有限制（2-6），突破浏览器连接数的限制，由于cookie的原因，对缓存不理，大部分web cache都只缓存不带cookie的请求，导致每次的图片请求都不能命中cache。</p>
+<p>带来的问题：<br>如何进行图片上传和图片同步：<br>NFS共享方式<br>利用FTP同步</p>
+<h1 id="服务端优化："><a href="#服务端优化：" class="headerlink" title="服务端优化："></a>服务端优化：</h1><h2 id="动态语言静态化："><a href="#动态语言静态化：" class="headerlink" title="动态语言静态化："></a>动态语言静态化：</h2><p>什么是动态语言静态化？<br>将现有PHP等动态语言的逻辑代码生成为静态HTML文件，用户访问动态脚本重定向到静态HTML文件的过程。（应只静态化对实时性要求不高的页面）<br>为什么？<br>动态脚本通常会做逻辑计算和数据查询，访问量越大，服务器压力越大。<br>访问量大时可能会造成CPU负载过高，数据库服务器压力过大。<br>静态化可以减低逻辑处理压力，减低数据库服务器查询压力。</p>
+<p>实现方式：<br>使用模板引擎：<br>可以使用Smarty的缓存机制生成静态HTML缓存文件。</p>
+<pre><code>$smarty-&gt;cache_dir=$ROOT.&apos;/cache&apos;;//缓存目录
+$smarty-&gt;caching=true;//是否开启缓存
+$smarty-&gt;cache_lifetime=&apos;3600&apos;;//缓存时间
+$smarty-&gt;display(string template[,string cache_id[,string compile_id]]);
+$smarty-&gt;clear_all_cache()://清除所有缓存
+$smarty-&gt;clear_cache(&apos;file.html&apos;);//清除指定的缓存
+$smarty-&gt;clear_cache(&apos;article.html&apos;,$art_id);//清除同一个模板下的指定缓存号的缓存
+</code></pre><p>利用ob系列的函数：</p>
+<pre><code>ob_start();//打开输出控制缓冲
+ob_get_contents();//返回输出缓冲区内容
+ob_clean();//清空输出缓冲区
+ob_end_flush();//冲刷出（送出）输出缓冲区内容并关闭缓冲
+</code></pre><p>基本用的还是ob，这部分yii2有相关函数的封装，直接使用即可。</p>
+<h2 id="并发处理："><a href="#并发处理：" class="headerlink" title="并发处理："></a>并发处理：</h2><p>如果说用户走到了我们动态化，走到了我们PHP端<br>要解决并发，首先来了解几个概念：<br><strong>进</strong>程：进程（process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结果的基础。<br>进程是一个“执行中的程序”；<br>进程的三态模型：多道程序系统中，进程在处理器上交替运行，状态不断地发生变化。<br><strong>运行</strong>：当一个进程在处理机上运行时，则称该进程处于运行状态。处于此状态的进程的数目小于等于处理器的数目，对于单处理机系统，处于运行状态的进程只有一个。在没有其他进程可以执行时（如所有进程都在阻塞状态），通常会自动执行系统的空闲进程。<br><strong>就绪</strong>：当一个进程获得了除处理机以外的一切所需资源，一旦得到处理机即可运行，则称此进程处于就绪状态。就绪进程可以按多个优先级来划分队列。例如，让一个进程由于时间片用完而进入就绪状态时，排入低优先级队列；当进程有I/O操作完成二进入就绪状态时，排入高优先级队列。<br>阻塞：也称为等待或睡眠状态，一个进程正在等待某一事件发生（例如请求I/O或等待I/O完成等）而暂停运行，这时即使把处理机分配给进程也无法运行，故称该进程处于阻塞状态。</p>
+<p><strong>进程的五态模型</strong>：对一个实际的系统，进程的状态及其转换更为复杂。分为新建态、活跃就绪/静止就绪、运行、活跃阻塞/静止阻塞、终止态<br><strong>新建态</strong>：对于进程刚刚被创建时没有被提交的状态，并等待系统完成创建进程的所有必要信息。<br><strong>终止态</strong>：进程已经结束运行，回收除进程控制块以外的其他资源，并让其他进程从进程控制块中收集有关信息。<br><strong>活跃就绪</strong>：是指进程在主存中并且可被调度的状态。<br><strong>静止就绪（挂起就绪）</strong>：是指进程被对换到辅存时的就绪状态，是不能被直接调度的状态，只有当主存中没有活跃就绪态进程，或者是挂起就绪态进程具有更高的优先级，系统将把挂起就绪态进程调回主存并转换为活跃就绪。<br><strong>活跃阻塞</strong>：是指进程已在主存，一旦等待的时间产出便进入活跃就绪状态。<br><strong>静止阻塞</strong>：进程兑换到辅存时的阻塞状态，一旦等待的时间产生便进入静止就绪状态。</p>
+<p><strong>线程</strong>：有时被称为轻量级进程（Lightweight Process，LWP），是程序执行流的最小单元。<br>线程是进程中的一个实体，是被系统独立调度和分派的基本单位，线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其他线程共享进程所拥有的全部资源。<br>一个线程可与创建和撤销另一个线程，同一进程中的多个线程之间可与并发执行。<br>线程是程序中一个单一的顺序控制流程。进程内一个相对独立的、可调度的执行单元，是系统独立调度和分派CPU的基本单位指运行中的程序的调度单位。<br>在但个程序中同时运行多个线程完成不同的工作，称之为多线程。<br>每一个程序都至少有一个线程，若程序只有有个线程，那就是程序本身。<br><strong>线程的状态</strong>：就绪、堵塞、运行，类似进程的三态模型<br>就绪状态：线程具备运行的所有条件，逻辑上可以运行，在等待处理机。<br>运行状态：线程占有处理机正在运行。<br>阻塞状态：线程在等待一个事件（如某个信号量），逻辑上不可执行。</p>
+<p><strong>协程</strong>：协程是一种用户态的轻量级线程，协程的调度完全由用户控制。协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈，直接操作栈则基本没有内核切换的开销，可以不加锁的访问全局变量，所以上下文的切换非常快。</p>
+<p>线程和进程的区别：<br>1) 地址空间:线程是进程内的一个执行单元，进程内至少有一个线程，它们共享进程的地址空间，而进程有自己独立的地址空间<br>2) 资源拥有:进程是资源分配和拥有的单位,同一个进程内的线程共享进程的资源<br>3) 线程是处理器调度的基本单位,但进程不是<br>4) 二者均可并发执行</p>
+<p>5) 每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口，但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制</p>
+<p>线程与协程的区别：<br>1) 一个线程可以多个协程，一个进程也可以单独拥有多个协程。</p>
+<p>2) 线程进程都是同步机制，而协程则是异步</p>
+<p>3) 协程能保留上一次调用时的状态，每次过程重入时，就相当于进入上一次调用的状态</p>
+<p>多进程：同一个时间里，同一个计算机系统中如果允许两个或者两个以上的进程处于运行状态，这就是多进程。<br>多开一个进程，多分配一份资源，进程间通讯不方便。<br>多线程：线程就是吧一个进程分为很多片，每一片都可以是独立的流程。<br>与多进程的区别是只会使用一个进程的资源，线程间可以直接通信。</p>
+<p>PHP并发编程实例：<br>使用PHP的Swoole扩展、消息队列、接口的并发请求。<br>Swoole2.0支持了类似Go语言的协程，可以使用完全同步的代码实现异步程序。<br>消息队列，常见产品有Kafka、ActiveMQ、ZeroMQ、RabbitMQ、Redis等。<br>curl_multi_add_handle。</p>
+<p>由于这部分内容较为复杂，这里只提供方向，准备之后再深入了解学习。</p>
+<h1 id="数据库优化："><a href="#数据库优化：" class="headerlink" title="数据库优化："></a>数据库优化：</h1><h2 id="数据库缓存"><a href="#数据库缓存" class="headerlink" title="数据库缓存"></a>数据库缓存</h2><p>查询缓存：query_cache_type，通过该值来确定，有0、1、2三个取值，0不使用查询缓存，1始终使用查询缓存，2按需使用查询缓存<br>该值为1时，可以通过SELECT SQL_NO_CACHE <em> FROM my_table WHERE condition来使本条语句不使用查询缓存。<br>为2时，可按需使用查询缓存，SELECT SQL_CACHE </em> FROM my_table WHERE condition。<br>query_cache_size，默认情况下为0，表示为查询缓存预留的内存为0，则无法使用查询缓存，可用SET GLOBAL query_cache_size=XXXX来设置。</p>
+<p>查询缓存可以看做是SQL文本和查询结果的映射。<br>注意：第二次查询的SQL和第一次查询的SQL<strong>完全相同</strong>，则会使用缓存。<br>SHOW STATUS LIKE ‘%Qcache_hits%’;可查看命中次数<br>表的结果或者数据发生改变时，查询缓存中的数据不再有效。</p>
+<p>清理缓存：</p>
+<pre><code>FLUSH QUERY CACHA;//清理查询缓存内存碎片
+RESET QUERY CACHE;//从查询缓存中移出所有查询
+FLUSH TABLES;// 关闭所有打开的表，同时该操作将会清空查询缓存中的内容。
+</code></pre><p>综上所述，这并不是很好的缓存方式。  我们更应该使用的是Memcache或者是Redis。<br>Memcache相对使用简单，Redis则更复杂些，不是简单说得完，建议后期补课。这里讲讲2者的区别：<br>性能相差不大；<br>Redis在2.0版本后增加了自己的VM特性，突破物理内存的限制，Memcache可以修改最大可用内存，采用LRU算法。<br>Redis，依赖客户端来实现分布式读写<br>Memcache本身没有数据冗余机制<br>Redis支持（快照、aof），依赖快照可以进行持久化，aof增强了可靠性的同时，对性能有所影响。<br>Memcache不支持持久化，通常说缓存，提升性能，<br>Memcache在并发场景下，用cas保证一致性，redis事务支持比较弱，只能保证事务中的每个操作连续执行。<br>Redis支持多种类的数据类型。<br>Redis用于数据量较小的高性能操作和运算上<br>Mencache用于在动态系统中减少数据库负载，提升性能；适合做缓存，提高性能。</p>
+<h2 id="MySql数据库层的优化："><a href="#MySql数据库层的优化：" class="headerlink" title="MySql数据库层的优化："></a>MySql数据库层的优化：</h2><p>优化方向：<br>数据表数据类型优化:字段使用什么样的数据类型更合适，字段使用什么样的数据类型性能更快<br>索引优化：索引在什么情况下效率最高,注意复合索引的前缀原则，like查询%的问题，全面扫描优化，OR条件索引使用情况，字符串类型索引失效的问题<br>SQL语句的优化：优化查询过程中的数据访问，优化长难句的查询语句，优化特定类型的查询语句<br>存储引擎的优化：尽量使用InnoDb引擎，<br>数据表结构设计的优化：分区操作（通过特定的政策对数据表物理拆分；用户无感知），分库分表（水平拆分，垂直拆分），<br>数据库服务器架构的优化：主从复制，读写分离，双主热备，负载均衡，</p>
+<p>优化方案：<br>分库分表、分区操作，读写分离，负载均衡等；</p>
+<p>WEB服务器优化：负载均衡，相关优化过程在我另一篇文章上有写，使用的是阿里提供的slb实现负载均衡，点击<a href="http://mrone.top/posts/5180/">这里查看</a>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/61971/" rel="next" title="php基础回顾">
+                <i class="fa fa-chevron-left"></i> php基础回顾
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/45218/" rel="prev" title="Redis初识">
+                Redis初识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzAwNy85NTY5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
+            
+              <p class="site-author-name" itemprop="name">一男</p>
+              <p class="site-description motion-element" itemprop="description">天才就是一万个小时的刻意练习。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index-2.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3936160&site=qq&menu=yes" target="_blank" title="QQ" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#流量优化："><span class="nav-number">1.</span> <span class="nav-text">流量优化：</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#前端优化："><span class="nav-number"></span> <span class="nav-text">前端优化：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#减少HTTP请求"><span class="nav-number">1.</span> <span class="nav-text">减少HTTP请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用浏览器缓存和文件压缩"><span class="nav-number">2.</span> <span class="nav-text">启用浏览器缓存和文件压缩:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端代码和资源压缩："><span class="nav-number">3.</span> <span class="nav-text">前端代码和资源压缩：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN加速"><span class="nav-number">4.</span> <span class="nav-text">CDN加速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立独立图片服务器；"><span class="nav-number">5.</span> <span class="nav-text">建立独立图片服务器；</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端优化："><span class="nav-number"></span> <span class="nav-text">服务端优化：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态语言静态化："><span class="nav-number">1.</span> <span class="nav-text">动态语言静态化：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发处理："><span class="nav-number">2.</span> <span class="nav-text">并发处理：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库优化："><span class="nav-number"></span> <span class="nav-text">数据库优化：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库缓存"><span class="nav-number">1.</span> <span class="nav-text">数据库缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySql数据库层的优化："><span class="nav-number">2.</span> <span class="nav-text">MySql数据库层的优化：</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一男</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
