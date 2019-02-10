@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：
+class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
+
+    public function getCacheModel()
+    {
+        return">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注释@return让PHPstorm动态返回类">
+<meta property="og:url" content="http://mrone.top/posts/50281/index.html">
+<meta property="og:site_name" content="虚无の城堡">
+<meta property="og:description" content="场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：
+class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
+
+    public function getCacheModel()
+    {
+        return">
+<meta property="og:updated_time" content="2019-02-10T11:55:55.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="注释@return让PHPstorm动态返回类">
+<meta name="twitter:description" content="场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：
+class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
+
+    public function getCacheModel()
+    {
+        return">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrone.top/posts/50281/">
+
+
+
+
+
+  <title>注释@return让PHPstorm动态返回类 | 虚无の城堡</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">虚无の城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-notech">
+          <a href="/categories/不谈技术/" rel="section">
+            
+            不谈技术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tech">
+          <a href="/categories/技术向/" rel="section">
+            
+            技术向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/50281/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">注释@return让PHPstorm动态返回类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T05:59:47+08:00">
+                2018-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术向/" itemprop="url" rel="index">
+                    <span itemprop="name">技术向</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>场景是这样的，有一个BaseModel（继承自ActionRecord），所有的其他model都继承自它，然后其中有一个方法，简单贴下这个类的代码，：</p>
+<pre><code>class BaseModel extends ActiveRecord
+{
+    protected $temp_model;
+
+    public function getCacheModel()
+    {
+        return $this-&gt;temp_model;
+    }
+}
+</code></pre><p>这个方法的作用是取得在做参数验证时，从数据库查出的，缓存下来的实例对象。<br>这个时候，问题来了，我在取出这个对象的时候，PHPstorm没有了提示（如方法提示，属性提示等），按照一般的情况，只需要在方法前面加上@return注释就可以了。</p>
+<pre><code>/**
+ * @return static
+ */
+public function getCacheModel()
+{
+    return $this-&gt;temp_model;
+}
+</code></pre><p>我们继续深入研究一下，关于这个static的意思，我特地在PHPDoc上查阅了一下，</p>
+<blockquote>
+<p>static<br>An object of the class where this value was consumed, if inherited it will represent the child class. (see late static binding in the PHP manual).</p>
+</blockquote>
+<p>Google翻译一下，大意如下：<br>消耗此值的类的对象，如果继承它将表示子类。<br>（参见PHP手册中的<a href="http://php.net/manual/zh/language.oop5.late-static-bindings.php" rel="external nofollow noopener noreferrer" target="_blank">后期静态绑定</a>）。</p>
+<p>大概意思就是就会返回调用这个方法的类，如果是父类方法子类调用，那么将返回子类。</p>
+<p>类似的还有2个</p>
+<blockquote>
+<p>self<br>An object of the class where this type was used, if inherited it will still represent the class where it was originally defined.<br>$this<br>This exact object instance, usually used to denote a fluent interface.</p>
+</blockquote>
+<p>直译如下，<br>self:使用此类型的类的对象，如果继承它，它仍将表示最初定义它的类。<br>大意就是和static差不多，但是父类方法子类调用，仍然返回父类。<br>$this:这个确切的对象实例，通常用于表示流畅的界面。<br>和self差不多。</p>
+<p>但是到了这里，我的问题仍然没有解决，无论我@return的值改成什么，仍然返回的是BaseModel，尽管我在这个getCacheModel()方法里打印 self::className() 时，出现的是子类名。</p>
+<p>于是我们继续往上面看，我是在controller调用的，controller的代码如下：</p>
+<pre><code>public function actionCommitReward()
+{
+    $model=$this-&gt;goCheck(new TakeRewards([&apos;scenario&apos;=&gt;&apos;commit_reward&apos;]));
+
+    //获取实际要修改的数据
+    $reward = $model-&gt;getCacheModel();
+}
+</code></pre><p>看起来没有什么问题，这个时候我们要注意了，  <strong>$model 是由$this-&gt;goCheck()</strong>调用得到的，我们去看一下goCheck方法：</p>
+<pre><code>//验证参数是否合法
+public function goCheck($model, $dada = &apos;&apos;)
+{
+    $data = $this-&gt;postData;//post传入的数据
+    if ($model-&gt;load($data, &apos;&apos;) &amp;&amp; $model-&gt;validate())//数据效验
+</code></pre><p> return $model;</p>
+<pre><code>    else (new PublicFunction())-&gt;returnWayTip(&apos;1001&apos;, PublicFunction::getModelError($model));//这里理解成抛异常
+}
+</code></pre><p>这里不规范的地方出现了，由于这里传入的是model（对象类型），所以PHPstorm并没法知道我们具体传入的是什么类，加上注释后：</p>
+<pre><code>/**
+ * @param object $model
+ * @param string $dada
+ * @return model1|model2
+ */
+</code></pre><p>这样后，问题“勉强解决”。只是每增加一个表，会需要在@return里增加表相对应的类名，而且会有类本来不应该存在的属性被提示。</p>
+<p>为什么这里不能用static呢？  因为这里是$this调用的，返回controller类，并没有什么用，而这个也导致了后面使用$model-&gt;getCacheModel()方法时，没有办法正常识别应该返回的类（返回什么类取决与goCheck的@return注释是什么）。</p>
+<p>当然你可以不写注释，那么你会发现，所以的提示都没有了。<br>这次我才真正意识到了注释的重要性。。。原来PHPstorm之所以都提示，都是因为大家按PHPDoc的规范写了注释啊！</p>
+<p>最后可能有同学会问了，为什么不把goChekc方法放到BaseModel里呢？对的，实际上规范的做法是应该这样的，但是因为我这样把Yii::$app-&gt;request-&gt;post()赋值在controller里的$this-&gt;postData里（虽然这样方便一丢丢），而且在做token换id的一些操作了进行了手动赋值，所以没有办法，因为在model获取不到这个postData，当然你一定要挪进去也是可以的，只不过每次都需要传参$this-&gt;postData，见仁见智吧。</p>
+<p>但是，这2个方法都并不规范，$this-&gt;postData = Yii::$app-&gt;request-&gt;post(); 把全局的变量变成了一个局部变量，规范的做法应该是使用Yii::$app-&gt;request-&gt;post($name,$dafaultValue)来给post数据赋值。</p>
+<p>最后，因为并不是我一个人在写，所以没有办法进行大刀阔斧地改动，只能尽可能地优化。BTW，希望大佬们有更好的意见可以说说，因为个人比较经验也比较不足，都是自己摸索。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/11923/" rel="next" title="开发红包功能">
+                <i class="fa fa-chevron-left"></i> 开发红包功能
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/undefined/" rel="prev" title="使用类似闭包的方式封装事务">
+                使用类似闭包的方式封装事务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzAwNy85NTY5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
+            
+              <p class="site-author-name" itemprop="name">一男</p>
+              <p class="site-description motion-element" itemprop="description">天才就是一万个小时的刻意练习。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index-1.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3936160&site=qq&menu=yes" target="_blank" title="QQ" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一男</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
