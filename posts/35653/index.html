@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一直在win下开发，使用的wamp套件，某天逛全球最大的同性交友网站——Github的时候，本来想找一些Yii的关于RESTful风格的源码看看，逛着逛着突然看到了有个wnmp的开源项目，稍微看了下，还行。
+抱着和开发环境和线上环境应当尽量一致的想法，于是决定把本地的开发环境从wamp换到wnmp，正好也开源增加一些项目配置的熟练度，而且这个项目好像还配置了redis。
+项目地址如下：https:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地开发环境从wamp迁移为wnmp">
+<meta property="og:url" content="http://mrone.top/posts/35653/index.html">
+<meta property="og:site_name" content="虚无の城堡">
+<meta property="og:description" content="一直在win下开发，使用的wamp套件，某天逛全球最大的同性交友网站——Github的时候，本来想找一些Yii的关于RESTful风格的源码看看，逛着逛着突然看到了有个wnmp的开源项目，稍微看了下，还行。
+抱着和开发环境和线上环境应当尽量一致的想法，于是决定把本地的开发环境从wamp换到wnmp，正好也开源增加一些项目配置的熟练度，而且这个项目好像还配置了redis。
+项目地址如下：https:">
+<meta property="og:updated_time" content="2018-03-18T12:35:57.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地开发环境从wamp迁移为wnmp">
+<meta name="twitter:description" content="一直在win下开发，使用的wamp套件，某天逛全球最大的同性交友网站——Github的时候，本来想找一些Yii的关于RESTful风格的源码看看，逛着逛着突然看到了有个wnmp的开源项目，稍微看了下，还行。
+抱着和开发环境和线上环境应当尽量一致的想法，于是决定把本地的开发环境从wamp换到wnmp，正好也开源增加一些项目配置的熟练度，而且这个项目好像还配置了redis。
+项目地址如下：https:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrone.top/posts/35653/">
+
+
+
+
+
+  <title>本地开发环境从wamp迁移为wnmp | 虚无の城堡</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">虚无の城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-notech">
+          <a href="/categories/不谈技术/" rel="section">
+            
+            不谈技术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tech">
+          <a href="/categories/技术向/" rel="section">
+            
+            技术向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/35653/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">本地开发环境从wamp迁移为wnmp</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-19T04:32:06+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术向/" itemprop="url" rel="index">
+                    <span itemprop="name">技术向</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一直在win下开发，使用的wamp套件，某天逛全球最大的同性交友网站——Github的时候，本来想找一些Yii的关于RESTful风格的源码看看，逛着逛着突然看到了有个wnmp的开源项目，稍微看了下，还行。</p>
+<p>抱着和开发环境和线上环境应当尽量一致的想法，于是决定把本地的开发环境从wamp换到wnmp，正好也开源增加一些项目配置的熟练度，而且这个项目好像还配置了redis。</p>
+<p>项目地址如下：<a href="https://github.com/salamander-mh/SalamanderWnmp" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/salamander-mh/SalamanderWnmp</a></p>
+<p>虽然好像只是从apache改成nginx，看似改动不大，但却是完全不同的套件，初次安装还是有很多不一样的，下面说一些使用过程中可能会遇到的问题。</p>
+<p>下载、解压皆可使用，步骤就不说了，讲讲安装后的一些配置。</p>
+<p>首先可能需要手动讲php和nginx添加到环境变量。</p>
+<p>然后来到nginx的安装目录下，进入conf目录，打开nginx.conf文件，发现有如下代码：</p>
+<pre><code># include VHosts configuratons
+# come baby
+include vhost/*.conf;
+</code></pre><p>说明如果我们需要增加新的站点解析的话，在同级的vhost目录下直接添加conf文件就好了，实际上也建议这么做，为统一处理，我把所以的站点文件部署到d:/www目录下，接着来到vhost目录下，发现已经有一个test.conf的案例存在，复制一份，修改root的路径，然后reload配置。</p>
+<p>介绍2个nginx在win下常用的命令：</p>
+<pre><code>nginx -t #检查配置文件是否OK
+nginx -s reload #重载配置文件，重载是无缝的
+</code></pre><p>注意，nginx -t命令检查的是相对路径下的配置文件，所以建议在nginx安装目录下执行，或者在后面添加配置文件的绝对路径地址。</p>
+<p>接着由于wnmp套件不自带phpMyAdmin，需要手动配置。<br>先去官网下载phpMyadmin的压缩文件，链接 <a href="https://www.phpmyadmin.net/downloads/" rel="external nofollow noopener noreferrer" target="_blank">https://www.phpmyadmin.net/downloads/</a> 截止目前为止最新发布版为4.7.9，下载解压到d:/www文件夹，在nginx下增加一份配置文件，然后修改host，这时已经可以使用配置好的目录进行访问了。</p>
+<p>但我决定当phpmyadmin让可以自动登陆，并且使用IP地址/phpmyadmin的域名进行访问，与wamp同步，所以我们接着往下走。</p>
+<p>首先是让phpmyadmin可以自动登陆，在安装目录下复制config.sample.inc.php到同级文件夹改名为config.inc.php，</p>
+<pre><code>$cfg[&apos;Servers&apos;][$i][&apos;auth_type&apos;] = &apos;config&apos;;#将原来的cookie改成config，然后在下面添加如下代码
+
+$cfg[&apos;Servers&apos;][$i][&apos;user&apos;]          = &apos;root&apos;; 
+$cfg[&apos;Servers&apos;][$i][&apos;password&apos;]      = &apos;&apos;;  
+</code></pre><p>wnmp的mysql默认账号为root，密码为空，根据实际情况填写即可。</p>
+<p>然后配置IP/phpmyadmin的方式访问：<br>打开nginx的主配置文件nginx.conf，添加如下代码：</p>
+<pre><code>###
+#配置phpmyadmin，使之可以通过localhost/phpmyadmin访问
+location /phpmyadmin {
+    alias   D:\www\phpMyAdmin;#phpmyadmin的路径
+    index  index.php;
+}
+
+location ~ /phpmyadmin/.+\.php.*$ {
+if ($fastcgi_script_name ~ /phpmyadmin/(.+\.php.*)$) {
+    set $valid_fastcgi_script_name $1;
+}
+fastcgi_pass  127.0.0.1:9000;
+fastcgi_index  index.php;
+fastcgi_param  SCRIPT_FILENAME  D:\www\phpMyAdmin/$valid_fastcgi_script_name;
+include  fastcgi_params;
+}
+###
+</code></pre><p>然后就可以使用localhost/phpmyadmin的地址进行访问啦，和wamp是不是一样呢？</p>
+<p>还有，关机的时候需要先退出该软件，不然php-fpm子进程被杀后会不断生成新的进程，导致无法关机，或者也可以修改配置文件，这里不再演示。</p>
+<p>继续进行快乐地开发吧。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/40985/" rel="next" title="开发时遇到的一百万种坑">
+                <i class="fa fa-chevron-left"></i> 开发时遇到的一百万种坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/28436/" rel="prev" title="wnmp套件配合PHPstorm断点调试以及安装redis扩展">
+                wnmp套件配合PHPstorm断点调试以及安装redis扩展 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzAwNy85NTY5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
+            
+              <p class="site-author-name" itemprop="name">一男</p>
+              <p class="site-description motion-element" itemprop="description">天才就是一万个小时的刻意练习。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3936160&site=qq&menu=yes" target="_blank" title="QQ" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一男</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
