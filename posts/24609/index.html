@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="为什么要有树结构树是一种非常高效的数据存储结构，使用树可以很高效地对数据进行操作。
+树的基本概念树有多个节点(node)，用以储存元素。某些节点之间存在一定的关系，用连线表示，连线称为边(edge)。边的上端节点称为父节点，下端称为子节点。树像是一个不断分叉的树根。
+二叉树二叉树(binary)是一种特殊的树，它是每个节点最多有两个子树的树结构，通常子树被称作是 “左子树” 和 “右子树”，二叉树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构学习，其二，二分搜索树">
+<meta property="og:url" content="http://mrone.top/posts/24609/index.html">
+<meta property="og:site_name" content="虚无の城堡">
+<meta property="og:description" content="为什么要有树结构树是一种非常高效的数据存储结构，使用树可以很高效地对数据进行操作。
+树的基本概念树有多个节点(node)，用以储存元素。某些节点之间存在一定的关系，用连线表示，连线称为边(edge)。边的上端节点称为父节点，下端称为子节点。树像是一个不断分叉的树根。
+二叉树二叉树(binary)是一种特殊的树，它是每个节点最多有两个子树的树结构，通常子树被称作是 “左子树” 和 “右子树”，二叉树">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%911.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%912.png">
+<meta property="og:updated_time" content="2019-02-17T07:21:10.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构学习，其二，二分搜索树">
+<meta name="twitter:description" content="为什么要有树结构树是一种非常高效的数据存储结构，使用树可以很高效地对数据进行操作。
+树的基本概念树有多个节点(node)，用以储存元素。某些节点之间存在一定的关系，用连线表示，连线称为边(edge)。边的上端节点称为父节点，下端称为子节点。树像是一个不断分叉的树根。
+二叉树二叉树(binary)是一种特殊的树，它是每个节点最多有两个子树的树结构，通常子树被称作是 “左子树” 和 “右子树”，二叉树">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%911.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mrone.top/posts/24609/">
+
+
+
+
+
+  <title>数据结构学习，其二，二分搜索树 | 虚无の城堡</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">虚无の城堡</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-notech">
+          <a href="/categories/不谈技术/" rel="section">
+            
+            不谈技术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tech">
+          <a href="/categories/技术向/" rel="section">
+            
+            技术向
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/24609/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一男">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="虚无の城堡">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据结构学习，其二，二分搜索树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-17T23:19:23+08:00">
+                2019-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术向/" itemprop="url" rel="index">
+                    <span itemprop="name">技术向</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>为什么要有树结构</strong><br>树是一种非常高效的数据存储结构，使用树可以很高效地对数据进行操作。</p>
+<p><strong>树的基本概念</strong><br>树有多个节点(node)，用以储存元素。某些节点之间存在一定的关系，用连线表示，连线称为边(edge)。边的上端节点称为父节点，下端称为子节点。树像是一个不断分叉的树根。</p>
+<p><strong>二叉树</strong><br>二叉树(binary)是一种特殊的树，它是每个节点最多有两个子树的树结构，通常子树被称作是 “左子树” 和 “右子树”，二叉树常用于实现二叉搜索树和二叉堆。<br><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%911.png" alt="此处输入图片的描述"></p>
+<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%912.png" alt="此处输入图片的描述"></p>
+<ul>
+<li>二叉树不一定是满的</li>
+<li>一个节点也是二叉树</li>
+<li>null也是二叉树</li>
+</ul>
+<p><strong>二叉搜索树</strong><br>二叉搜索树是树的一种，也叫二叉搜索树，二叉排序树。</p>
+<ul>
+<li>树中每个节点最多可以有2个子树，同称为左子树和右子树</li>
+<li>每个节点的值一定大于他左子树中所有节点的值，一定小于右子树中所有节点的值</li>
+<li>每一个子树也是一个二叉树</li>
+<li>存储的节点必须可比较</li>
+</ul>
+<p><strong>二分搜索树的实现</strong></p>
+<pre><code>import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class BST&lt;E extends Comparable&lt;E&gt;&gt; {
+
+    //定义节点
+     private class Node{
+        public E e;
+        public Node left,right;
+
+        public Node(E e){
+            this.e=e;
+            left=null;
+            right=null;
+        }
+    }
+
+    private Node root;
+    private  int size;
+
+    public BST(){
+        root=null;
+        size=0;
+    }
+
+    //有多少个元素
+    public int getSize(){
+        return  size;
+    }
+
+    //树是否为空
+    public boolean isEmpty(){
+        return  size==0;
+    }
+
+    public void add(E e){
+        root=add(root,e);
+    }
+
+    //以像node为根的二分搜索树中插入元素E，递归算法
+    //返回插入新节点后二分搜索树的根
+    private Node add(Node node,E e){
+        if (node==null){
+            size++;
+            return new Node(e);
+        }
+
+        if (e.compareTo(node.e)&lt;0){
+            node.left=add(node.left,e);
+        }else if (e.compareTo(node.e)&gt;0){
+            node.right=add(node.right,e);
+        }
+        return node;
+    }
+
+    //查看二分搜索树中是否包含元素e
+    public boolean contains(E e){
+        return contains(root,e);
+    }
+
+    private boolean contains(Node node,E e){
+
+        if (root==null){
+            return false;
+        }
+
+        if (e.compareTo(node.e)==0){
+            return true;
+        }else if (e.compareTo(node.e)&lt;0){
+            return contains(node.left,e);
+        }else {
+            return contains(node.right,e);
+        }
+    }
+
+    //二分搜索树的前序遍历
+    public void preOrder(){
+        preOrder(root);
+    }
+
+    //前序遍历以node为根的二分搜索树，递归算法
+    private void preOrder(Node node){
+        if (node==null){
+            return;
+        }
+        System.out.println(node.e);
+
+        preOrder(node.left);
+        preOrder(node.right);
+
+    }
+
+    //前序遍历的非递归实现
+    public void preOrderNR(){
+
+        Stack&lt;Node&gt; stack=new Stack&lt;&gt;();
+        stack.push(root);
+        while (!stack.empty()){
+            Node cur=stack.pop();
+            System.out.println(cur.e);
+
+            if (cur.right!=null)
+                stack.push(cur.right);
+            if (cur.left!=null)
+                stack.push(cur.left);
+        }
+    }
+
+
+    //二分搜索树的层序遍历
+    public void levelOrder(){
+        Queue&lt;Node&gt; q=new LinkedList&lt;&gt;();
+
+        q.add(root);
+        while (!q.isEmpty()){
+            Node cur=q.remove();
+            System.out.println(cur.e);
+
+            if (cur.left!=null)
+                q.add(cur.left);
+             if (cur.right!=null)
+                q.add(cur.right);
+        }
+    }
+
+    //寻找二分搜索树的最小元素
+    public E minimun(){
+        if (size==0)
+            throw new IllegalArgumentException(&quot;BST is empty!&quot;);
+
+        return minimun(root).e;
+    }
+
+    //返回以node为根的二分搜索树的最小值所在的节点
+    private Node minimun(Node node){
+        if (node.left==null)
+            return node;
+        return minimun(node.left);
+    }
+
+    //寻找二分搜索树的最大元素
+    public E maximun(){
+        if (size==0)
+            throw new IllegalArgumentException(&quot;BST is empty!&quot;);
+
+        return minimun(root).e;
+    }
+
+    //返回以node为根的二分搜索树的最大值所在的节点
+    private Node maximun(Node node){
+        if (node.right==null)
+            return node;
+        return minimun(node.right);
+    }
+
+    //从二分搜索树中删除最小值所在的节点，返回最小值
+    public E removeMin(){
+        E ret=minimun();
+        root=removeMin(root);
+
+        return ret;
+    }
+
+    //删除以node为根的二分搜索树中的最小节点
+    //返回删除节点后新的二分搜索树的根
+    private Node removeMin(Node node){
+
+        if (node.left==null){
+            Node rightNode=node.right;
+            node.right=null;
+            size--;
+            return rightNode;
+        }
+
+        node.left= removeMin(node.left);
+        return node;
+    }
+
+    //从二分搜索树中删除最大值所在的节点，返回最大值
+    public E removeMax(){
+        E ret=maximun();
+        root=removeMax(root);
+
+        return ret;
+    }
+
+    //删除以node为根的二分搜索树中的最大节点
+    //返回删除节点后新的二分搜索树的根
+    private Node removeMax(Node node){
+
+        if (node.right==null){
+            Node leftNode=node.left;
+            node.left=null;
+            size--;
+            return leftNode;
+        }
+
+        node.right= removeMax(node.right);
+        return node;
+    }
+
+    //从二分搜索树中删除元素为e的节点
+    public void remove(E e){
+        root=remove(root,e);
+    }
+
+    //删除以node为根的二分搜索树中值为e的节点，递归算法
+    //返回删除节点后新的二分搜索树的根
+    private Node remove(Node node,E e){
+        if (node==null)
+            return null;
+
+        if (e.compareTo(node.e)&lt;0){
+            node.left= remove(node.left,e);
+            return node;
+        }else if (e.compareTo(node.e)&gt;0){
+            node.right=remove(node.right,e);
+            return node;
+        }else {//e==node.e
+            //待删除节点左子树为空的情况
+            if (node.left==null){
+                Node rightNode=node.right;
+                node.right=null;
+                size--;
+                return rightNode;
+            }
+             //待删除节点右子树为空的情况
+            if (node.right==null){
+                Node leftNode=node.left;
+                node.left=null;
+                size--;
+                return leftNode;
+            }
+            //待删除节点左右子树均不为空的情况
+            //找到比待删除节点大最小节点，即右子树的最小节点
+            //用这个节点顶替删除节点的位置
+            Node successor=minimun(node.right);
+            successor.right=removeMin(node.right);
+            successor.left=node.left;
+//            size++
+
+            node.left=node.right=null;
+//            size--;
+            return successor;
+        }
+    }
+
+
+    @Override
+    public String toString(){
+        StringBuilder res=new StringBuilder();
+        generateBSTString(root,0,res);
+        return res.toString();
+    }
+
+    private void generateBSTString(Node node,int depth,StringBuilder res){
+        if (node==null){
+            res.append(generateDepthString(depth)+&quot;null\n&quot;);
+            return;
+        }
+
+        res.append(generateDepthString(depth)+node.e+&quot;\n&quot;);
+        generateBSTString(node.left,depth+1,res);
+        generateBSTString(node.right,depth+1,res);
+
+    }
+
+    private String generateDepthString(int depth){
+        StringBuilder res=new StringBuilder();
+        for (int i=0;i&lt;depth;i++){
+            res.append(&quot;--&quot;);
+        }
+        return res.toString();
+    }
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/59234/" rel="next" title="关于阅读过的书 短评">
+                <i class="fa fa-chevron-left"></i> 关于阅读过的书 短评
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzAwNy85NTY5"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="一男">
+            
+              <p class="site-author-name" itemprop="name">一男</p>
+              <p class="site-description motion-element" itemprop="description">天才就是一万个小时的刻意练习。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index-1.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=3936160&site=qq&menu=yes" target="_blank" title="QQ" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一男</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
