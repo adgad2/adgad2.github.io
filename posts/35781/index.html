@@ -79,31 +79,34 @@
 
 
 
-<meta name="description" content="在PHPstorm写原生SQL的时候，一直有黄色波浪线的提示，如下图，今天就想着解决一下。
+<meta name="description" content="什么是优先队列普通队列：先进先出，后进后出优先队列：出队顺序和进队顺序无关，和优先级有关
+实现的接口与普通队列相同
+用什么实现，时间复杂度分析
+什么是堆（heap）堆是二叉树的一种，堆是一课完全二叉树。完全二叉树不一定是满的二叉树，但在完全二叉树中，如果有缺，那么缺的一定是右下角的叶子节点。堆中某个节点的值总是不大于其父亲节点的值（此为最大堆）。
 
-提示语如下 “No data sources are configured to run this SQL and provide code assistance.Disable this inspection via problem menu”， 既然是有问题，我怎么就简单地关闭这个检查呢。
-经过Goo">
+代码实现public class MaxHeap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="去掉PHPstorm在写原生SQL的黄色波浪线并增加提示">
-<meta property="og:url" content="http://mrone.top/posts/2974/index.html">
+<meta property="og:title" content="数据结构学习，其四，优先队列和堆">
+<meta property="og:url" content="http://mrone.top/posts/35781/index.html">
 <meta property="og:site_name" content="虚无の城堡">
-<meta property="og:description" content="在PHPstorm写原生SQL的时候，一直有黄色波浪线的提示，如下图，今天就想着解决一下。
+<meta property="og:description" content="什么是优先队列普通队列：先进先出，后进后出优先队列：出队顺序和进队顺序无关，和优先级有关
+实现的接口与普通队列相同
+用什么实现，时间复杂度分析
+什么是堆（heap）堆是二叉树的一种，堆是一课完全二叉树。完全二叉树不一定是满的二叉树，但在完全二叉树中，如果有缺，那么缺的一定是右下角的叶子节点。堆中某个节点的值总是不大于其父亲节点的值（此为最大堆）。
 
-提示语如下 “No data sources are configured to run this SQL and provide code assistance.Disable this inspection via problem menu”， 既然是有问题，我怎么就简单地关闭这个检查呢。
-经过Goo">
-<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%89%E6%B3%A2%E6%B5%AA%E7%BA%BF%E7%9A%84%E5%9B%BE.png">
-<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%AA%E5%88%9B%E5%BB%BA%E5%89%8D.png">
-<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%88%9B%E5%BB%BAsource1.png">
-<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%88%9B%E5%BB%BA2.png">
-<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%88%90%E5%8A%9F%E5%AE%9E%E4%BE%8B.png">
-<meta property="og:updated_time" content="2018-12-11T12:48:24.838Z">
+代码实现public class MaxHeap">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.png">
+<meta property="og:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E5%A0%86.png">
+<meta property="og:updated_time" content="2019-03-11T09:52:46.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="去掉PHPstorm在写原生SQL的黄色波浪线并增加提示">
-<meta name="twitter:description" content="在PHPstorm写原生SQL的时候，一直有黄色波浪线的提示，如下图，今天就想着解决一下。
+<meta name="twitter:title" content="数据结构学习，其四，优先队列和堆">
+<meta name="twitter:description" content="什么是优先队列普通队列：先进先出，后进后出优先队列：出队顺序和进队顺序无关，和优先级有关
+实现的接口与普通队列相同
+用什么实现，时间复杂度分析
+什么是堆（heap）堆是二叉树的一种，堆是一课完全二叉树。完全二叉树不一定是满的二叉树，但在完全二叉树中，如果有缺，那么缺的一定是右下角的叶子节点。堆中某个节点的值总是不大于其父亲节点的值（此为最大堆）。
 
-提示语如下 “No data sources are configured to run this SQL and provide code assistance.Disable this inspection via problem menu”， 既然是有问题，我怎么就简单地关闭这个检查呢。
-经过Goo">
-<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%89%E6%B3%A2%E6%B5%AA%E7%BA%BF%E7%9A%84%E5%9B%BE.png">
+代码实现public class MaxHeap">
+<meta name="twitter:image" content="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.png">
 
 
 
@@ -133,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://mrone.top/posts/2974/">
+  <link rel="canonical" href="http://mrone.top/posts/35781/">
 
 
 
 
 
-  <title>去掉PHPstorm在写原生SQL的黄色波浪线并增加提示 | 虚无の城堡</title>
+  <title>数据结构学习，其四，优先队列和堆 | 虚无の城堡</title>
   
 
 
@@ -258,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/2974/">
+    <link itemprop="mainEntityOfPage" href="http://mrone.top/posts/35781/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="一男">
@@ -275,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">去掉PHPstorm在写原生SQL的黄色波浪线并增加提示</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构学习，其四，优先队列和堆</h1>
         
 
         <div class="post-meta">
@@ -287,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-08T04:22:01+08:00">
-                2018-09-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T01:52:31+08:00">
+                2019-03-11
               </time>
             
 
@@ -347,22 +350,118 @@
       
 
       
-        <p>在PHPstorm写原生SQL的时候，一直有黄色波浪线的提示，如下图，今天就想着解决一下。</p>
-<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%89%E6%B3%A2%E6%B5%AA%E7%BA%BF%E7%9A%84%E5%9B%BE.png" alt="有波浪线的图"></p>
-<p>提示语如下 “No data sources are configured to run this SQL and provide code assistance.Disable this inspection via problem menu”， 既然是有问题，我怎么就简单地关闭这个检查呢。</p>
-<p>经过Google，我在PHPstorm官网找到了解决方案，原文连接如下：</p>
-<p><a href="https://www.jetbrains.com/help/phpstorm/managing-data-sources.html" rel="external nofollow noopener noreferrer" target="_blank">https://www.jetbrains.com/help/phpstorm/managing-data-sources.html</a></p>
-<p>按照文章的指示，我们可以打开视图（view）- 工具窗口（Tool Windows）-database，或者在右侧直接打开。</p>
-<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%9C%AA%E5%88%9B%E5%BB%BA%E5%89%8D.png" alt="此处输入图片的描述"></p>
-<p>点击加号，database source-mysql，选择项目使用的，我这里选择的是mysql，</p>
-<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%88%9B%E5%BB%BAsource1.png" alt="此处输入图片的描述"></p>
-<p>然后按照提示填入相应信息，注意，第一次使用，Test Connection按钮可能是灰的，在红色圈中会叫你安装一些相应的驱动，安装即可，全自动。</p>
-<p>最后Test Connection一下，如果成功会显示 successful，点击确定</p>
-<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E5%88%9B%E5%BB%BA2.png" alt="此处输入图片的描述"></p>
-<p>这个时候我们回去看那条SQL，黄色波浪线消失了，字段和表颜色也表了，而且有了提示，如下图：</p>
-<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%88%90%E5%8A%9F%E5%AE%9E%E4%BE%8B.png" alt="此处输入图片的描述"></p>
-<p>至此，大功告成，烦人的波浪线没了，还增加了提示，是不是美滋滋？</p>
+        <h2 id="什么是优先队列"><a href="#什么是优先队列" class="headerlink" title="什么是优先队列"></a>什么是优先队列</h2><p>普通队列：先进先出，后进后出<br>优先队列：出队顺序和进队顺序无关，和优先级有关</p>
+<h2 id="实现的接口"><a href="#实现的接口" class="headerlink" title="实现的接口"></a>实现的接口</h2><p>与普通队列相同</p>
+<h2 id="用什么实现，时间复杂度分析"><a href="#用什么实现，时间复杂度分析" class="headerlink" title="用什么实现，时间复杂度分析"></a>用什么实现，时间复杂度分析</h2><p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.png" alt="此处输入图片的描述"></p>
+<h2 id="什么是堆（heap）"><a href="#什么是堆（heap）" class="headerlink" title="什么是堆（heap）"></a>什么是堆（heap）</h2><p>堆是二叉树的一种，堆是一课完全二叉树。完全二叉树不一定是满的二叉树，但在完全二叉树中，如果有缺，那么缺的一定是右下角的叶子节点。堆中某个节点的值总是不大于其父亲节点的值（此为最大堆）。</p>
+<p><img src="http://mrone-top.oss-cn-hangzhou.aliyuncs.com/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8%E4%BA%8C%E5%8F%89%E5%A0%86.png" alt="用数组来存储二叉堆"></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>public class MaxHeap&lt;E extends Comparable&lt;E&gt;&gt; {
 
+    private Array&lt;E&gt; data;
+
+    public MaxHeap(int capacity){
+        data=new Array&lt;E&gt;(capacity);
+    }
+
+    public MaxHeap(){
+        data=new Array&lt;E&gt;();
+    }
+
+      public MaxHeap(E[] arr){
+        data=new Array&lt;E&gt;(arr);
+        for (int i=parent(data.getSize()-1);i&gt;=0;i--)
+            siftDown(i);
+    }
+
+
+    //返回堆中的元素个数
+    public int size(){
+        return data.getSize();
+    }
+
+    //返回一个布尔值，表示堆中是否为空
+    public boolean isEmpty(){
+        return  data.isEmpty();
+    }
+
+    //返回完全二叉树的数组表示中，一个索引锁所表示的父亲节点的索引
+    private int parent(int index){
+        if (index==0){
+            throw new IllegalArgumentException(&quot;index-0 doesn&apos;t hava parent.&quot;);
+        }
+        return (index-1)/2;
+    }
+
+    //返回完全二叉树的数组表示中，一个索引所表示的元素的左孩子节点的索引
+    private int leftChild(int index){
+        return index*2+1;
+    }
+
+    //返回完全二叉树的数组表示中，一个索引所表示的元素的右孩子节点的索引
+    private int rightChild(int index){
+        return index*2+2;
+    }
+
+    //向堆中添加元素
+    public void add(E e){
+        data.addLast(e);
+        siftUp(data.getSize()-1);
+    }
+
+    private void siftUp(int k) {
+        while (k &gt; 0 &amp;&amp; data.get(parent(k)).compareTo(data.get(k)) &lt; 0) {
+            data.swap(k, parent(k));
+            k = parent(k);
+        }
+    }
+
+    //看堆中最大元素
+    public E findMax(){
+        if (data.getSize()==0)
+            throw new IllegalArgumentException(&quot;can&apos;t find max when heap is empty&quot;);
+        return data.get(0);
+    }
+
+
+    //取出堆中最大元素
+    public E extractMax(){
+        E ret=findMax();
+
+        data.swap(0,data.getSize()-1);
+        data.removeLast();
+        siftDown(0);
+
+        return ret;
+
+    }
+
+    private void siftDown(int k) {
+        while (leftChild(k)&lt;data.getSize()){
+
+            //找到左右节点中较大的那个节点的索引
+            int j=leftChild(k);
+            if (j+1&lt;data.getSize() &amp;&amp; data.get(j).compareTo(data.get(j+1))&lt;0)
+                j=rightChild(k);
+
+            //data[j]是leftChild和rightChild的最大值
+            if (data.get(k).compareTo(data.get(j))&gt;=0)
+                break;
+
+            data.swap(k,j);
+            k=j;
+        }
+    }
+
+    //取出堆中的最大元素，并且替换成元素e
+    public E replace(E e){
+        E ret=findMax();
+        data.set(0,e);
+        siftDown(0);
+        return ret;
+    }
+
+}
+</code></pre>
       
     </div>
     
@@ -386,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/undefined/" rel="next" title="使用类似闭包的方式封装事务">
-                <i class="fa fa-chevron-left"></i> 使用类似闭包的方式封装事务
+              <a href="/posts/32086/" rel="next" title="数据结构学习，其三，集合和映射">
+                <i class="fa fa-chevron-left"></i> 数据结构学习，其三，集合和映射
               </a>
             
           </div>
@@ -395,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/25462/" rel="prev" title="讲讲今年的规划与学习计划">
-                讲讲今年的规划与学习计划 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -455,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -519,6 +623,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是优先队列"><span class="nav-number">1.</span> <span class="nav-text">什么是优先队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现的接口"><span class="nav-number">2.</span> <span class="nav-text">实现的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用什么实现，时间复杂度分析"><span class="nav-number">3.</span> <span class="nav-text">用什么实现，时间复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是堆（heap）"><span class="nav-number">4.</span> <span class="nav-text">什么是堆（heap）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
